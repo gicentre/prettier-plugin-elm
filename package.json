@@ -5,6 +5,9 @@
   "repository": "https://github.com/kachkaev/prettier-plugin-elm",
   "author": "Alexander Kachkaev <alexander@kachkaev.ru>",
   "license": "MIT",
+  "files": [
+    "src"
+  ],
   "scripts": {
     "lint": "jest -c jest.eslint.config.js",
     "test": "jest",
