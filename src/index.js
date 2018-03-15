@@ -8,6 +8,7 @@ const languages = [
   {
     name: "Elm",
     parsers: ["elm"],
+    since: "1.0.0",
     extensions: [".elm"],
     tmScope: "source.elm",
     aceMode: "text",
