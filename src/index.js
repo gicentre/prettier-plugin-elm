@@ -82,7 +82,7 @@ function locEnd(node) {
 }
 
 const parsers = {
-  python: {
+  elm: {
     parse,
     astFormat: "elm-format",
     locStart: locStart,

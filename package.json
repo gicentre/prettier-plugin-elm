@@ -1,6 +1,6 @@
 {
   "name": "prettier-plugin-elm",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "src",
   "repository": "https://github.com/kachkaev/prettier-plugin-elm",
   "author": "Alexander Kachkaev <alexander@kachkaev.ru>",
@@ -8,7 +8,7 @@
   "scripts": {
     "lint": "jest -c jest.eslint.config.js",
     "test": "jest",
-    "prettier": "prettier --plugin=. --parser=python"
+    "prettier": "prettier --plugin=. --parser=elm"
   },
   "devDependencies": {
     "eslint": "^4.14.0",
