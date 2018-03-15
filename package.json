@@ -1,6 +1,6 @@
 {
   "name": "prettier-plugin-elm",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "src",
   "repository": "https://github.com/kachkaev/prettier-plugin-elm",
   "author": "Alexander Kachkaev <alexander@kachkaev.ru>",

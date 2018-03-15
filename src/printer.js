@@ -7,7 +7,7 @@ function genericPrint(path) {
   }
 
   switch (n.ast_type) {
-    case "ElmFormat": {
+    case "elm-format": {
       return n.body;
     }
     /* istanbul ignore next */

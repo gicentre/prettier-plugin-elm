@@ -21,7 +21,7 @@ function parse(text) {
 
   const res = executionResult.stdout.toString();
   return {
-    ast_type: "ElmFormat",
+    ast_type: "elm-format",
     body: res,
     comments: [],
     end: text.length,
