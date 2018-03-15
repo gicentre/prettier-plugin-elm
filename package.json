@@ -3,6 +3,7 @@
   "version": "0.0.4",
   "main": "src",
   "repository": "https://github.com/gicentre/prettier-plugin-elm",
+  "license": "BSD-3-Clause",
   "files": [
     "src"
   ],
