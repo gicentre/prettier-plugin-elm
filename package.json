@@ -2,9 +2,7 @@
   "name": "prettier-plugin-elm",
   "version": "0.0.4",
   "main": "src",
-  "repository": "https://github.com/kachkaev/prettier-plugin-elm",
-  "author": "Alexander Kachkaev <alexander@kachkaev.ru>",
-  "license": "MIT",
+  "repository": "https://github.com/gicentre/prettier-plugin-elm",
   "files": [
     "src"
   ],
