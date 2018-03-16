@@ -1,8 +1,8 @@
 <p align="center">
 <img alt="Prettier"
   src="https://cdn.rawgit.com/prettier/prettier-logo/master/images/prettier-icon-light.svg">
+&nbsp;&nbsp;&nbsp;&nbsp;
 <img alt="Elm"
-  hspace="25"
   height="210"
   src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Elm_logo.svg/1024px-Elm_logo.svg.png">
 </p>
