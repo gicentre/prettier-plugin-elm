@@ -67,7 +67,7 @@ If you want to disable code formatting for a particular code block in markdown, 
 
 ## Install
 
-It is recommended to use local copies of Prettier and its Elm plugin in every project folder as it makes their behaviour more predictable:
+It is recommended to keep local copies of Prettier and its Elm plugin in every project folder as it makes their behaviour more predictable:
 
 ```bash
 cd /path/to/project
