@@ -7,7 +7,7 @@
   src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Elm_logo.svg/1024px-Elm_logo.svg.png">
 </p>
 
-<h2 align="center">Elm Plugin for Prettier</h2>
+<h2 align="center">Prettier Elm plugin</h2>
 
 <p align="center">
   <a href="https://github.com/gicentre/prettier-plugin-elm/blob/master/LICENSE">
