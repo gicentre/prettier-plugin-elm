@@ -1,11 +1,11 @@
-<div align="center">
+<p align="center">
 <img alt="Prettier"
   src="https://cdn.rawgit.com/prettier/prettier-logo/master/images/prettier-icon-light.svg">
 <img alt="Elm"
   hspace="25"
   height="210"
   src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Elm_logo.svg/1024px-Elm_logo.svg.png">
-</div>
+</p>
 
 <h2 align="center">Prettier Elm Plugin</h2>
 
