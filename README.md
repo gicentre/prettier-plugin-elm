@@ -1,3 +1,8 @@
+<!-- adds Elm language support to Prettier -->
+
+&nbsp;
+<!-- first comment fixes package description in npm search and nbsp adds a gap after the package header -->
+
 <p align="center">
 <img alt="Prettier"
   src="https://cdn.rawgit.com/prettier/prettier-logo/master/images/prettier-icon-light.svg">
