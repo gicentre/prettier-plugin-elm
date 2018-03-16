@@ -1,6 +1,6 @@
 <!-- adds Elm language support to Prettier -->
 
-&nbsp;
+<p>&nbsp;</p>
 <!-- first comment fixes package description in npm search and nbsp adds a gap after the package header -->
 
 <p align="center">
@@ -16,10 +16,10 @@
 
 <p align="center">
   <a href="https://github.com/gicentre/prettier-plugin-elm/blob/master/LICENSE">
-    <img alt="license" src="https://img.shields.io/github/license/gicentre/prettier-plugin-elm.svg?style=flat-square"><!--
+    <img alt="license: BSD-3-Clause" src="https://img.shields.io/github/license/gicentre/prettier-plugin-elm.svg?style=flat-square"><!--
   --></a>
   <a href="https://www.npmjs.com/package/prettier-plugin-elm">
-    <img alt="npm version" src="https://img.shields.io/npm/v/prettier-plugin-elm.svg?style=flat-square"><!--
+    <img alt="npm package" src="https://img.shields.io/npm/v/prettier-plugin-elm.svg?style=flat-square"><!--
   --></a>
   <a href="https://travis-ci.org/gicentre/prettier-plugin-elm">
     <img alt="travis" src="https://img.shields.io/travis/gicentre/prettier-plugin-elm/master.svg?style=flat-square"><!--
@@ -28,10 +28,10 @@
     <img alt="monthly downloads" src="https://img.shields.io/npm/dm/prettier-plugin-elm.svg?style=flat-square"><!--
    -></a> -->
   <a href="#badge">
-    <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"><!--
+    <img alt="code style: Prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"><!--
   --></a>
   <a href="https://twitter.com/giCentre">
-    <img alt="Follow+giCentre+on+Twitter" src="https://img.shields.io/twitter/follow/giCentre.svg?label=follow+giCentre&style=flat-square"><!--
+    <img alt="giCentre on Twitter" src="https://img.shields.io/twitter/follow/giCentre.svg?label=follow+giCentre&style=flat-square"><!--
   --></a>
 </p>
 
