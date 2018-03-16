@@ -1,6 +1,6 @@
 {
   "name": "prettier-plugin-elm",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "src",
   "repository": "https://github.com/gicentre/prettier-plugin-elm",
   "license": "BSD-3-Clause",
