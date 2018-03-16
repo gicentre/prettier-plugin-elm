@@ -26,7 +26,7 @@ function formatTextWithElmFormat(text) {
  * Until this upstream issue is fixed, two custom patches are applied:
  * 
  * 1. A temporary dummy statement is appended to text before sending it to elm-format.
- * 2. If elm-format's result defines are module while the source does not,
+ * 2. If elm-format's result defines a module while the source does not,
  *    module definition is trimmed while working with a markdown code block.
  * 
  * Please submit an issue to https://github.com/gicentre/prettier-plugin-elm/issues

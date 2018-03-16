@@ -7,7 +7,7 @@
   src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Elm_logo.svg/1024px-Elm_logo.svg.png">
 </p>
 
-<h2 align="center">Prettier Plugin for Elm</h2>
+<h2 align="center">Elm Plugin for Prettier</h2>
 
 <p align="center">
   <a href="https://github.com/gicentre/prettier-plugin-elm/blob/master/LICENSE">
@@ -30,14 +30,12 @@
   --></a>
 </p>
 
-## WORK IN PROGRESS
-
 Please note that the [plugin ecosystem in Prettier](https://prettier.io/docs/en/plugins.html) is still beta, which may make <nobr>`prettier-plugin-elm`</nobr> not ready for production use yet.
 
 ---
 
-This plugin integrates [`elm-format`](https://github.com/avh4/elm-format) into [Prettier](https://github.com/prettier/prettier), thus providing you with a universal interface to all your code formatting needs.
-In addition to dealing with `.elm` files via Prettier API, this plugin helps you format Elm code blocks inside markdown files. For example
+This plugin integrates [`elm-format`](https://github.com/avh4/elm-format) into [Prettier](https://github.com/prettier/prettier), thus providing you with a universal interface to code formatting regardless of its language.
+In addition to dealing with `.elm` files via Prettier API, this plugin lets you format Elm code blocks inside markdown files. For example
 
 <!-- prettier-ignore -->
 ````md
@@ -65,14 +63,14 @@ main =
 
 If you want to disable code formatting for a particular code block in markdown, simply insert <nobr>`<!-- prettier-ignore -->`</nobr> before ` ```elm `.
 
-## Install
+## Getting started
 
-It is recommended to keep local copies of Prettier and its Elm plugin in every project folder as it makes their behaviour more predictable:
+Simply install `prettier` and `prettier-plugin-elm` as your project’s npm dependencies:
 
 ```bash
 cd /path/to/project
 
-## initialise a project if you haven’t done it yet
+## initialise an npm project if you haven’t done it yet
 npm init
 ## or
 yarn init
@@ -83,10 +81,12 @@ npm install --dev prettier prettier-plugin-elm
 yarn add --dev prettier prettier-plugin-elm
 ```
 
-Adding `prettier-plugin-elm` to your project dependencies also installs a local copy of `elm-format`, so you do not need to manually obtain one yourself.
-Despite an overhead in about ≈20 MB of disk space used by `node_modules`, this hard-coded sub-dependency makes it easier to collaborate on the code and also test its quality with CI tools.
+Installing `prettier-plugin-elm` also installs a local copy of `elm-format`, so you do not need to manually obtain one yourself.
+<!-- Despite an overhead in about ≈20 MB of disk space used by `node_modules`, this hard-coded sub-dependency makes it easier to collaborate on the code and also test its quality with CI tools. -->
 
-## Use
+<!-- Global use of plugin is blocked by https://github.com/prettier/prettier/issues/4000 -->
+
+## Usage
 
 ````bash
 ## format all elm files in your project
@@ -102,7 +102,10 @@ yarn prettier --write "**/*.md"
 
 ## Integration with editors
 
-If you are using a text editor that supports Prettier integration (e.g. [Atom](https://atom.io/packages/prettier-atom) or [VSCode](https://github.com/prettier/prettier-vscode)), you can have all Prettier perks for your Elm code too!
+> Use of this plugin in Atom and VSCode seems to be blocked by [prettier/prettier-atom#395](https://github.com/prettier/prettier-atom/issues/395) and [prettier/prettier-vscode#395](https://github.com/prettier/prettier-vscode/issues/395).
+Feel free to help!
+
+<s>If you are using a text editor that supports Prettier integration (e.g. [Atom](https://atom.io/packages/prettier-atom) or [VSCode](https://github.com/prettier/prettier-vscode)), you can have all Prettier perks for your Elm code too!
 
 In order to get `prettier-plugin-elm` working in projects that do not have local npm dependencies, you can install this plugin globally:
 
@@ -115,11 +118,11 @@ In this case, you might need to check the settings of your editor’s Prettier e
 Nevertheless, it is recommended to always rely on local copies of `prettier` and `prettier-plugin-elm` as this reduces the chance of formatting conflicts between project collaborators.
 This may happen if different global versions of Prettier are used.
 
-Installing `prettier-plugin-elm` either locally or globally may require you to restart the editor if formatting does not work right away.
+Installing `prettier-plugin-elm` either locally or globally may require you to restart the editor if formatting does not work right away.</s>
 
 ## Implementation details
 
-Unlike [other Prettier plugins](https://prettier.io/docs/en/plugins.html#official-plugins), `prettier-plugin-elm` does not parse the code into a syntax tree to then print it – both of these tasks are delegated to [`elm-format`](https://github.com/avh4/elm-format) and are executed in a single call to a sub-process.
+Unlike [other Prettier plugins](https://prettier.io/docs/en/plugins.html#official-plugins), `prettier-plugin-elm` does not parse the code into a syntax tree to then print it; both of these tasks are delegated to [`elm-format`](https://github.com/avh4/elm-format) and are executed in a single call to a sub-process.
 Thus, the result of formatting is compatible with what Elm community is used to see.
 
 The only difference that `prettier-plugin-elm` introduces is related to handling fragments of Elm modules, which is [not yet supported](https://github.com/avh4/elm-format/issues/65) by `elm-format`.
