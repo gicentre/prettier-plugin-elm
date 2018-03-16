@@ -11,23 +11,23 @@
 
 <p align="center">
   <a href="https://github.com/gicentre/prettier-plugin-elm/blob/master/LICENSE">
-    <img alt="license" src="https://img.shields.io/github/license/gicentre/prettier-plugin-elm.svg?style=flat-square">
-  </a>
+    <img alt="license" src="https://img.shields.io/github/license/gicentre/prettier-plugin-elm.svg?style=flat-square"><!--
+  --></a>
   <a href="https://www.npmjs.com/package/prettier-plugin-elm">
-    <img alt="npm version" src="https://img.shields.io/npm/v/prettier-plugin-elm.svg?style=flat-square">
-  </a>
+    <img alt="npm version" src="https://img.shields.io/npm/v/prettier-plugin-elm.svg?style=flat-square"><!--
+  --></a>
   <a href="https://travis-ci.org/gicentre/prettier-plugin-elm">
-    <img alt="travis" src="https://img.shields.io/travis/gicentre/prettier-plugin-elm/master.svg?style=flat-square">
-  </a>
+    <img alt="travis" src="https://img.shields.io/travis/gicentre/prettier-plugin-elm/master.svg?style=flat-square"><!--
+  --></a>
   <!-- <a href="https://www.npmjs.com/package/prettier-plugin-elm">
-    <img alt="monthly downloads" src="https://img.shields.io/npm/dm/prettier-plugin-elm.svg?style=flat-square">
-  </a> -->
+    <img alt="monthly downloads" src="https://img.shields.io/npm/dm/prettier-plugin-elm.svg?style=flat-square"><!--
+   -></a> -->
   <a href="#badge">
-    <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">
-  </a>
+    <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"><!--
+  --></a>
   <a href="https://twitter.com/giCentre">
-    <img alt="Follow+giCentre+on+Twitter" src="https://img.shields.io/twitter/follow/giCentre.svg?label=follow+giCentre&style=flat-square">
-  </a>
+    <img alt="Follow+giCentre+on+Twitter" src="https://img.shields.io/twitter/follow/giCentre.svg?label=follow+giCentre&style=flat-square"><!--
+  --></a>
 </p>
 
 ## WORK IN PROGRESS
