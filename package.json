@@ -1,11 +1,18 @@
 {
   "name": "prettier-plugin-elm",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "src",
   "repository": "https://github.com/gicentre/prettier-plugin-elm",
   "license": "BSD-3-Clause",
   "files": [
     "src"
+  ],
+  "keywords": [
+    "elm",
+    "elm-format",
+    "gicentre",
+    "prettier",
+    "prettier-plugin"
   ],
   "scripts": {
     "lint": "jest -c jest.eslint.config.js",
