@@ -1,24 +1,21 @@
 "use strict";
 
 function genericPrint(path) {
-  const n = path.getValue();
-  if (!n) {
-    return "";
-  }
+  const node = path.getValue();
 
-  switch (n.ast_type) {
+  switch (node.ast_type) {
     case "elm-format": {
-      return n.body;
+      return node.body;
     }
     /* istanbul ignore next */
     default:
       if (process.env.NODE_ENV === "test") {
         throw "Unknown Elm node: " +
-          JSON.stringify(n, null /*replacer*/, 4 /*space*/);
+          JSON.stringify(node, null /*replacer*/, 4 /*space*/);
       }
       // eslint-disable-next-line no-console
-      console.error("Unknown Elm node:", n);
-      return n.source;
+      console.error("Unknown Elm node:", node);
+      return node.source;
   }
 }
 
