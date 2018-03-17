@@ -16,7 +16,8 @@
   ],
   "scripts": {
     "lint": "jest -c jest.eslint.config.js",
-    "test": "jest",
+    "test": "jest --no-coverage",
+    "test:coverage": "jest",
     "prettier": "prettier --plugin=."
   },
   "devDependencies": {
