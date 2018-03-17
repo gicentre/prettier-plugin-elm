@@ -1,8 +1,8 @@
 "use strict";
 
 module.exports = {
-  displayName: "test",
+  collectCoverage: true,
   collectCoverageFrom: ["src/**/*.js", "!<rootDir>/node_modules/"],
   roots: ["test"],
-  transform: {}
+  testMatch: ["**/?(*.)(spec|test).(j|t)s?(x)"]
 };
