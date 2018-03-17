@@ -28,10 +28,16 @@ files.forEach(sourceFileName => {
       ? fs.readFileSync(formattedFilePath, "utf8")
       : sourceText;
 
-    const acutalResult = prettier.format(sourceText, {
-      filepath: sourceFilePath,
-      plugins: [path.resolve(__dirname, "..")]
-    });
-    expect(expectedFormattedText).toBe(acutalResult);
+    let actualResult;
+    try {
+      actualResult = prettier.format(sourceText, {
+        filepath: sourceFilePath,
+        plugins: [path.resolve(__dirname, "..")]
+      });
+    } catch (e) {
+      actualResult = sourceText;
+    }
+
+    expect(expectedFormattedText).toBe(actualResult);
   });
 });
