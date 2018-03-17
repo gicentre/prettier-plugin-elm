@@ -38,6 +38,6 @@ files.forEach(sourceFileName => {
       actualResult = sourceText;
     }
 
-    expect(expectedFormattedText).toBe(actualResult);
+    expect(actualResult).toBe(expectedFormattedText);
   });
 });
