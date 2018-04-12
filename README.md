@@ -63,7 +63,23 @@ main =
 ```
 ````
 
-If you want to disable code formatting for a particular code block in markdown, simply insert <nobr>`<!-- prettier-ignore -->`</nobr> before ` ```elm `.
+You can disable code formatting for a particular code block by adding <nobr>`<!-- prettier-ignore -->`</nobr> before ` ```elm `.
+
+````md
+Elm code with custom formatting:
+
+<!-- prettier-ignore -->
+```elm
+main = text      "Hello, World!"
+```
+
+Prettified code:
+
+```elm
+main =
+    text "Hello, World!"
+```
+````
 
 ## Getting started
 
