@@ -1,15 +1,9 @@
-<!-- adds Elm language support to Prettier -->
-
-<p>&nbsp;</p>
-<!-- first comment fixes package description in npm search and nbsp adds a gap after the package header -->
-
 <p align="center">
-<img alt="Prettier"
-  src="https://cdn.rawgit.com/prettier/prettier-logo/master/images/prettier-icon-light.svg">
-&nbsp;&nbsp;&nbsp;&nbsp;
-<img alt="Elm"
+  &nbsp;&nbsp;<img alt="Prettier"
+  src="https://cdn.rawgit.com/prettier/prettier-logo/master/images/prettier-icon-light.svg">&nbsp;&nbsp;
+  &nbsp;&nbsp;<img alt="Elm"
   height="210"
-  src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Elm_logo.svg/1024px-Elm_logo.svg.png">
+  src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Elm_logo.svg/1024px-Elm_logo.svg.png">&nbsp;&nbsp;
 </p>
 
 <h2 align="center">Prettier Elm plugin</h2>
@@ -23,6 +17,9 @@
   --></a>
   <a href="https://travis-ci.org/gicentre/prettier-plugin-elm">
     <img alt="travis" src="https://img.shields.io/travis/gicentre/prettier-plugin-elm/master.svg?style=flat-square"><!--
+  --></a>
+  <a href="https://codeclimate.com/github/gicentre/prettier-plugin-elm">
+    <img alt="test coverage" src="https://img.shields.io/codeclimate/coverage/github/gicentre/prettier-plugin-elm.svg?style=flat-square"><!--
   --></a>
   <!-- <a href="https://www.npmjs.com/package/prettier-plugin-elm">
     <img alt="monthly downloads" src="https://img.shields.io/npm/dm/prettier-plugin-elm.svg?style=flat-square"><!--
@@ -87,6 +84,7 @@ yarn add --dev prettier prettier-plugin-elm
 ```
 
 Installing `prettier-plugin-elm` also installs a local copy of `elm-format`, so you do not need to manually obtain one yourself.
+
 <!-- Despite an overhead in about ≈20 MB of disk space used by `node_modules`, this hard-coded sub-dependency makes it easier to collaborate on the code and also test its quality with CI tools. -->
 
 <!-- Global use of plugin is blocked by https://github.com/prettier/prettier/issues/4000 -->
@@ -108,7 +106,7 @@ yarn prettier --write "**/*.md"
 ## Integration with editors
 
 > Use of this plugin in Atom and VSCode seems to be blocked by [prettier/prettier-atom#395](https://github.com/prettier/prettier-atom/issues/395) and [prettier/prettier-vscode#395](https://github.com/prettier/prettier-vscode/issues/395).
-Feel free to help!
+> Feel free to help!
 
 <s>If you are using a text editor that supports Prettier integration (e.g. [Atom](https://atom.io/packages/prettier-atom) or [VSCode](https://github.com/prettier/prettier-vscode)), you can have all Prettier perks for your Elm code too!
 
