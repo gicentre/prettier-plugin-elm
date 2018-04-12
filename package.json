@@ -32,7 +32,7 @@
     "prettier": "^1.12.0"
   },
   "dependencies": {
-    "elm-format": "^0.6.1-alpha",
+    "elm-format": "0.7.0-exp",
     "execa": "^0.10.0"
   },
   "peerDependencies": {
