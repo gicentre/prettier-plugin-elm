@@ -1,6 +1,6 @@
 {
   "name": "prettier-plugin-elm",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "main": "src",
   "repository": "https://github.com/gicentre/prettier-plugin-elm",
   "description": "Adds Elm language support to Prettier via elm-format",
