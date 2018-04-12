@@ -16,7 +16,7 @@
     "prettier-plugin"
   ],
   "scripts": {
-    "lint": "jest -c jest.eslint.config.js",
+    "lint": "jest -c jest.eslint.config.js && prettier-check {*,src/**/*,test/*}.{md,js}",
     "test": "jest -c jest.test.config.js --no-coverage",
     "test:coverage": "jest -c jest.test.config.js",
     "format": "prettier --write --plugin=. {*,src/**,test/**}.{md,js}"
@@ -29,7 +29,8 @@
     "eslint-plugin-prettier": "^2.6.0",
     "jest": "^22.4.3",
     "jest-runner-eslint": "^0.4.0",
-    "prettier": "^1.12.0"
+    "prettier": "^1.12.0",
+    "prettier-check": "^2.0.0"
   },
   "dependencies": {
     "elm-format": "0.7.0-exp",
