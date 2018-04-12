@@ -147,3 +147,5 @@ To test it out on an Elm file:
 ## Credits
 
 This project was inspired by https://github.com/prettier/plugin-python.
+
+Big thanks to Aaron VonderHaar ([@avh4](https://github.com/avh4)) and [contributors](https://github.com/avh4/elm-format/graphs/contributors) for creating [`elm-format`](https://github.com/avh4/elm-format)!
