@@ -40,7 +40,7 @@ This plugin integrates [`elm-format`](https://github.com/avh4/elm-format) into [
 In addition to dealing with `.elm` files via Prettier API, this plugin lets you format Elm code blocks inside markdown files. For example
 
 <!-- prettier-ignore -->
-````md
+````markdown
 #    Hello world in Elm
 ```elm
 import  Html exposing     (text)
@@ -51,7 +51,7 @@ main = text      "Hello, World!"
 
 becomes
 
-````md
+````markdown
 # Hello world in Elm
 
 ```elm
@@ -65,7 +65,7 @@ main =
 
 You can disable code formatting for a particular code block by adding <nobr>`<!-- prettier-ignore -->`</nobr> before ` ```elm `.
 
-````md
+````markdown
 Elm code with custom formatting:
 
 <!-- prettier-ignore -->
