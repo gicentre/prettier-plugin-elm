@@ -34,6 +34,7 @@
     "elm-format": "^0.6.1-alpha"
   },
   "peerDependencies": {
-  }
     "prettier": "^1.11.0"
+  },
+  "eslintIgnore": ["coverage"]
 }
