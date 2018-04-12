@@ -1,18 +1,12 @@
 "use strict";
 
-const spawnSync = require("child_process").spawnSync;
+const execa = require("execa");
 
 function formatTextWithElmFormat(text) {
-  const executionResult = spawnSync("elm-format", ["--stdin"], {
-    input: text
+  return execa.sync("elm-format", ["--stdin"], {
+    input: text,
+    stripEof: false
   });
-
-  const error = executionResult.stderr.toString();
-  if (error) {
-    throw new Error(error);
-  }
-
-  return executionResult;
 }
 
 /*
