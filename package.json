@@ -19,7 +19,8 @@
     "lint": "jest -c jest.eslint.config.js && prettier-check {*,src/**/*,test/*}.{md,js}",
     "test": "jest -c jest.test.config.js --no-coverage",
     "test:coverage": "jest -c jest.test.config.js",
-    "format": "prettier --write --plugin=. {*,src/**,test/**}.{md,js}"
+    "format": "prettier --write --plugin=. {*,src/**,test/**}.{md,js}",
+    "prepublishOnly": "yarn lint && yarn test"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
