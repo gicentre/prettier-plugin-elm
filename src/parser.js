@@ -13,18 +13,18 @@ function formatTextWithElmFormat(text) {
 
 /*
  * Simply passing text to elm-format is not enough because of two problems:
- *  
+ *
  * 1. If the code chunk contains no symbol assignments, elm-format fails.
  * 2. `module Main exposing (..)` is always added if no module has been defined,
  *    which is not wanted in markdown code blocks.
- * 
+ *
  * Both problems are related to https://github.com/avh4/elm-format/issues/65.
  * Until this upstream issue is fixed, two custom patches are applied:
- * 
+ *
  * 1. A temporary dummy statement is appended to text before sending it to elm-format.
  * 2. If elm-format's result defines a module while the source does not,
  *    module definition is trimmed while working with a markdown code block.
- * 
+ *
  * Please submit an issue to https://github.com/gicentre/prettier-plugin-elm/issues
  * if there are any problems caused by the patches.
  */
@@ -62,8 +62,7 @@ function parse(text, parsers, opts) {
   return {
     ast_type: "elm-format",
     body: formattedText,
-    comments: [],
-    end: text.length,
+    end: text.legth,
     source: text,
     start: 0
   };
