@@ -3,9 +3,16 @@
 const fs = require("fs");
 const path = require("path");
 const prettier = require("prettier");
+const tempDir = require("temp-dir");
+const rimraf = require("rimraf");
 
 const fixturesDirName = path.resolve(__dirname, "fixtures");
 const files = fs.readdirSync(fixturesDirName);
+
+beforeAll(() => {
+  rimraf.sync(path.resolve(tempDir, "prettier-plugin-elm"));
+});
+
 files.forEach(sourceFileName => {
   if (
     !sourceFileName.match(/\.(md|elm)$/) ||
@@ -14,7 +21,7 @@ files.forEach(sourceFileName => {
     return;
   }
 
-  test(`${sourceFileName}`, () => {
+  test(`formats fixture ${sourceFileName}`, () => {
     const formattedFileName = sourceFileName.replace(
       /(\.[a-z]+)$/,
       ".prettified$1"

@@ -14,7 +14,7 @@ rules:
   curly: error
   import/no-extraneous-dependencies:
   - error
-  - devDependencies: ["tests*/**", "scripts/**"]
+  - devDependencies: ["test/**"]
   no-else-return: error
   no-inner-declarations: error
   no-unneeded-ternary: error
