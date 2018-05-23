@@ -1,15 +1,8 @@
 "use strict";
 
-const execa = require("execa");
-
-function formatTextWithElmFormat(text) {
-  return execa.sync("elm-format", ["--stdin"], {
-    input: text,
-    preferLocal: true,
-    localDir: __dirname,
-    stripEof: false
-  });
-}
+const pkg = require("../package.json");
+const { getCachedValue } = require("./cache");
+const { formatTextWithElmFormat } = require("./util");
 
 /*
  * Simply passing text to elm-format is not enough because of two problems:
@@ -38,8 +31,10 @@ function parse(text, parsers, opts) {
   const textToSend = `${text}${dummyStatement}`;
 
   // extract formatted text from elm-format
-  const executionResult = formatTextWithElmFormat(textToSend);
-  let formattedText = executionResult.stdout.toString();
+  let formattedText = getCachedValue(formatTextWithElmFormat, [
+    textToSend,
+    pkg.version
+  ]);
 
   // path 1 (step 2/2)
   formattedText = formattedText.replace(dummyStatementRegExp, "\n");
@@ -62,7 +57,7 @@ function parse(text, parsers, opts) {
   return {
     ast_type: "elm-format",
     body: formattedText,
-    end: text.legth,
+    end: text.length,
     source: text,
     start: 0
   };
