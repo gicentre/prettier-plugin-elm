@@ -1,0 +1,30 @@
+version: "{build}"
+skip_tags: true
+build: off
+clone_depth: 1
+shallow_clone: true
+matrix:
+  fast_finish: true
+
+environment:
+  ELM_VERSION: "0.18.0"
+  matrix:
+    - nodejs_version: "6"
+    - nodejs_version: "8"
+    - nodejs_version: "9"
+    - nodejs_version: "10"
+
+platform:
+  - x86
+  - x64
+
+install:
+  - ps: Install-Product node $env:nodejs_version $env:Platform
+  - node --version
+  - yarn --version
+  - npm install --global elm@%ELM_VERSION%
+  - set CI=true
+  - yarn
+
+test_script:
+  - yarn test
