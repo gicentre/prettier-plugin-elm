@@ -22,7 +22,6 @@ install:
   - ps: Install-Product node $env:nodejs_version $env:Platform
   - node --version
   - yarn --version
-  - npm install --global elm@%ELM_VERSION%
   - set CI=true
   - yarn
 
