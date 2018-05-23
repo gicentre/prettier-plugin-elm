@@ -1,5 +1,3 @@
-# `prettier-plugin-elm` changelog
-
 ## 0.2.2 & 0.2.1 & 0.2.0 (2018-04-12)
 
 * Switch to `elm-format@0.7.0-exp`
