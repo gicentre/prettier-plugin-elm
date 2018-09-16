@@ -40,6 +40,7 @@
   "dependencies": {
     "elm-format": "^0.8.1-rc2",
     "execa": "^1.0.0",
+    "husky": "^1.0.0-rc.14",
     "make-dir": "^1.3.0",
     "object-hash": "^1.3.0",
     "serialize-error": "^2.1.0",
@@ -51,5 +52,10 @@
   "prettier": {},
   "eslintIgnore": [
     "coverage"
-  ]
+  ],
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn lint"
+    }
+  }
 }

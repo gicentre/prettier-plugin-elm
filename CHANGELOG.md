@@ -7,6 +7,10 @@
   To support formatting of Elm code in markdown blocks, `prettier-plugin-elm` passes `--elm-version=0.19` to `elm-format`.
   If you use Elm `0.18`, please install `prettier-plugin-elm@0.3`.
 
+- Internal:
+  - Upgrade dev dependencies
+  - Add pre-push git hook via [`husky`](https://github.com/typicode/husky) to avoid dumb linting errors in CI.
+
 ## 0.3.0 (2018-05-23)
 
 - Implement caching mechanism to speed-up formatting of Elm blocks in markdown files ([#3](https://github.com/gicentre/prettier-plugin-elm/issues/3))
