@@ -11,7 +11,7 @@
 
 - Internal:
   - Upgrade dev dependencies
-  - Add pre-push git hook via [`husky`](https://github.com/typicode/husky) to avoid dumb linting errors in CI.
+  - Add pre-push git hook via [`husky`](https://github.com/typicode/husky) to avoid dumb linting errors in CI
 
 ## 0.3.0 (2018-05-23)
 
