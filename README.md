@@ -156,10 +156,10 @@ If you’re interested in contributing to the development of Prettier for Elm, y
 
 To test it out on an Elm file:
 
-* Clone this repository.
-* Run `yarn`.
-* Create a file called `prettier-test.elm` or `prettier-test.md`.
-* Run `yarn prettier prettier-test.elm` or `yarn prettier prettier-test.md` to check the output.
+- Clone this repository.
+- Run `yarn`.
+- Create a file called `prettier-test.elm` or `prettier-test.md`.
+- Run `yarn prettier prettier-test.elm` or `yarn prettier prettier-test.md` to check the output.
 
 ## Credits
 
