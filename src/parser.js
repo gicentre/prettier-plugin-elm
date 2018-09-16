@@ -8,15 +8,16 @@ const { formatTextWithElmFormat, getElmFormatVersion } = require("./util");
  * Simply passing text to elm-format is not enough because of two problems:
  *
  * 1. If the code chunk only contains an import statement, no formatting takes place.
+ *    Related to: https://github.com/avh4/elm-format/issues/551
  * 2. `module Main exposing (.*)` is always added if no module has been defined,
  *    which is not wanted in markdown code blocks.
+ *    Related to: https://github.com/avh4/elm-format/issues/65
  *
- * Both problems are related to https://github.com/avh4/elm-format/issues/65.
- * Until this upstream issue is fixed, two custom patches are applied:
+ * Until the upstream issues are fixed, two custom patches are applied:
  *
  * 1. A dummy comment is added to the source and is then removed from the result.
- * 2. If elm-format's result defines a module, but the source does not
- *    and the current context is a markdown bloc, module definition is trimmed.
+ * 2. If current context is a markdown block and the source does not declare a module,
+ *    module statement is removed from the result.
  *
  * Please submit an issue to https://github.com/gicentre/prettier-plugin-elm/issues
  * if there are any problems caused by the patches.
