@@ -87,6 +87,9 @@ main =
 In order to successfully format Elm code in markdown blocks, `prettier-plugin-elm` assumes your Elm version is 0.19.
 If you use Elm 0.18, please install `prettier-plugin-elm@0.3`.
 
+> `prettier-plugin-elm@0.4` is currently a release candidate.
+> To install it, please refer to it as `prettier-plugin-elm@rc`.
+
 ## Getting started
 
 Simply install `prettier` and `prettier-plugin-elm` as your project’s npm dependencies:
