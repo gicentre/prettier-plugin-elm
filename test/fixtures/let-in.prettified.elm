@@ -1,7 +1,7 @@
 -- Source: https://github.com/avh4/elm-format/issues/350
 
 
-module Main exposing (..)
+module Main exposing (viewEntries)
 
 
 viewEntries : String -> List Entry -> Html Msg

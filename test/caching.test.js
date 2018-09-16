@@ -51,13 +51,13 @@ test(`correctly deals with cache`, () => {
       plugins: [path.resolve(__dirname, "..")]
     })
   ).toEqual(expectedFormattedText);
-  expect(spyForFormatTextWithElmFormat.mock.calls).toHaveLength(
+  expect(spyForFormatTextWithElmFormat.mock.calls.length).toBe(
     numberOfFormatCallsInFirstRun
   );
 
   return sleep(cacheGCInterval * 2).then(() => {
     // a call to formatTextWithElmFormat() that triggers garbage collection
-    prettier.format("", {
+    prettier.format("{- -}", {
       parser: "elm",
       plugins: [path.resolve(__dirname, "..")]
     });
@@ -69,7 +69,7 @@ test(`correctly deals with cache`, () => {
         plugins: [path.resolve(__dirname, "..")]
       })
     ).toEqual(expectedFormattedText);
-    expect(spyForFormatTextWithElmFormat.mock.calls).toHaveLength(
+    expect(spyForFormatTextWithElmFormat.mock.calls.length).toBe(
       numberOfFormatCallsInFirstRun + 1 /* for "" */ + 1 /* for GC-d block */
     );
   });

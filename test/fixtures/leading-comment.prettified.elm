@@ -1,7 +1,7 @@
 {- a comment in Elm code -}
 
 
-module Main exposing (..)
+module Main exposing (main)
 
 import Html exposing (text)
 
