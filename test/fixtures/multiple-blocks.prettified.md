@@ -1,8 +1,8 @@
 ---
 id: "litvis"
 elm:
-    dependencies:
-        gicentre/elm-vega: latest
+  dependencies:
+    gicentre/elm-vega: latest
 ---
 
 <!-- source (with minor amendments): https://github.com/gicentre/litvis/blob/master/documents/tutorials/geoTutorials/geoFormats.md -->
@@ -631,6 +631,7 @@ graticule gStep =
         meridian lng =
             if round lng % 90 == 0 then
                 List.map (\lat -> ( lng, lat )) (range -90 90 (min 10 gStep))
+
             else
                 List.map (\lat -> ( lng, lat )) (range (gStep - 90) (90 - gStep) (min 5 gStep))
 

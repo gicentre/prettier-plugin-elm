@@ -84,6 +84,9 @@ main =
 ```
 ````
 
+In order to successfully format Elm code in markdown blocks, `prettier-plugin-elm` assumes your Elm version is 0.19.
+If you use Elm 0.18, please install `prettier-plugin-elm@0.3`.
+
 ## Getting started
 
 Simply install `prettier` and `prettier-plugin-elm` as your project’s npm dependencies:
@@ -156,10 +159,10 @@ If you’re interested in contributing to the development of Prettier for Elm, y
 
 To test it out on an Elm file:
 
-* Clone this repository.
-* Run `yarn`.
-* Create a file called `prettier-test.elm` or `prettier-test.md`.
-* Run `yarn prettier prettier-test.elm` or `yarn prettier prettier-test.md` to check the output.
+- Clone this repository.
+- Run `yarn`.
+- Create a file called `prettier-test.elm` or `prettier-test.md`.
+- Run `yarn prettier prettier-test.elm` or `yarn prettier prettier-test.md` to check the output.
 
 ## Credits
 
