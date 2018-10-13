@@ -87,9 +87,6 @@ main =
 In order to successfully format Elm code in markdown blocks, `prettier-plugin-elm` assumes your Elm version is 0.19.
 If you use Elm 0.18, please install `prettier-plugin-elm@0.3`.
 
-> `prettier-plugin-elm@0.4` is currently a release candidate.
-> To install it, please refer to it as `prettier-plugin-elm@rc`.
-
 ## Getting started
 
 Simply install `prettier` and `prettier-plugin-elm` as your project’s npm dependencies:
@@ -130,10 +127,10 @@ yarn prettier --write "**/*.md"
 
 ## Integration with editors
 
-> Use of this plugin in Atom and VSCode seems to be blocked by [prettier/prettier-atom#395](https://github.com/prettier/prettier-atom/issues/395) and [prettier/prettier-vscode#395](https://github.com/prettier/prettier-vscode/issues/395).
-> Feel free to help!
+If you are using a text editor that supports Prettier integration (e.g. [Atom](https://atom.io/packages/prettier-atom)), you can have all Prettier perks for your Elm code too!
 
-<s>If you are using a text editor that supports Prettier integration (e.g. [Atom](https://atom.io/packages/prettier-atom) or [VSCode](https://github.com/prettier/prettier-vscode)), you can have all Prettier perks for your Elm code too!
+> Use of this plugin in [VSCode extension](https://github.com/prettier/prettier-vscode) seems to be blocked by [prettier/prettier-vscode#395](https://github.com/prettier/prettier-vscode/issues/395).
+> Feel free to help!
 
 In order to get `prettier-plugin-elm` working in projects that do not have local npm dependencies, you can install this plugin globally:
 
@@ -143,10 +140,10 @@ npm install --global prettier prettier-plugin-elm
 
 In this case, you might need to check the settings of your editor’s Prettier extension to make sure that a globally installed Prettier is used when it is not found in project dependencies (i.e. `package.json`).
 
-Nevertheless, it is recommended to always rely on local copies of `prettier` and `prettier-plugin-elm` as this reduces the chance of formatting conflicts between project collaborators.
-This may happen if different global versions of Prettier are used.
+Nevertheless, it is recommended to rely on local copies of `prettier` and `prettier-plugin-elm` as this reduces the chance of formatting conflicts between project collaborators.
+This may happen if different global versions of Prettier or its Elm plugin are used.
 
-Installing `prettier-plugin-elm` either locally or globally may require you to restart the editor if formatting does not work right away.</s>
+Installing `prettier-plugin-elm` either locally or globally may require you to restart the editor if formatting does not work right away.
 
 ## Implementation details
 
