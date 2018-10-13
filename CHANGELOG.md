@@ -1,6 +1,6 @@
-## 0.4.0 (ongoing)
+## 0.4.0 (2018-10-13)
 
-- Upgrade `elm-format` to `0.8` to support Elm `0.19` ([#4](https://github.com/gicentre/prettier-plugin-elm/issues/4))
+- Upgrade `elm-format` to `0.8.1` to support Elm `0.19` ([#4](https://github.com/gicentre/prettier-plugin-elm/issues/4))
 
   This includes replacing `module Main exposing (..)` with `module Main exposing (something)` in tests, according to the new output in `elm-format`.
 
@@ -10,7 +10,7 @@
 - Stop running tests in Node 9 due to its end of life on 2018-06-30 ([#5](https://github.com/gicentre/prettier-plugin-elm/issues/5))
 
 - Internal:
-  - Upgrade dev dependencies
+  - Upgrade dependencies
   - Add pre-push git hook via [`husky`](https://github.com/typicode/husky) to avoid dumb linting errors in CI
 
 ## 0.3.0 (2018-05-23)
