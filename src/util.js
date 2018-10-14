@@ -8,7 +8,10 @@ function getElmFormatVersion() {
     // a cleaner way of getting elm-format version
     // will be possible when this issue is closed:
     // https://github.com/avh4/elm-format/issues/425
-    const help = execa.sync("elm-format", ["--help"]).stdout;
+    const help = execa.sync("elm-format", ["--help"], {
+      preferLocal: true,
+      localDir: __dirname
+    }).stdout;
     cachedElmFormatVersion = help.match(/elm-format ([^\n]+)/)[1];
   }
   return cachedElmFormatVersion;
