@@ -1,3 +1,7 @@
+## 0.4.1 (ongoing)
+
+Fix exception in `getElmFormatVersion()` when no global `elm-format` is installed ([#6](https://github.com/gicentre/prettier-plugin-elm/issues/6))
+
 ## 0.4.0 (2018-10-13)
 
 - Upgrade `elm-format` to `0.8.1` to support Elm `0.19` ([#4](https://github.com/gicentre/prettier-plugin-elm/issues/4))
