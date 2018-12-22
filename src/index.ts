@@ -1,7 +1,9 @@
-const parse = require("./parser");
-const print = require("./printer");
+import { parse } from "./parser";
+import { print } from "./printer";
 
-const languages = [
+export const defaultOptions = {};
+
+export const languages = [
   {
     name: "Elm",
     parsers: ["elm"],
@@ -14,7 +16,7 @@ const languages = [
   }
 ];
 
-const parsers = {
+export const parsers = {
   elm: {
     parse,
     astFormat: "elm-format",
@@ -28,15 +30,8 @@ const parsers = {
   }
 };
 
-const printers = {
+export const printers = {
   "elm-format": {
     print
   }
-};
-
-module.exports = {
-  languages,
-  printers,
-  parsers,
-  defaultOptions: {}
 };

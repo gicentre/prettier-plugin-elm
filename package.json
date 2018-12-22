@@ -6,11 +6,11 @@
   "description": "Adds Elm language support to Prettier via elm-format",
   "scripts": {
     "clean:coverage": "rimraf coverage",
-    "clean:test": "rimraf cache",
-    "lint": "prettier --check {*,src/**/*,test/*}.{md,js}",
+    "clean:cache": "rimraf cache",
+    "lint": "prettier --check {*,src/**/*}.{md,js,json,ts}",
     "test": "jest -c jest.test.config.js --no-coverage",
     "test:coverage": "jest -c jest.test.config.js",
-    "format": "prettier --write {*,src/**,test/**}.{md,js}",
+    "format": "prettier --write {*,src/**/*}.{md,js,json,ts}",
     "prepublishOnly": "yarn lint && yarn test"
   },
   "main": "src",

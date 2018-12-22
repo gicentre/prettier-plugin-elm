@@ -1,4 +1,4 @@
-function genericPrint(path) {
+export const print = path => {
   const node = path.getValue();
 
   switch (node.ast_type) {
@@ -14,6 +14,4 @@ function genericPrint(path) {
       console.error("Unknown Elm node:", node);
       return node.source;
   }
-}
-
-module.exports = genericPrint;
+};

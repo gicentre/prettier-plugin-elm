@@ -1,13 +1,13 @@
-const fs = require("fs");
-const makeDir = require("make-dir");
-const objectHash = require("object-hash");
-const path = require("path");
-const serializeError = require("serialize-error");
-const tempDir = require("temp-dir");
+import * as fs from "fs";
+import * as makeDir from "make-dir";
+import * as objectHash from "object-hash";
+import { resolve } from "path";
+import * as serializeError from "serialize-error";
+import * as tempDir from "temp-dir";
 
 const cacheDir = process.env.PRETTIER_PLUGIN_ELM_CACHE_DIR
-  ? path.resolve(process.env.PRETTIER_PLUGIN_ELM_CACHE_DIR)
-  : path.resolve(tempDir, "prettier-plugin-elm");
+  ? resolve(process.env.PRETTIER_PLUGIN_ELM_CACHE_DIR)
+  : resolve(tempDir, "prettier-plugin-elm");
 
 const cacheMax = process.env.PRETTIER_PLUGIN_ELM_CACHE_MAX
   ? parseInt(process.env.PRETTIER_PLUGIN_ELM_CACHE_MAX, 10)
@@ -20,9 +20,9 @@ const cacheGCInterval = process.env.PRETTIER_PLUGIN_ELM_CACHE_GC_INTERVAL
 /* istanbul ignore next */
 const noop = () => {};
 
-function getCachedValue(fn, args) {
+export const getCachedValue = (fn, args) => {
   const cacheKey = objectHash(args);
-  const recordFilePath = path.resolve(cacheDir, `${cacheKey}.json`);
+  const recordFilePath = resolve(cacheDir, `${cacheKey}.json`);
   let record;
   let recordIsFromCache = false;
 
@@ -74,10 +74,10 @@ function getCachedValue(fn, args) {
   } else {
     return record.value;
   }
-}
+};
 
 function collectGarbageIfNeeded() {
-  const pathToGCTouchfile = path.resolve(cacheDir, `gc.touchfile`);
+  const pathToGCTouchfile = resolve(cacheDir, `gc.touchfile`);
   try {
     const lastGCTime = fs.statSync(pathToGCTouchfile).mtimeMs;
     if (lastGCTime + cacheGCInterval > +new Date()) {
@@ -95,7 +95,7 @@ function collectGarbageIfNeeded() {
     if (!recordFileName.endsWith(".json")) {
       return;
     }
-    const recordFilePath = path.resolve(cacheDir, recordFileName);
+    const recordFilePath = resolve(cacheDir, recordFileName);
     const recordInfo = {
       path: recordFilePath,
       touchedAt: 0
@@ -125,7 +125,3 @@ function collectGarbageIfNeeded() {
     fs.unlink(`${recordInfo.path}.touchfile`, noop);
   });
 }
-
-module.exports = {
-  getCachedValue
-};

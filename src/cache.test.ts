@@ -1,13 +1,12 @@
-const fs = require("fs");
-const path = require("path");
-const prettier = require("prettier");
-const rimraf = require("rimraf");
-const sleep = require("sleep-promise");
+import * as fs from "fs";
+import { resolve } from "path";
+import * as prettier from "prettier";
+import * as rimraf from "rimraf";
+import * as sleep from "sleep-promise";
+import * as util from "./util";
 
-const util = require("./util");
-
-const fixturesDir = path.resolve(__dirname, "../fixtures");
-const cacheDir = path.resolve(__dirname, "../cache");
+const fixturesDir = resolve(__dirname, "../fixtures");
+const cacheDir = resolve(__dirname, "../cache");
 const cacheMax = 21; // number of blocks in multiple-blocks.md fixture
 const cacheGCInterval = 1000;
 
@@ -23,11 +22,11 @@ test(`correctly deals with cache`, () => {
   );
 
   const sourceText = fs.readFileSync(
-    path.resolve(fixturesDir, "multiple-blocks.md"),
+    resolve(fixturesDir, "multiple-blocks.md"),
     "utf8"
   );
   const expectedFormattedText = fs.readFileSync(
-    path.resolve(fixturesDir, "multiple-blocks.prettified.md"),
+    resolve(fixturesDir, "multiple-blocks.prettified.md"),
     "utf8"
   );
 
@@ -35,7 +34,7 @@ test(`correctly deals with cache`, () => {
   expect(
     prettier.format(sourceText, {
       parser: "markdown",
-      plugins: [path.resolve(__dirname, "..")]
+      plugins: [resolve(__dirname, "..")]
     })
   ).toEqual(expectedFormattedText);
   const numberOfFormatCallsInFirstRun =
@@ -46,7 +45,7 @@ test(`correctly deals with cache`, () => {
   expect(
     prettier.format(sourceText, {
       parser: "markdown",
-      plugins: [path.resolve(__dirname, "..")]
+      plugins: [resolve(__dirname, "..")]
     })
   ).toEqual(expectedFormattedText);
   expect(spyForFormatTextWithElmFormat.mock.calls.length).toBe(
@@ -57,14 +56,14 @@ test(`correctly deals with cache`, () => {
     // a call to formatTextWithElmFormat() that triggers garbage collection
     prettier.format("{- -}", {
       parser: "elm",
-      plugins: [path.resolve(__dirname, "..")]
+      plugins: [resolve(__dirname, "..")]
     });
 
     // multiple-blocks.md, third run – with cache except for one block that was previously garbage collected
     expect(
       prettier.format(sourceText, {
         parser: "markdown",
-        plugins: [path.resolve(__dirname, "..")]
+        plugins: [resolve(__dirname, "..")]
       })
     ).toEqual(expectedFormattedText);
     expect(spyForFormatTextWithElmFormat.mock.calls.length).toBe(

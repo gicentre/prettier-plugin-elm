@@ -1,7 +1,7 @@
 const execa = require("execa");
 
 let cachedElmFormatVersion;
-function getElmFormatVersion() {
+export const getElmFormatVersion = () => {
   if (!cachedElmFormatVersion) {
     // a cleaner way of getting elm-format version
     // will be possible when this issue is closed:
@@ -13,18 +13,13 @@ function getElmFormatVersion() {
     cachedElmFormatVersion = help.match(/elm-format ([^\n]+)/)[1];
   }
   return cachedElmFormatVersion;
-}
+};
 
-function formatTextWithElmFormat(text) {
+export const formatTextWithElmFormat = text => {
   return execa.sync("elm-format", ["--stdin", "--elm-version=0.19"], {
     input: text,
     preferLocal: true,
     localDir: __dirname,
     stripEof: false
   }).stdout;
-}
-
-module.exports = {
-  getElmFormatVersion,
-  formatTextWithElmFormat
 };
