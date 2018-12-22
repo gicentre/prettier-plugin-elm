@@ -1,7 +1,6 @@
 node_modules
 *.log
-/.vscode
 .DS_Store
 cache
 coverage
-.idea
+dist

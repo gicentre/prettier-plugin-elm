@@ -5,18 +5,14 @@
   "repository": "https://github.com/gicentre/prettier-plugin-elm",
   "description": "Adds Elm language support to Prettier via elm-format",
   "scripts": {
-    "clean:coverage": "rimraf coverage",
-    "clean:cache": "rimraf cache",
-    "lint": "tsc --project . && tslint --project . && prettier --check {*,src/**/*}.{md,js,json,ts}",
-    "test": "jest -c jest.test.config.js --no-coverage",
-    "test:coverage": "jest -c jest.test.config.js",
+    "build": "tsc --project ./tsconfig.build.json",
+    "clean": "rimraf cache coverage dist",
     "format": "prettier --write {*,src/**/*}.{md,js,json,ts}",
+    "lint": "tsc --project .&& tslint --project . && prettier --check {*,src/**/*}.{md,js,json,ts}",
+    "test": "yarn clean && yarn build && jest -c jest.config.js",
     "prepublishOnly": "yarn lint && yarn test"
   },
-  "main": "src",
-  "files": [
-    "src"
-  ],
+  "main": "dist",
   "keywords": [
     "elm",
     "elm-format",
@@ -50,6 +46,7 @@
     "prettier": "prettier/prettier#439b1649ff9298b56b4f5e68214de6c2b29c6f26",
     "rimraf": "^2.6.2",
     "sleep-promise": "^8.0.1",
+    "ts-jest": "^23.10.5",
     "tslint": "^5.12.0",
     "tslint-config-prettier": "^1.17.0",
     "typescript": "^3.2.2"
