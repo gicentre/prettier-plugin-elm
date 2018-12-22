@@ -19,7 +19,7 @@ before_script:
   - ./cc-test-reporter before-build
 script:
   - yarn lint
-  - yarn test:coverage
+  - yarn test --coverage
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 notifications:
