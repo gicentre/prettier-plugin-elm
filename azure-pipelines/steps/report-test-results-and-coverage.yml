@@ -1,0 +1,14 @@
+steps:
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFormat: JUnit
+      testResultsFiles: $(System.DefaultWorkingDirectory)/junit.xml
+    displayName: "Publish test results"
+    condition: and(variables.ENABLE_TEST_RESULTS, succeededOrFailed())
+  - task: PublishCodeCoverageResults@1
+    inputs:
+      codeCoverageTool: Cobertura
+      reportDirectory: $(System.DefaultWorkingDirectory)/coverage
+      summaryFileLocation: $(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml
+    displayName: "Publish coverage"
+    condition: and(variables.REPORT_TEST_RESULTS_AND_COVERAGE, succeededOrFailed())
