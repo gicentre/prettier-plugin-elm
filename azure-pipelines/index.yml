@@ -26,6 +26,8 @@ jobs:
         (Node 10 + test results & coverage):
           NODE_VERSION: 10
           REPORT_TEST_RESULTS_AND_COVERAGE: true
+        (Node 11):
+          NODE_VERSION: 11
     steps:
       - template: jobs/test.yml
 
