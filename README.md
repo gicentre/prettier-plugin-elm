@@ -166,7 +166,7 @@ To run `prettier-plugin-elm` locally:
 - Execute `yarn install`.
 - Execute `yarn lint` to make sure that the code passes formatting and linting.
 - Execute `yarn test` to make sure that TypeScript successfully compiles into JavaScript and and all unit tests pass.
-- To test the plugin manually, create a file called `prettier-test.elm` or `prettier-test.md`, then run `yarn prettier prettier-test.elm` or `yarn prettier prettier-test.md` and check the output.
+- To test the plugin manually, create a file called `prettier-test.elm` (or `.md`), then run `yarn prettier --plugin-. prettier-test.elm` (or `.md`) and check the output.
 
 ## Credits
 
