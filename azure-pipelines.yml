@@ -6,8 +6,10 @@ jobs:
     displayName: Lint
     pool:
       vmImage: "Ubuntu 16.04"
-    variables:
-      NODE_VERSION: 10
+    strategy:
+      matrix:
+        (Node 10):
+          NODE_VERSION: 10
     steps:
       - template: azure-pipelines/jobs/lint.yml
 
@@ -17,11 +19,11 @@ jobs:
       vmImage: "Ubuntu 16.04"
     strategy:
       matrix:
-        node6:
+        (Node 6):
           NODE_VERSION: 6
-        node8:
+        (Node 8):
           NODE_VERSION: 8
-        node10:
+        (Node 10):
           NODE_VERSION: 10
     steps:
       - template: azure-pipelines/jobs/test.yml
@@ -39,7 +41,9 @@ jobs:
     displayName: Test on Windows
     pool:
       vmImage: vs2017-win2016
-    variables:
-      NODE_VERSION: 10
+    strategy:
+      matrix:
+        (Node 10):
+          NODE_VERSION: 10
     steps:
       - template: azure-pipelines/jobs/test.yml
