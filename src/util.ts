@@ -1,4 +1,4 @@
-import execa from "execa";
+import * as execa from "execa";
 
 let cachedElmFormatVersion: string;
 export const getElmFormatVersion = () => {

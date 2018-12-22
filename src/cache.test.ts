@@ -1,8 +1,8 @@
-import fs from "fs";
+import * as fs from "fs";
 import { resolve } from "path";
-import prettier from "prettier";
-import rimraf from "rimraf";
-import sleep from "sleep-promise";
+import * as prettier from "prettier";
+import * as rimraf from "rimraf";
+import * as sleep from "sleep-promise";
 import * as util from "./util";
 
 const fixturesDir = resolve(__dirname, "../fixtures");

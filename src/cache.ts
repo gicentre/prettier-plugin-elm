@@ -1,9 +1,10 @@
-import fs from "fs";
-import makeDir from "make-dir";
-import objectHash from "object-hash";
+import * as fs from "fs";
+import * as makeDir from "make-dir";
+import * as objectHash from "object-hash";
 import { resolve } from "path";
-import serializeError, { ErrorObject } from "serialize-error";
-import tempDir from "temp-dir";
+import * as serializeError from "serialize-error";
+import { ErrorObject } from "serialize-error";
+import * as tempDir from "temp-dir";
 
 const cacheDir = process.env.PRETTIER_PLUGIN_ELM_CACHE_DIR
   ? resolve(process.env.PRETTIER_PLUGIN_ELM_CACHE_DIR)
