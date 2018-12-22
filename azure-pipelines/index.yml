@@ -23,7 +23,7 @@ jobs:
           NODE_VERSION: 6
         (Node 8):
           NODE_VERSION: 8
-        (Node 10):
+        (Node 10 + test results & coverage):
           NODE_VERSION: 10
           REPORT_TEST_RESULTS_AND_COVERAGE: true
     steps:

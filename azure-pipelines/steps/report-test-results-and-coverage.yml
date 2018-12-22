@@ -4,7 +4,7 @@ steps:
       testResultsFormat: JUnit
       testResultsFiles: $(System.DefaultWorkingDirectory)/junit.xml
     displayName: "Publish test results"
-    condition: and(variables.ENABLE_TEST_RESULTS, succeededOrFailed())
+    condition: and(variables.REPORT_TEST_RESULTS_AND_COVERAGE, succeededOrFailed())
   - task: PublishCodeCoverageResults@1
     inputs:
       codeCoverageTool: Cobertura
