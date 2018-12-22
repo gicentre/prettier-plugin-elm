@@ -4,6 +4,4 @@ steps:
       versionSpec: "$(NODE_VERSION)"
     displayName: "Use Node.js"
   - task: geeklearningio.gl-vsts-tasks-yarn.yarn-installer-task.YarnInstaller@2
-    inputs:
-      versionSpec: "$(NODE_VERSION)"
     displayName: "Use Yarn"
