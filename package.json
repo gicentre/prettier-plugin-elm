@@ -45,9 +45,6 @@
     "serialize-error": "^3.0.0",
     "temp-dir": "^1.0.0"
   },
-  "peerDependencies": {
-    "prettier": "^1.11.0"
-  },
   "prettier": {},
   "eslintIgnore": [
     "coverage"
