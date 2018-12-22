@@ -9,12 +9,12 @@ steps:
     inputs:
       codeCoverageTool: Cobertura
       summaryFileLocation: $(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml
-    displayName: "Publish coverage"
+    displayName: "Publish test coverage"
     condition: and(variables.REPORT_TEST_RESULTS_AND_COVERAGE, succeededOrFailed())
   - task: mspremier.BuildQualityChecks.QualityChecks-task.BuildQualityChecks@5
-    displayName: "Check build quality"
+    displayName: "Check against test coverage regressions"
     inputs:
       checkCoverage: true
       coverageType: lines
       coverageDeltaType: percentage
-    condition: succeededOrFailed()
+    condition: and(variables.REPORT_TEST_RESULTS_AND_COVERAGE, succeededOrFailed())
