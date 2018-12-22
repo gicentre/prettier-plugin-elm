@@ -12,8 +12,8 @@ export const languages = [
     tmScope: "source.elm",
     aceMode: "text",
     linguistLanguageId: 101,
-    vscodeLanguageIds: ["elm"]
-  }
+    vscodeLanguageIds: ["elm"],
+  },
 ];
 
 export const parsers = {
@@ -21,17 +21,17 @@ export const parsers = {
     parse,
     astFormat: "elm-format",
     // there's only a single node
-    locStart(node) {
+    locStart(node: any) {
       return node.start;
     },
-    locEnd(node) {
+    locEnd(node: any) {
       return node.end;
-    }
-  }
+    },
+  },
 };
 
 export const printers = {
   "elm-format": {
-    print
-  }
+    print,
+  },
 };

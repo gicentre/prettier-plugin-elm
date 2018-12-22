@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
-    "noEmit": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": ["es2016"],
     "moduleResolution": "node",
+    "noEmit": true,
     "strict": true,
-    "sourceMap": true,
-    "lib": ["es2016"]
+    "sourceMap": true
   },
   "include": ["src/**/*"]
 }

@@ -38,7 +38,14 @@
     "temp-dir": "^1.0.0"
   },
   "devDependencies": {
+    "@types/execa": "^0.9.0",
     "@types/jest": "^23.3.10",
+    "@types/make-dir": "^1.0.3",
+    "@types/object-hash": "^1.2.0",
+    "@types/prettier": "^1.15.2",
+    "@types/rimraf": "^2.0.2",
+    "@types/serialize-error": "^2.1.0",
+    "@types/temp-dir": "^1.0.0",
     "jest": "^23.6.0",
     "prettier": "prettier/prettier#439b1649ff9298b56b4f5e68214de6c2b29c6f26",
     "rimraf": "^2.6.2",

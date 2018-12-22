@@ -1,8 +1,8 @@
-import * as fs from "fs";
+import fs from "fs";
 import { resolve } from "path";
-import * as prettier from "prettier";
-import * as rimraf from "rimraf";
-import * as sleep from "sleep-promise";
+import prettier from "prettier";
+import rimraf from "rimraf";
+import sleep from "sleep-promise";
 import * as util from "./util";
 
 const fixturesDir = resolve(__dirname, "../fixtures");
@@ -18,24 +18,24 @@ test(`correctly deals with cache`, () => {
 
   const spyForFormatTextWithElmFormat = jest.spyOn(
     util,
-    "formatTextWithElmFormat"
+    "formatTextWithElmFormat",
   );
 
   const sourceText = fs.readFileSync(
     resolve(fixturesDir, "multiple-blocks.md"),
-    "utf8"
+    "utf8",
   );
   const expectedFormattedText = fs.readFileSync(
     resolve(fixturesDir, "multiple-blocks.prettified.md"),
-    "utf8"
+    "utf8",
   );
 
   // multiple-blocks.md, first run – no cache
   expect(
     prettier.format(sourceText, {
       parser: "markdown",
-      plugins: [resolve(__dirname, "..")]
-    })
+      plugins: [resolve(__dirname, "..")],
+    }),
   ).toEqual(expectedFormattedText);
   const numberOfFormatCallsInFirstRun =
     spyForFormatTextWithElmFormat.mock.calls.length;
@@ -45,29 +45,29 @@ test(`correctly deals with cache`, () => {
   expect(
     prettier.format(sourceText, {
       parser: "markdown",
-      plugins: [resolve(__dirname, "..")]
-    })
+      plugins: [resolve(__dirname, "..")],
+    }),
   ).toEqual(expectedFormattedText);
   expect(spyForFormatTextWithElmFormat.mock.calls.length).toBe(
-    numberOfFormatCallsInFirstRun
+    numberOfFormatCallsInFirstRun,
   );
 
   return sleep(cacheGCInterval * 2).then(() => {
     // a call to formatTextWithElmFormat() that triggers garbage collection
     prettier.format("{- -}", {
-      parser: "elm",
-      plugins: [resolve(__dirname, "..")]
+      parser: "elm" as any,
+      plugins: [resolve(__dirname, "..")],
     });
 
     // multiple-blocks.md, third run – with cache except for one block that was previously garbage collected
     expect(
       prettier.format(sourceText, {
         parser: "markdown",
-        plugins: [resolve(__dirname, "..")]
-      })
+        plugins: [resolve(__dirname, "..")],
+      }),
     ).toEqual(expectedFormattedText);
     expect(spyForFormatTextWithElmFormat.mock.calls.length).toBe(
-      numberOfFormatCallsInFirstRun + 1 /* for "" */ + 1 /* for GC-d block */
+      numberOfFormatCallsInFirstRun + 1 /* for "" */ + 1 /* for GC-d block */,
     );
   });
 });

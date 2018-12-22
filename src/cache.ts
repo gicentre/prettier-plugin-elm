@@ -1,9 +1,9 @@
-import * as fs from "fs";
-import * as makeDir from "make-dir";
-import * as objectHash from "object-hash";
+import fs from "fs";
+import makeDir from "make-dir";
+import objectHash from "object-hash";
 import { resolve } from "path";
-import * as serializeError from "serialize-error";
-import * as tempDir from "temp-dir";
+import serializeError, { ErrorObject } from "serialize-error";
+import tempDir from "temp-dir";
 
 const cacheDir = process.env.PRETTIER_PLUGIN_ELM_CACHE_DIR
   ? resolve(process.env.PRETTIER_PLUGIN_ELM_CACHE_DIR)
@@ -18,12 +18,20 @@ const cacheGCInterval = process.env.PRETTIER_PLUGIN_ELM_CACHE_GC_INTERVAL
   : 1000 * 60;
 
 /* istanbul ignore next */
-const noop = () => {};
+const noop = () => {
+  //
+};
 
-export const getCachedValue = (fn, args) => {
-  const cacheKey = objectHash(args);
+export const getCachedValue = <Args extends any[], Result>(
+  fn: (...args: Args) => Result,
+  args: Args,
+  extraCacheKeyFactors?: any[],
+): Result => {
+  const cacheKey = objectHash({ args, extraCacheKeyFactors });
   const recordFilePath = resolve(cacheDir, `${cacheKey}.json`);
-  let record;
+  let record:
+    | { value: Result; error?: undefined }
+    | { error: ErrorObject; value?: undefined };
   let recordIsFromCache = false;
 
   // load value or error from cache
@@ -34,13 +42,13 @@ export const getCachedValue = (fn, args) => {
     // a failure to load from cache implies calling fn
     try {
       record = {
-        value: fn.apply(null, args)
+        value: fn.apply(null, args),
       };
     } catch (fnError) {
       const serializedError = serializeError(fnError);
       delete serializedError.stack;
       record = {
-        error: serializedError
+        error: serializedError,
       };
     }
   }
@@ -67,7 +75,7 @@ export const getCachedValue = (fn, args) => {
     for (const errorProperty in record.error) {
       /* istanbul ignore else */
       if (record.error.hasOwnProperty(errorProperty)) {
-        errorToThrow[errorProperty] = record.error.property;
+        (errorToThrow as any)[errorProperty] = record.error.property;
       }
     }
     throw errorToThrow;
@@ -75,6 +83,11 @@ export const getCachedValue = (fn, args) => {
     return record.value;
   }
 };
+
+interface RecordInfo {
+  path: string;
+  touchedAt: number;
+}
 
 function collectGarbageIfNeeded() {
   const pathToGCTouchfile = resolve(cacheDir, `gc.touchfile`);
@@ -90,15 +103,15 @@ function collectGarbageIfNeeded() {
   }
 
   fs.writeFileSync(pathToGCTouchfile, "");
-  const recordInfos = [];
-  fs.readdirSync(cacheDir).map(recordFileName => {
+  const recordInfos: RecordInfo[] = [];
+  fs.readdirSync(cacheDir).map((recordFileName) => {
     if (!recordFileName.endsWith(".json")) {
       return;
     }
     const recordFilePath = resolve(cacheDir, recordFileName);
     const recordInfo = {
       path: recordFilePath,
-      touchedAt: 0
+      touchedAt: 0,
     };
     try {
       recordInfo.touchedAt = fs.statSync(`${recordFilePath}.touchfile`).mtimeMs;
@@ -119,7 +132,7 @@ function collectGarbageIfNeeded() {
   });
   const recordInfosToDelete = recordInfos.slice(cacheMax);
 
-  recordInfosToDelete.forEach(recordInfo => {
+  recordInfosToDelete.forEach((recordInfo) => {
     // files are deleted asynchronously and possible errors are ignored
     fs.unlink(recordInfo.path, noop);
     fs.unlink(`${recordInfo.path}.touchfile`, noop);

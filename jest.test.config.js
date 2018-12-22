@@ -3,5 +3,5 @@
 module.exports = {
   collectCoverage: true,
   collectCoverageFrom: ["src/**/*.js", "!<rootDir>/node_modules/"],
-  testMatch: ["**/?(*.)(spec|test).(j|t)s?(x)"]
+  testMatch: ["**/?(*.)(spec|test).(j|t)s?(x)"],
 };
