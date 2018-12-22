@@ -6,9 +6,9 @@ const prettier = require("prettier");
 const rimraf = require("rimraf");
 const sleep = require("sleep-promise");
 
-const util = require("../src/util");
+const util = require("./util");
 
-const fixturesDirName = path.resolve(__dirname, "fixtures");
+const fixturesDir = path.resolve(__dirname, "../fixtures");
 const cacheDir = path.resolve(__dirname, "../cache");
 const cacheMax = 21; // number of blocks in multiple-blocks.md fixture
 const cacheGCInterval = 1000;
@@ -25,11 +25,11 @@ test(`correctly deals with cache`, () => {
   );
 
   const sourceText = fs.readFileSync(
-    path.resolve(fixturesDirName, "multiple-blocks.md"),
+    path.resolve(fixturesDir, "multiple-blocks.md"),
     "utf8"
   );
   const expectedFormattedText = fs.readFileSync(
-    path.resolve(fixturesDirName, "multiple-blocks.prettified.md"),
+    path.resolve(fixturesDir, "multiple-blocks.prettified.md"),
     "utf8"
   );
 

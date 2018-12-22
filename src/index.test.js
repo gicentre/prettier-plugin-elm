@@ -6,8 +6,8 @@ const prettier = require("prettier");
 const tempDir = require("temp-dir");
 const rimraf = require("rimraf");
 
-const fixturesDirName = path.resolve(__dirname, "fixtures");
-const files = fs.readdirSync(fixturesDirName);
+const fixturesDir = path.resolve(__dirname, "../fixtures");
+const files = fs.readdirSync(fixturesDir);
 
 beforeAll(() => {
   rimraf.sync(path.resolve(tempDir, "prettier-plugin-elm"));
@@ -26,8 +26,8 @@ files.forEach(sourceFileName => {
       /(\.[a-z]+)$/,
       ".prettified$1"
     );
-    const sourceFilePath = path.resolve(fixturesDirName, sourceFileName);
-    const formattedFilePath = path.resolve(fixturesDirName, formattedFileName);
+    const sourceFilePath = path.resolve(fixturesDir, sourceFileName);
+    const formattedFilePath = path.resolve(fixturesDir, formattedFileName);
     const formattedFileExists = fs.existsSync(formattedFilePath);
 
     const sourceText = fs.readFileSync(sourceFilePath, "utf8");
