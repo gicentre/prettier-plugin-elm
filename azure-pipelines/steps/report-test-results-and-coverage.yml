@@ -1,0 +1,20 @@
+steps:
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFormat: JUnit
+      testResultsFiles: $(System.DefaultWorkingDirectory)/junit.xml
+    displayName: "Publish test results"
+    condition: and(variables.REPORT_TEST_RESULTS_AND_COVERAGE, succeededOrFailed())
+  - task: PublishCodeCoverageResults@1
+    inputs:
+      codeCoverageTool: Cobertura
+      summaryFileLocation: $(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml
+    displayName: "Publish test coverage"
+    condition: and(variables.REPORT_TEST_RESULTS_AND_COVERAGE, succeededOrFailed())
+  - task: mspremier.BuildQualityChecks.QualityChecks-task.BuildQualityChecks@5
+    displayName: "Check against test coverage regressions"
+    inputs:
+      checkCoverage: true
+      coverageType: lines
+      coverageDeltaType: percentage
+    condition: and(variables.REPORT_TEST_RESULTS_AND_COVERAGE, succeededOrFailed())
