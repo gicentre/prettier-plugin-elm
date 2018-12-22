@@ -11,3 +11,10 @@ steps:
       summaryFileLocation: $(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml
     displayName: "Publish coverage"
     condition: and(variables.REPORT_TEST_RESULTS_AND_COVERAGE, succeededOrFailed())
+  - task: mspremier.BuildQualityChecks.QualityChecks-task.BuildQualityChecks@5
+    displayName: "Check build quality"
+    inputs:
+      checkCoverage: true
+      coverageType: lines
+      coverageDeltaType: percentage
+    condition: succeededOrFailed()
