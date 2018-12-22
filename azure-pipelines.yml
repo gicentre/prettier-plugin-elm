@@ -23,7 +23,7 @@ jobs:
   - job: Test_macOS
     displayName: Test on macOS Node v10
     pool:
-      vmImage: macos-10.13
+      vmImage: macos-10.14
     variables:
       NODE_VERSION: 10
     steps:
