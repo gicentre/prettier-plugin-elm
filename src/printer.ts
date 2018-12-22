@@ -1,5 +1,3 @@
-"use strict";
-
 function genericPrint(path) {
   const node = path.getValue();
 

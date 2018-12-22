@@ -1,5 +1,3 @@
-"use strict";
-
 const pkg = require("../package.json");
 const { getCachedValue } = require("./cache");
 const { formatTextWithElmFormat, getElmFormatVersion } = require("./util");

@@ -1,5 +1,3 @@
-"use strict";
-
 const execa = require("execa");
 
 let cachedElmFormatVersion;

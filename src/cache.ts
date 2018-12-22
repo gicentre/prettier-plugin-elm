@@ -1,5 +1,3 @@
-"use strict";
-
 const fs = require("fs");
 const makeDir = require("make-dir");
 const objectHash = require("object-hash");

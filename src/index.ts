@@ -1,5 +1,3 @@
-"use strict";
-
 const parse = require("./parser");
 const print = require("./printer");
 
