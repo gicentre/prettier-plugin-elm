@@ -1,3 +1,15 @@
+## 0.4.2 (2018-12-22)
+
+- Refactor the plugin using TypeScript and thus possibly improve stability in a couple of rare edge cases ([#8](https://github.com/gicentre/prettier-plugin-elm/issues/8))
+
+- Set up Azure Pipelines, remove Travis, AppVeyor and Code Climate integrations ([e518299c](https://github.com/gicentre/prettier-plugin-elm/commit/e518299c4114a4251f71ead87ed49eeb60c5f79c), [#9](https://github.com/gicentre/prettier-plugin-elm/issues/9), [0e68c6eb](https://github.com/gicentre/prettier-plugin-elm/commit/0e68c6eb674b7da999351cc734e8dd545be67013))
+
+- Remove `prettier` from `peerDependencies` to fix a warning when installing the plugin globally ([0aea2ea6](https://github.com/gicentre/prettier-plugin-elm/commit/0aea2ea6b6c17d02100ea2a71b430deea1247cfd), [ff1411f9](https://github.com/gicentre/prettier-plugin-elm/commit/ff1411f952a4edb319d043f7aa3af59bb1875117))
+
+- Upgrade dependencies ([a36e0017](https://github.com/gicentre/prettier-plugin-elm/commit/a36e0017f9759bf667c2a88b4e4dedb38f684806))
+
+- Reflect recent changes in README.md ([be2676b7](https://github.com/gicentre/prettier-plugin-elm/commit/be2676b7ba54856e35e4a32b89bb7975623c7d24))
+
 ## 0.4.1 (2018-10-14)
 
 - Fix exception in `getElmFormatVersion()` when no global `elm-format` is installed ([#6](https://github.com/gicentre/prettier-plugin-elm/issues/6))

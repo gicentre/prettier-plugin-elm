@@ -1,6 +1,6 @@
 {
   "name": "prettier-plugin-elm",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "license": "BSD-3-Clause",
   "repository": "https://github.com/gicentre/prettier-plugin-elm",
   "description": "Adds Elm language support to Prettier via elm-format",
@@ -18,7 +18,8 @@
     "elm-format",
     "gicentre",
     "prettier",
-    "prettier-plugin"
+    "prettier-plugin",
+    "typescript"
   ],
   "husky": {
     "hooks": {
