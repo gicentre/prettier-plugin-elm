@@ -7,8 +7,8 @@
   "scripts": {
     "build": "tsc --project .",
     "clean": "rimraf cache coverage dist",
-    "format": "prettier --write {*,src/**/*}.{md,js,json,ts}",
-    "lint": "tsc --project . --noEmit && tslint --project . && prettier --check {*,src/**/*}.{md,js,json,ts}",
+    "format": "prettier --write {*,{azure-pipelines,src}/**/*}.{md,js,json,ts,yml}",
+    "lint": "tsc --project . --noEmit && tslint --project . && prettier --check {*,{azure-pipelines,src}/**/*}.{md,js,json,ts,yml}",
     "test": "yarn clean && yarn build && jest",
     "prepublishOnly": "yarn lint && yarn test"
   },
