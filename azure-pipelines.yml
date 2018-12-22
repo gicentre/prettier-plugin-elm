@@ -32,8 +32,10 @@ jobs:
     displayName: Test on macOS
     pool:
       vmImage: macos-10.13
-    variables:
-      NODE_VERSION: 10
+    strategy:
+      matrix:
+        (Node 10):
+          NODE_VERSION: 10
     steps:
       - template: azure-pipelines/jobs/test.yml
 
