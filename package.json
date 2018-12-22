@@ -18,10 +18,10 @@
   "scripts": {
     "clean:coverage": "rimraf coverage",
     "clean:test": "rimraf cache",
-    "lint": "jest -c jest.eslint.config.js && prettier-check {*,src/**/*,test/*}.{md,js}",
+    "lint": "jest -c jest.eslint.config.js && prettier --check {*,src/**/*,test/*}.{md,js}",
     "test": "jest -c jest.test.config.js --no-coverage",
     "test:coverage": "jest -c jest.test.config.js",
-    "format": "prettier --write --plugin=. {*,src/**,test/**}.{md,js}",
+    "format": "prettier --write {*,src/**,test/**}.{md,js}",
     "prepublishOnly": "yarn lint && yarn test"
   },
   "devDependencies": {
@@ -32,8 +32,7 @@
     "eslint-plugin-prettier": "^3.0.0",
     "jest": "^23.6.0",
     "jest-runner-eslint": "^0.6.0",
-    "prettier": "^1.14.3",
-    "prettier-check": "^2.0.0",
+    "prettier": "prettier/prettier#439b1649ff9298b56b4f5e68214de6c2b29c6f26",
     "rimraf": "^2.6.2",
     "sleep-promise": "^8.0.1"
   },
