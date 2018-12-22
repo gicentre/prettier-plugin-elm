@@ -15,14 +15,14 @@
   <a href="https://www.npmjs.com/package/prettier-plugin-elm">
     <img alt="NPM package" src="https://img.shields.io/npm/v/prettier-plugin-elm.svg?style=flat-square"><!--
   --></a>
-  <a href="https://travis-ci.org/gicentre/prettier-plugin-elm">
-    <img alt="Travis" src="https://img.shields.io/travis/gicentre/prettier-plugin-elm/master.svg?style=flat-square&amp;label=Travis"><!--
+  <a href="https://gicentre.visualstudio.com/github-pipelines/_build?definitionId=2">
+    <img alt="Azure DevOps build" src="https://img.shields.io/azure-devops/build/gicentre/github-pipelines/2/master.svg?style=flat-square"><!--
   --></a>
-  <a href="https://travis-ci.org/gicentre/prettier-plugin-elm">
-    <img alt="AppVeyor" src="https://img.shields.io/appveyor/ci/kachkaev/prettier-plugin-elm/master.svg?style=flat-square&amp;label=AppVeyor"><!--
+  <a href="https://gicentre.visualstudio.com/github-pipelines/_build?definitionId=2">
+    <img alt="Azure DevOps tests" src="https://img.shields.io/azure-devops/tests/gicentre/github-pipelines/2/master.svg?style=flat-square"><!--
   --></a>
-  <a href="https://codeclimate.com/github/gicentre/prettier-plugin-elm">
-    <img alt="test coverage" src="https://img.shields.io/codeclimate/coverage/github/gicentre/prettier-plugin-elm.svg?style=flat-square"><!--
+  <a href="https://gicentre.visualstudio.com/github-pipelines/_build?definitionId=2">
+    <img alt="Azure DevOps coverage" src="https://img.shields.io/azure-devops/coverage/gicentre/github-pipelines/2/master.svg?style=flat-square"><!--
   --></a>
   <!-- <a href="https://www.npmjs.com/package/prettier-plugin-elm">
     <img alt="monthly downloads" src="https://img.shields.io/npm/dm/prettier-plugin-elm.svg?style=flat-square"><!--
