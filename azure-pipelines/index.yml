@@ -11,7 +11,7 @@ jobs:
         (Node 10):
           NODE_VERSION: 10
     steps:
-      - template: azure-pipelines/jobs/lint.yml
+      - template: jobs/lint.yml
 
   - job: Test_Linux
     displayName: Test on Linux
@@ -25,8 +25,9 @@ jobs:
           NODE_VERSION: 8
         (Node 10):
           NODE_VERSION: 10
+          REPORT_TEST_RESULTS_AND_COVERAGE: true
     steps:
-      - template: azure-pipelines/jobs/test.yml
+      - template: jobs/test.yml
 
   - job: Test_macOS
     displayName: Test on macOS
@@ -37,7 +38,7 @@ jobs:
         (Node 10):
           NODE_VERSION: 10
     steps:
-      - template: azure-pipelines/jobs/test.yml
+      - template: jobs/test.yml
 
   - job: Test_Windows
     displayName: Test on Windows
@@ -48,4 +49,4 @@ jobs:
         (Node 10):
           NODE_VERSION: 10
     steps:
-      - template: azure-pipelines/jobs/test.yml
+      - template: jobs/test.yml
