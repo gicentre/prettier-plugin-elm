@@ -15,13 +15,14 @@ jobs:
     displayName: Test on Linux
     pool:
       vmImage: "Ubuntu 16.04"
-    matrix:
-      node6:
-        NODE_VERSION: 6
-      node8:
-        NODE_VERSION: 8
-      node10:
-        NODE_VERSION: 10
+    strategy:
+      matrix:
+        node6:
+          NODE_VERSION: 6
+        node8:
+          NODE_VERSION: 8
+        node10:
+          NODE_VERSION: 10
     steps:
       - template: azure-pipelines/jobs/test.yml
 
