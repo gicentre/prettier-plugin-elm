@@ -1,13 +1,18 @@
 {
   "name": "prettier-plugin-elm",
   "version": "0.4.1",
-  "main": "src",
+  "license": "BSD-3-Clause",
   "repository": "https://github.com/gicentre/prettier-plugin-elm",
   "description": "Adds Elm language support to Prettier via elm-format",
-  "license": "BSD-3-Clause",
-  "files": [
-    "src"
-  ],
+  "scripts": {
+    "build": "tsc --project .",
+    "clean": "rimraf cache coverage dist",
+    "format": "prettier --write {*,src/**/*}.{md,js,json,ts}",
+    "lint": "tsc --project . --noEmit && tslint --project . && prettier --check {*,src/**/*}.{md,js,json,ts}",
+    "test": "yarn clean && yarn build && jest",
+    "prepublishOnly": "yarn lint && yarn test"
+  },
+  "main": "dist",
   "keywords": [
     "elm",
     "elm-format",
@@ -15,27 +20,10 @@
     "prettier",
     "prettier-plugin"
   ],
-  "scripts": {
-    "clean:coverage": "rimraf coverage",
-    "clean:test": "rimraf cache",
-    "lint": "jest -c jest.eslint.config.js && prettier-check {*,src/**/*,test/*}.{md,js}",
-    "test": "jest -c jest.test.config.js --no-coverage",
-    "test:coverage": "jest -c jest.test.config.js",
-    "format": "prettier --write --plugin=. {*,src/**,test/**}.{md,js}",
-    "prepublishOnly": "yarn lint && yarn test"
-  },
-  "devDependencies": {
-    "eslint": "^5.7.0",
-    "eslint-config-prettier": "^3.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jest": "^21.24.1",
-    "eslint-plugin-prettier": "^3.0.0",
-    "jest": "^23.6.0",
-    "jest-runner-eslint": "^0.6.0",
-    "prettier": "^1.14.3",
-    "prettier-check": "^2.0.0",
-    "rimraf": "^2.6.2",
-    "sleep-promise": "^8.0.1"
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn lint"
+    }
   },
   "dependencies": {
     "elm-format": "^0.8.1",
@@ -45,13 +33,21 @@
     "serialize-error": "^3.0.0",
     "temp-dir": "^1.0.0"
   },
-  "prettier": {},
-  "eslintIgnore": [
-    "coverage"
-  ],
-  "husky": {
-    "hooks": {
-      "pre-push": "yarn lint"
-    }
+  "devDependencies": {
+    "@types/execa": "^0.9.0",
+    "@types/jest": "^23.3.10",
+    "@types/make-dir": "^1.0.3",
+    "@types/object-hash": "^1.2.0",
+    "@types/prettier": "^1.15.2",
+    "@types/rimraf": "^2.0.2",
+    "@types/serialize-error": "^2.1.0",
+    "@types/temp-dir": "^1.0.0",
+    "jest": "^23.6.0",
+    "prettier": "prettier/prettier#439b1649ff9298b56b4f5e68214de6c2b29c6f26",
+    "rimraf": "^2.6.2",
+    "sleep-promise": "^8.0.1",
+    "tslint": "^5.12.0",
+    "tslint-config-prettier": "^1.17.0",
+    "typescript": "^3.2.2"
   }
 }

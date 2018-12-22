@@ -1,6 +1,6 @@
-"use strict";
+import { FastPath } from "prettier";
 
-function genericPrint(path) {
+export const print = (path: FastPath) => {
   const node = path.getValue();
 
   switch (node.ast_type) {
@@ -10,13 +10,13 @@ function genericPrint(path) {
     /* istanbul ignore next */
     default:
       if (process.env.NODE_ENV === "test") {
-        throw "Unknown Elm node: " +
-          JSON.stringify(node, null /*replacer*/, 4 /*space*/);
+        throw new Error(
+          "Unknown Elm node: " +
+            JSON.stringify(node, null /*replacer*/, 4 /*space*/),
+        );
       }
-      // eslint-disable-next-line no-console
+      // tslint:disable-next-line:no-console
       console.error("Unknown Elm node:", node);
       return node.source;
   }
-}
-
-module.exports = genericPrint;
+};

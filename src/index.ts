@@ -1,9 +1,9 @@
-"use strict";
+import { parse } from "./parser";
+import { print } from "./printer";
 
-const parse = require("./parser");
-const print = require("./printer");
+export const defaultOptions = {};
 
-const languages = [
+export const languages = [
   {
     name: "Elm",
     parsers: ["elm"],
@@ -12,33 +12,26 @@ const languages = [
     tmScope: "source.elm",
     aceMode: "text",
     linguistLanguageId: 101,
-    vscodeLanguageIds: ["elm"]
-  }
+    vscodeLanguageIds: ["elm"],
+  },
 ];
 
-const parsers = {
+export const parsers = {
   elm: {
     parse,
     astFormat: "elm-format",
     // there's only a single node
-    locStart(node) {
+    locStart(node: any) {
       return node.start;
     },
-    locEnd(node) {
+    locEnd(node: any) {
       return node.end;
-    }
-  }
+    },
+  },
 };
 
-const printers = {
+export const printers = {
   "elm-format": {
-    print
-  }
-};
-
-module.exports = {
-  languages,
-  printers,
-  parsers,
-  defaultOptions: {}
+    print,
+  },
 };
