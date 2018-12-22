@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "moduleResolution": "node",
+    "strict": true,
+    "sourceMap": true,
+    "lib": ["es2016"]
+  },
+  "include": ["src/**/*"]
+}
