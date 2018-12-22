@@ -13,7 +13,6 @@ function genericPrint(path) {
         throw "Unknown Elm node: " +
           JSON.stringify(node, null /*replacer*/, 4 /*space*/);
       }
-      // eslint-disable-next-line no-console
       console.error("Unknown Elm node:", node);
       return node.source;
   }

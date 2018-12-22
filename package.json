@@ -18,20 +18,14 @@
   "scripts": {
     "clean:coverage": "rimraf coverage",
     "clean:test": "rimraf cache",
-    "lint": "jest -c jest.eslint.config.js && prettier --check {*,src/**/*,test/*}.{md,js}",
+    "lint": "prettier --check {*,src/**/*,test/*}.{md,js}",
     "test": "jest -c jest.test.config.js --no-coverage",
     "test:coverage": "jest -c jest.test.config.js",
     "format": "prettier --write {*,src/**,test/**}.{md,js}",
     "prepublishOnly": "yarn lint && yarn test"
   },
   "devDependencies": {
-    "eslint": "^5.7.0",
-    "eslint-config-prettier": "^3.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jest": "^21.24.1",
-    "eslint-plugin-prettier": "^3.0.0",
     "jest": "^23.6.0",
-    "jest-runner-eslint": "^0.6.0",
     "prettier": "prettier/prettier#439b1649ff9298b56b4f5e68214de6c2b29c6f26",
     "rimraf": "^2.6.2",
     "sleep-promise": "^8.0.1"
@@ -45,9 +39,6 @@
     "temp-dir": "^1.0.0"
   },
   "prettier": {},
-  "eslintIgnore": [
-    "coverage"
-  ],
   "husky": {
     "hooks": {
       "pre-push": "yarn lint"
