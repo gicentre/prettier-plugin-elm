@@ -8,6 +8,6 @@ module.exports = {
   collectCoverageFrom: ["dist/**/*.js", "!dist/**/*.test.js"],
   coverageReporters: ["cobertura", "html", "text"],
   reporters: REPORT_TEST_RESULTS_AND_COVERAGE
-    ? ["default", "jest-junit"]
+    ? ["default", ["jest-junit", { suiteNameTemplate: "{filepath}" }]]
     : ["default"],
 };
