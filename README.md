@@ -15,13 +15,13 @@
   <a href="https://www.npmjs.com/package/prettier-plugin-elm">
     <img alt="NPM package" src="https://img.shields.io/npm/v/prettier-plugin-elm.svg?style=flat-square"><!--
   --></a>
-  <a href="https://gicentre.visualstudio.com/github-pipelines/_build?definitionId=2">
+  <a href="https://dev.azure.com/gicentre/github-pipelines/_build?definitionId=2">
     <img alt="Azure Pipelines build" src="https://img.shields.io/azure-devops/build/gicentre/github-pipelines/2/master.svg?style=flat-square"><!--
   --></a>
-  <a href="https://gicentre.visualstudio.com/github-pipelines/_build?definitionId=2">
+  <a href="https://dev.azure.com/gicentre/github-pipelines/_build?definitionId=2">
     <img alt="Azure Pipelines tests" src="https://img.shields.io/azure-devops/tests/gicentre/github-pipelines/2/master.svg?style=flat-square"><!--
   --></a>
-  <a href="https://gicentre.visualstudio.com/github-pipelines/_build?definitionId=2">
+  <a href="https://dev.azure.com/gicentre/github-pipelines/_build?definitionId=2">
     <img alt="Azure Pipelines coverage" src="https://img.shields.io/azure-devops/coverage/gicentre/github-pipelines/2/master.svg?style=flat-square"><!--
   --></a>
   <a href="https://www.npmjs.com/package/prettier-plugin-elm">
