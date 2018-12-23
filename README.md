@@ -24,9 +24,9 @@
   <a href="https://gicentre.visualstudio.com/github-pipelines/_build?definitionId=2">
     <img alt="Azure Pipelines coverage" src="https://img.shields.io/azure-devops/coverage/gicentre/github-pipelines/2/master.svg?style=flat-square"><!--
   --></a>
-  <!-- <a href="https://www.npmjs.com/package/prettier-plugin-elm">
-    <img alt="monthly downloads" src="https://img.shields.io/npm/dm/prettier-plugin-elm.svg?style=flat-square"><!--
-   -></a> -->
+  <a href="https://www.npmjs.com/package/prettier-plugin-elm">
+    <img alt="downloads" src="https://img.shields.io/npm/dt/prettier-plugin-elm.svg?style=flat-square"><!--
+   --></a>
   <a href="#badge">
     <img alt="code style: Prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"><!--
   --></a>
