@@ -45,7 +45,7 @@
     "@types/temp-dir": "^1.0.0",
     "jest": "^23.6.0",
     "jest-junit": "^5.2.0",
-    "prettier": "prettier/prettier#439b1649ff9298b56b4f5e68214de6c2b29c6f26",
+    "prettier": "^1.18.2",
     "rimraf": "^2.6.2",
     "sleep-promise": "^8.0.1",
     "tslint": "^5.12.0",
