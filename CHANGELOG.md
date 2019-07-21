@@ -1,3 +1,9 @@
+## 0.5.0 (2019-07-21)
+
+- Upgrade dependencies
+
+- Drop Node 6 support due to its end of life on 2019-04-30
+
 ## 0.4.2 (2018-12-22)
 
 - Refactor the plugin using TypeScript and thus possibly improve stability in a couple of rare edge cases ([#8](https://github.com/gicentre/prettier-plugin-elm/issues/8))
