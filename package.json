@@ -28,28 +28,24 @@
   },
   "dependencies": {
     "elm-format": "^0.8.1",
-    "execa": "^1.0.0",
-    "make-dir": "^1.3.0",
+    "execa": "^2.0.3",
+    "make-dir": "^3.0.0",
     "object-hash": "^1.3.1",
-    "serialize-error": "^3.0.0",
-    "temp-dir": "^1.0.0"
+    "serialize-error": "^4.1.0",
+    "temp-dir": "^2.0.0"
   },
   "devDependencies": {
-    "@types/execa": "^0.9.0",
-    "@types/jest": "^23.3.10",
-    "@types/make-dir": "^1.0.3",
-    "@types/object-hash": "^1.2.0",
-    "@types/prettier": "^1.15.2",
+    "@types/jest": "^24.0.15",
+    "@types/object-hash": "^1.3.0",
+    "@types/prettier": "^1.18.0",
     "@types/rimraf": "^2.0.2",
-    "@types/serialize-error": "^2.1.0",
-    "@types/temp-dir": "^1.0.0",
-    "jest": "^23.6.0",
-    "jest-junit": "^5.2.0",
+    "jest": "^24.8.0",
+    "jest-junit": "^6.4.0",
     "prettier": "^1.18.2",
-    "rimraf": "^2.6.2",
+    "rimraf": "^2.6.3",
     "sleep-promise": "^8.0.1",
-    "tslint": "^5.12.0",
-    "tslint-config-prettier": "^1.17.0",
-    "typescript": "^3.2.2"
+    "tslint": "^5.18.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.5.3"
   }
 }

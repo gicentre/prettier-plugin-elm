@@ -1,4 +1,4 @@
-import * as execa from "execa";
+import execa from "execa";
 
 let cachedElmFormatVersion: string;
 export const getElmFormatVersion = () => {
@@ -21,6 +21,6 @@ export const formatTextWithElmFormat = (text: string): string => {
     input: text,
     preferLocal: true,
     localDir: __dirname,
-    stripEof: false,
+    stripFinalNewline: false,
   }).stdout;
 };

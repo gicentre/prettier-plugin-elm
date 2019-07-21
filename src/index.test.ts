@@ -1,8 +1,8 @@
-import * as fs from "fs";
-import * as path from "path";
-import * as prettier from "prettier";
-import * as rimraf from "rimraf";
-import * as tempDir from "temp-dir";
+import fs from "fs";
+import path from "path";
+import prettier from "prettier";
+import rimraf from "rimraf";
+import tempDir from "temp-dir";
 
 const fixturesDir = path.resolve(__dirname, "../fixtures");
 const files = fs.readdirSync(fixturesDir);

@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
+    "esModuleInterop": true,
     "inlineSourceMap": true,
     "lib": ["es2016"],
-    "outDir": "dist",
     "moduleResolution": "node",
+    "outDir": "dist",
     "rootDir": "src",
     "strict": true
   },

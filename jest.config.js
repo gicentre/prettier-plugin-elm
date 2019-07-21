@@ -10,4 +10,5 @@ module.exports = {
   reporters: REPORT_TEST_RESULTS_AND_COVERAGE
     ? ["default", ["jest-junit", { suiteNameTemplate: "{filepath}" }]]
     : ["default"],
+  testRegex: ".test.js$",
 };
