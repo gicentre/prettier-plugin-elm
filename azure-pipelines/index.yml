@@ -19,13 +19,13 @@ jobs:
       vmImage: "Ubuntu 16.04"
     strategy:
       matrix:
-        (Node 8):
-          NODE_VERSION: 8
         (Node 10):
           NODE_VERSION: 10
         (Node 12 + test results & coverage):
           NODE_VERSION: 12
           REPORT_TEST_RESULTS_AND_COVERAGE: true
+        (Node 13):
+          NODE_VERSION: 13
     steps:
       - template: jobs/test.yml
 
