@@ -1,8 +1,16 @@
-## 0.5.0 (2019-07-21)
+## 0.6.0 (2020-01-13)
+
+- **[breaking change]** Drop Node 8 support due to its end of life on 2019-12-31
 
 - Upgrade dependencies
 
-- Drop Node 6 support due to its end of life on 2019-04-30
+- Pin `elm-format` dependency to `0.8.2` instead of relying on `^0.8.2` (this can improve predictability of the plugin behaviour in future)
+
+## 0.5.0 (2019-07-21)
+
+- **[breaking change]** Drop Node 6 support due to its end of life on 2019-04-30
+
+- Upgrade dependencies
 
 ## 0.4.2 (2018-12-22)
 
