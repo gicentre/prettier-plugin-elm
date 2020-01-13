@@ -2,7 +2,7 @@ import fs from "fs";
 import makeDir from "make-dir";
 import objectHash from "object-hash";
 import { resolve } from "path";
-import serializeError from "serialize-error";
+import { serializeError } from "serialize-error";
 import { ErrorObject } from "serialize-error";
 import tempDir from "temp-dir";
 
