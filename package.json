@@ -16,12 +16,14 @@
   "scripts": {
     "build": "tsc --project .",
     "clean": "rimraf cache coverage dist",
-    "fix": "yarn fix:prettier",
+    "fix": "yarn fix:prettier; yarn fix:yarn-deduplicate",
     "fix:prettier": "prettier --write .",
-    "lint": "yarn lint:prettier && yarn lint:tsc && yarn lint:tslint",
+    "fix:yarn-deduplicate": "yarn install && yarn-deduplicate --strategy=fewer && yarn install",
+    "lint": "yarn lint:prettier && yarn lint:tsc && yarn lint:tslint && yarn lint:yarn-deduplicate",
     "lint:prettier": "prettier --check .",
     "lint:tsc": "tsc --project .",
     "lint:tslint": "tslint --project .",
+    "lint:yarn-deduplicate": "yarn-deduplicate --fail --list --strategy=fewer",
     "prepublishOnly": "yarn lint && yarn test",
     "test": "yarn clean && yarn build && jest"
   },
@@ -51,6 +53,7 @@
     "sleep-promise": "^8.0.1",
     "tslint": "^6.1.0",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "yarn-deduplicate": "^2.0.0"
   }
 }
