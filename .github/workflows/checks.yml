@@ -3,7 +3,25 @@ name: Checks
 on: [push]
 
 jobs:
-  linting:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Run build
+        run: yarn build
+
+  lint:
     name: Linting
     runs-on: ubuntu-latest
     steps:
