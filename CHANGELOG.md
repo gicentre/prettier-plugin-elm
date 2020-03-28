@@ -1,3 +1,13 @@
+## 0.7.0 (2020-03-28)
+
+- Pin `elm-format` to `0.8.3`
+
+- Use Prettier v2 in CI (v1 should be still supported)
+
+- Upgrade dependencies
+
+- Switch to Github Actions (drop Azure DepOps CI/CD)
+
 ## 0.6.0 (2020-01-13)
 
 - **[breaking change]** Drop Node 8 support due to its end of life on 2019-12-31

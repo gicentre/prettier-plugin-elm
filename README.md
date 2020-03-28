@@ -15,7 +15,7 @@
   <a href="https://www.npmjs.com/package/prettier-plugin-elm">
     <img alt="NPM package" src="https://img.shields.io/npm/v/prettier-plugin-elm.svg?style=flat-square"><!--
   --></a>
-  <a href="https://github.com/gicentre/prettier-plugin-elm/actions?query=workflow%checks">
+  <a href="https://github.com/gicentre/prettier-plugin-elm/actions?query=workflow%3AChecks">
     <img alt="GitHub Workflow Status (unit tests)" src="https://img.shields.io/github/workflow/status/gicentre/prettier-plugin-elm/checks?label=checks&style=flat-square"><!--
   --></a>
   <a href="https://codecov.io/gh/gicentre/prettier-plugin-elm">
@@ -31,10 +31,6 @@
     <img alt="giCentre on Twitter" src="https://img.shields.io/twitter/follow/giCentre.svg?label=follow+giCentre&style=flat-square"><!--
   --></a>
 </p>
-
-Please note that the [plugin ecosystem in Prettier](https://prettier.io/docs/en/plugins.html) is still beta, which may make <nobr>`prettier-plugin-elm`</nobr> not ready for production use yet.
-
----
 
 This plugin integrates [`elm-format`](https://github.com/avh4/elm-format) into [Prettier](https://github.com/prettier/prettier), thus providing you with a universal cross-language interface to code formatting.
 In addition to dealing with `.elm` files via Prettier API, this plugin lets you format Elm code blocks inside markdown files. For example
