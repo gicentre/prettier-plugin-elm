@@ -15,14 +15,11 @@
   <a href="https://www.npmjs.com/package/prettier-plugin-elm">
     <img alt="NPM package" src="https://img.shields.io/npm/v/prettier-plugin-elm.svg?style=flat-square"><!--
   --></a>
-  <a href="https://github.com/prettier/prettier/actions?query=workflow%3Alinting">
-    <img alt="GitHub Workflow Status (linting)" src="https://img.shields.io/github/workflow/status/gicentre/prettier-plugin-elm/linting?label=linting&style=flat-square"><!--
-  --></a>
-  <a href="https://github.com/prettier/prettier/actions?query=workflow%3Aunit-tests">
-    <img alt="GitHub Workflow Status (unit tests)" src="https://img.shields.io/github/workflow/status/gicentre/prettier-plugin-elm/unit-tests?label=unit%20tests&style=flat-square"><!--
+  <a href="https://github.com/gicentre/prettier-plugin-elm/actions?query=workflow%checks">
+    <img alt="GitHub Workflow Status (unit tests)" src="https://img.shields.io/github/workflow/status/gicentre/prettier-plugin-elm/checks?label=checks&style=flat-square"><!--
   --></a>
   <a href="https://codecov.io/gh/gicentre/prettier-plugin-elm">
-    <img alt="Codecov" src="https://img.shields.io/codecov/c/github/gicnetre/prettier-plugin-elm?style=flat-square&token=38aa3a14f00b4d3cbb8e39a9d69e6c64"><!--
+    <img alt="Codecov" src="https://img.shields.io/codecov/c/github/gicentre/prettier-plugin-elm?style=flat-square&token=38aa3a14f00b4d3cbb8e39a9d69e6c64"><!--
   --></a>
   <a href="https://www.npmjs.com/package/prettier-plugin-elm">
     <img alt="downloads" src="https://img.shields.io/npm/dt/prettier-plugin-elm.svg?style=flat-square"><!--
