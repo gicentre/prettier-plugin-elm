@@ -1,0 +1,45 @@
+on: [push]
+
+jobs:
+  linting:
+    name: Unit tests
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+        node: [10, 12, 13]
+        include:
+          - os: ubuntu-latest
+            node: 12
+            coverage: 1
+        exclude:
+          - os: macos-latest
+            node: 10
+          - os: macos-latest
+            node: 13
+          - os: windows-latest
+            node: 10
+          - os: windows-latest
+            node: 13
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Run unit tests
+        run: yarn test
+        env:
+          REPORT_TEST_RESULTS_AND_COVERAGE: ${{ matrix.coverage }}
+
+      - name: Report code coverage to codecov.io
+        uses: codecov/codecov-action@v1
+        if: matrix.coverage == 1
+        with:
+          file: ./coverage/cobertura-coverage.xml
