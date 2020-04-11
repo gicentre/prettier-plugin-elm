@@ -32,8 +32,10 @@
   --></a>
 </p>
 
-This plugin integrates [`elm-format`](https://github.com/avh4/elm-format) into [Prettier](https://github.com/prettier/prettier), thus providing you with a universal cross-language interface to code formatting.
-In addition to dealing with `.elm` files via Prettier API, this plugin lets you format Elm code blocks inside markdown files. For example
+This plugin integrates [`elm-format`](https://github.com/avh4/elm-format) into [Prettier](https://github.com/prettier/prettier).
+In addition to dealing with `.elm` files via Prettier API, this plugin lets you format Elm code blocks inside markdown documents.
+
+For example,
 
 <!-- prettier-ignore -->
 ````markdown
@@ -45,7 +47,7 @@ main = text      "Hello, World!"
 ```
 ````
 
-becomes
+becomes:
 
 ````markdown
 # Hello world in Elm
@@ -77,92 +79,163 @@ main =
 ```
 ````
 
-In order to successfully format Elm code in markdown blocks, `prettier-plugin-elm` assumes your Elm version is 0.19.
-If you use Elm 0.18, please install `prettier-plugin-elm@0.3`.
+The latest version of `prettier-plugin-elm` assumes that you are using Elm 0.19.
+For compatibility with Elm 0.18, please install `prettier-plugin-elm@0.3`.
 
 ## Getting started
 
-Simply install `prettier` and `prettier-plugin-elm` as your project’s npm dependencies:
+The instructions assume that you have already installed Node.js on your machine.
+To check its presence, open the terminal and type these two commands:
 
-```bash
-cd /path/to/project
+```sh
+node --version
+## ≥ 12.15
 
-## initialise an npm project if you haven’t done it yet
-npm init
-## or
-yarn init
-
-## add Prettier and its Elm plugin to project’s dev dependencies
-npm install --dev prettier prettier-plugin-elm
-## or
-yarn add --dev prettier prettier-plugin-elm
+npm --version
+## ≥ 6.14
 ```
 
-Installing `prettier-plugin-elm` also installs a local copy of `elm-format`, so you do not need to manually obtain one yourself.
+If you see errors or if the displayed versions are too old, follow the instructions on [nodejs.org](https://nodejs.org) to download this software.
+By installing Node.js you also get NPM, so there is no need to obtain it separately.
+You might need to restart the terminal or the whole machine to see the new versions.
 
-<!-- Despite an overhead in about ≈20 MB of disk space used by `node_modules`, this hard-coded sub-dependency makes it easier to collaborate on the code and also test its quality with CI tools. -->
+### Global install
 
-<!-- Global use of plugin is blocked by https://github.com/prettier/prettier/issues/4000 -->
+The easiest way to get started with Prettier and its Elm plugin is to globally install two NPM packages:
 
-## Usage
-
-````bash
-## format all elm files in your project
-./node_modules/.bin/prettier --write "**/*.elm"
-## or
-yarn prettier --write "**/*.elm"
-
-## format all markdown files including ```elm code blocks inside them
-./node_modules/.bin/prettier --write "**/*.md"
-## or
-yarn prettier --write "**/*.md"
-````
-
-## Integration with editors
-
-If you are using a text editor that supports Prettier integration (e.g. [Atom](https://atom.io/packages/prettier-atom)), you can have all Prettier perks for your Elm code too!
-
-> Use of this plugin in [VSCode extension](https://github.com/prettier/prettier-vscode) seems to be blocked by [prettier/prettier-vscode#395](https://github.com/prettier/prettier-vscode/issues/395).
-> Feel free to help!
-
-In order to get `prettier-plugin-elm` working in projects that do not have local npm dependencies, you can install this plugin globally:
-
-```bash
+```sh
 npm install --global prettier prettier-plugin-elm
 ```
 
-In this case, you might need to check the settings of your editor’s Prettier extension to make sure that a globally installed Prettier is used when it is not found in project dependencies (i.e. `package.json`).
+Global install is preferred in simple scenarios, especially when you are working alone on small projects.
 
-Nevertheless, it is recommended to rely on local copies of `prettier` and `prettier-plugin-elm` as this reduces the chance of formatting conflicts between project collaborators.
-This may happen if different global versions of Prettier or its Elm plugin are used.
+### Local install
 
-Installing `prettier-plugin-elm` either locally or globally may require you to restart the editor if formatting does not work right away.
+When collaborating on a group project, it is useful to keep versions of Prettier and its Elm plugin in sync within the team.
+This avoids frequent unwanted changes in source files, which can be caused by formatting differences between tool versions.
+
+1.  Open a terminal and ensure you are located at the root of your project:
+
+    ```sh
+    pwd
+    ## prints something like /path/to/my/project
+    ```
+
+1.  If there is no `package.json` file in your project directory, initialize it:
+
+    ```sh
+    npm init --yes
+    ```
+
+    ```sh
+    ## if you use yarn instead of npm
+    yarn init --yes
+    ```
+
+1.  Run the install command:
+
+    ```
+    npm install --only=dev prettier prettier-plugin-elm
+    ```
+
+    ```sh
+    ## if you use yarn instead of npm
+    yarn add --dev prettier prettier-plugin-elm
+    ```
+
+    Versions of Prettier and its Elm plugin will be written to `package.json` and `package-lock.json` / `yarn.lock`.
+    If you share these files with the rest of your source code, others will be able to get the exact same versions of the tools by running:
+
+    ```sh
+    npm install
+    ```
+
+    ```sh
+    ## if you use yarn instead of npm
+    yarn install
+    ```
+
+Note that you need to repeat the local install steps for every project.
+
+---
+
+ℹ️ Combining global and local setup is allowed.
+If two copies of Prettier are available for a given folder, a local one is used.
+
+---
+
+ℹ️ To upgrade Prettier and its Elm plugin, run the same command as you used to install them.
+
+---
+
+ℹ️ Installing `prettier-plugin-elm` also downloads a compatible version of `elm-format`, so you do not need to manually obtain it yourself.
+
+## Usage
+
+Please complete the the _Getting started_ section first.
+
+### Via editor
+
+Follow the [instructions on prettier.io](https://prettier.io/docs/en/editors.html) to download Prettier extension for your editor.
+As the second step, you might need to open editor preferences and select Prettier as your preferred file formatter.
+Most editors can format files on save and you are encouraged to enable this option.
+
+---
+
+ℹ️ You might need to restart the editor if formatting does not work for Elm or Markdown files right away.
+
+### Via terminal
+
+If you have a locally installed copy of Prettier, you can configure a script to [lint](https://en.wikipedia.org/wiki/Linting) (i.e. check) all your project files and even automatically fix their formatting.
+
+For inspiration, see the `scripts` section in this project’s [`package.json`](https://github.com/gicentre/prettier-plugin-elm/blob/master/tsconfig.json).
+You will also need to create a file named `.prettierignore`, similar to the [one in this project](https://github.com/gicentre/prettier-plugin-elm/blob/master/.prettierignore).
+
+```sh
+## Lint (i.e. check) if all source files are formatted
+npm run lint:prettier
+
+## Fix formatting in all files
+npm run fix:prettier
+```
+
+```sh
+## if you use yarn instead of npm
+
+## Lint (i.e. check) if all source files are formatted
+yarn lint:prettier
+
+## Fix formatting in all files
+yarn fix:prettier
+```
 
 ## Implementation details
 
-This plugin is written in TypeScript and its quality is maintained using Prettier, [TSLint](https://palantir.github.io/tslint/) and [Jest](https://jestjs.io/).
-[Azure Pipelines](https://azure.microsoft.com/en-gb/services/devops/pipelines/) continuously run checks on Linux, macOS and Windows.
+This plugin is written in TypeScript.
+The quality of the codebase is checked using Prettier, [Jest](https://jestjs.io/) and [TSLint](https://palantir.github.io/tslint/) via [Github Actions](https://github.com/gicentre/prettier-plugin-elm/actions).
+Tests run on Linux, macOS and Windows.
 
-Unlike [other Prettier plugins](https://prettier.io/docs/en/plugins.html#official-plugins), `prettier-plugin-elm` does not parse the code into a syntax tree to then print it; both of these tasks are delegated to [`elm-format`](https://github.com/avh4/elm-format) and are executed in a single call to a sub-process.
+Unlike most other [Prettier plugins](https://prettier.io/docs/en/plugins.html#official-plugins), `prettier-plugin-elm` does not contain logic to parse code blocks into syntax trees to then stringify them.
+Both of these tasks are delegated to [`elm-format`](https://github.com/avh4/elm-format) by making a call to a sub-process.
 Thus, the result of formatting is compatible with what Elm community is used to see.
 
-The only difference that `prettier-plugin-elm` introduces is related to handling fragments of Elm modules, which is [not yet supported](https://github.com/avh4/elm-format/issues/65) by `elm-format`.
-See [`src/parser.ts`](https://github.com/gicentre/prettier-plugin-elm/blob/master/src/parser.ts) for details on this.
+The only difference to `elm-format` introduced by `prettier-plugin-elm` is related to handling fragments of Elm modules, which is [not supported](https://github.com/avh4/elm-format/issues/65) upstream yet.
+See [`src/parser.ts`](https://github.com/gicentre/prettier-plugin-elm/blob/master/src/parser.ts) for details on the workaround.
 
 ## Contributing
 
-If you’re interested in contributing to the development of Prettier for Elm, you can follow the [CONTRIBUTING guide from Prettier](https://github.com/prettier/prettier/blob/master/CONTRIBUTING.md), as it all applies to this repository too.
+If you’re interested in contributing to the development of Prettier Elm plugin, please follow the [CONTRIBUTING guide from Prettier](https://github.com/prettier/prettier/blob/master/CONTRIBUTING.md) as it all applies to this repository too.
 
-To run `prettier-plugin-elm` locally:
+To run the development version of `prettier-plugin-elm`:
 
-- Clone this repository.
-- Execute `yarn install`.
-- Execute `yarn lint` to make sure that the code passes formatting and linting.
-- Execute `yarn test` to make sure that TypeScript successfully compiles into JavaScript and and all unit tests pass.
-- To test the plugin manually, create a file called `prettier-test.elm` (or `.md`), then run `yarn prettier --plugin=. prettier-test.elm` (or `.md`) and check the output.
+- Clone this repository
+- Run `yarn install`
+- Run `yarn lint` to make sure that the codebase passes linting
+- Run `yarn test` to make sure that TypeScript successfully compiles into JavaScript and and all unit tests pass
+- To test the plugin manually, create a file named `prettier-test.elm` (or `.md`).
+  Then run `yarn prettier --plugin=. prettier-test.elm` (or `.md`) and check the output.
 
 ## Credits
 
 This project was inspired by https://github.com/prettier/plugin-python.
-
 Big thanks to Aaron VonderHaar ([@avh4](https://github.com/avh4)) and [contributors](https://github.com/avh4/elm-format/graphs/contributors) for creating [`elm-format`](https://github.com/avh4/elm-format)!
