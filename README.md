@@ -16,7 +16,7 @@
     <img alt="NPM package" src="https://img.shields.io/npm/v/prettier-plugin-elm.svg?style=flat-square"><!--
   --></a>
   <a href="https://github.com/gicentre/prettier-plugin-elm/actions?query=workflow%3AChecks">
-    <img alt="GitHub Workflow Status (unit tests)" src="https://img.shields.io/github/workflow/status/gicentre/prettier-plugin-elm/Checks?label=checks&style=flat-square"><!--
+    <img alt="GitHub Workflow Status (checks)" src="https://img.shields.io/github/workflow/status/gicentre/prettier-plugin-elm/Checks?label=checks&style=flat-square"><!--
   --></a>
   <a href="https://codecov.io/gh/gicentre/prettier-plugin-elm">
     <img alt="Codecov" src="https://img.shields.io/codecov/c/github/gicentre/prettier-plugin-elm?style=flat-square&token=38aa3a14f00b4d3cbb8e39a9d69e6c64"><!--
