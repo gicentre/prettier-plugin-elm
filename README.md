@@ -134,7 +134,7 @@ This avoids frequent unwanted changes in source files, which can be caused by fo
 
 1.  Run the install command:
 
-    ```
+    ```sh
     npm install --only=dev prettier prettier-plugin-elm
     ```
 
@@ -237,5 +237,5 @@ To run the development version of `prettier-plugin-elm`:
 
 ## Credits
 
-This project was inspired by https://github.com/prettier/plugin-python.
+This project was inspired by <https://github.com/prettier/plugin-python>.
 Big thanks to Aaron VonderHaar ([@avh4](https://github.com/avh4)) and [contributors](https://github.com/avh4/elm-format/graphs/contributors) for creating [`elm-format`](https://github.com/avh4/elm-format)!

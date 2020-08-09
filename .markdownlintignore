@@ -1,0 +1,16 @@
+## extensions
+*.*
+LICENSE
+!*.md
+
+!/.github/
+/fixtures/
+
+## same as in .gitignore
+node_modules
+*.log
+.DS_Store
+cache
+coverage
+dist
+junit.xml
