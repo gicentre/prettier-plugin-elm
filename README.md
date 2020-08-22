@@ -9,7 +9,7 @@
 <h2 align="center">Prettier Elm plugin</h2>
 
 <p align="center">
-  <a href="https://github.com/gicentre/prettier-plugin-elm/blob/master/LICENSE">
+  <a href="https://github.com/gicentre/prettier-plugin-elm/blob/main/LICENSE">
     <img alt="license: BSD-3-Clause" src="https://img.shields.io/github/license/gicentre/prettier-plugin-elm.svg?style=flat-square"><!--
   --></a>
   <a href="https://www.npmjs.com/package/prettier-plugin-elm">
@@ -188,8 +188,8 @@ Most editors can format files on save and you are encouraged to enable this opti
 
 If you have a locally installed copy of Prettier, you can configure a script to [lint](https://en.wikipedia.org/wiki/Linting) (i.e. check) all your project files and even automatically fix their formatting.
 
-For inspiration, see the `scripts` section in this project’s [`package.json`](https://github.com/gicentre/prettier-plugin-elm/blob/master/tsconfig.json).
-You will also need to create a file named `.prettierignore`, similar to the [one in this project](https://github.com/gicentre/prettier-plugin-elm/blob/master/.prettierignore).
+For inspiration, see the `scripts` section in this project’s [`package.json`](https://github.com/gicentre/prettier-plugin-elm/blob/main/tsconfig.json).
+You will also need to create a file named `.prettierignore`, similar to the [one in this project](https://github.com/gicentre/prettier-plugin-elm/blob/main/.prettierignore).
 
 ```sh
 ## Lint (i.e. check) if all source files are formatted
@@ -220,11 +220,11 @@ Both of these tasks are delegated to [`elm-format`](https://github.com/avh4/elm-
 Thus, the result of formatting is compatible with what Elm community is used to see.
 
 The only difference to `elm-format` introduced by `prettier-plugin-elm` is related to handling fragments of Elm modules, which is [not supported](https://github.com/avh4/elm-format/issues/65) upstream yet.
-See [`src/parser.ts`](https://github.com/gicentre/prettier-plugin-elm/blob/master/src/parser.ts) for details on the workaround.
+See [`src/parser.ts`](https://github.com/gicentre/prettier-plugin-elm/blob/main/src/parser.ts) for details on the workaround.
 
 ## Contributing
 
-If you’re interested in contributing to the development of Prettier Elm plugin, please follow the [CONTRIBUTING guide from Prettier](https://github.com/prettier/prettier/blob/master/CONTRIBUTING.md) as it all applies to this repository too.
+If you’re interested in contributing to the development of Prettier Elm plugin, please follow the [CONTRIBUTING guide from Prettier](https://github.com/prettier/prettier/blob/main/CONTRIBUTING.md) as it all applies to this repository too.
 
 To run the development version of `prettier-plugin-elm`:
 
