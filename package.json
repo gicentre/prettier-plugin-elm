@@ -40,7 +40,7 @@
   },
   "lint-staged": {
     "**/*": [
-      "markdownlint --write",
+      "markdownlint --fix",
       "prettier --write"
     ]
   },
