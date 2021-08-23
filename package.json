@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "elm-format": "0.8.3",
-    "execa": "^4.0.3",
+    "execa": "^5.1.1",
     "make-dir": "^3.1.0",
     "object-hash": "^2.2.0",
     "serialize-error": "^8.1.0",
