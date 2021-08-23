@@ -1,7 +1,7 @@
 "use strict";
 
-const REPORT_TEST_RESULTS_AND_COVERAGE = !!process.env
-  .REPORT_TEST_RESULTS_AND_COVERAGE;
+const REPORT_TEST_RESULTS_AND_COVERAGE =
+  !!process.env.REPORT_TEST_RESULTS_AND_COVERAGE;
 
 module.exports = {
   collectCoverage: REPORT_TEST_RESULTS_AND_COVERAGE,
