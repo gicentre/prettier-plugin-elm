@@ -1,3 +1,11 @@
+## 0.8.0 (2021-08-24)
+
+- Upgrade dependencies (includes `elm-format` `0.8.3` → `0.8.5`) ([#23](https://github.com/gicentre/prettier-plugin-elm/issues/23))
+
+- Replace TSLint with ESLint ([#24](https://github.com/gicentre/prettier-plugin-elm/issues/24))
+
+- **[breaking change]** Set minimum Node version to 12 ([#25](https://github.com/gicentre/prettier-plugin-elm/issues/25))
+
 ## 0.7.0 (2020-03-28)
 
 - Pin `elm-format` to `0.8.3`
