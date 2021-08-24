@@ -2,11 +2,12 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "inlineSourceMap": true,
-    "lib": ["es2016"],
-    "moduleResolution": "node",
+    "lib": ["ES2019"],
+    "module": "commonjs",
     "outDir": "dist",
     "rootDir": "src",
-    "strict": true
+    "strict": true,
+    "target": "ES2019"
   },
   "include": ["src/**/*"]
 }
