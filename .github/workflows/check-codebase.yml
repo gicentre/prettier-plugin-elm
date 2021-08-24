@@ -1,4 +1,4 @@
-name: Checks
+name: Check codebase
 
 on:
   push:
@@ -63,16 +63,16 @@ jobs:
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
-        node: [10, 12, 14]
+        node: [12, 14, 16]
         include:
           - os: ubuntu-latest
             node: 14
             coverage: 1
         exclude:
           - os: macos-latest
-            node: 10
+            node: 12
           - os: windows-latest
-            node: 10
+            node: 12
     steps:
       - name: Check out repository
         uses: actions/checkout@v2

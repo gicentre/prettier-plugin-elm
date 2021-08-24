@@ -71,7 +71,7 @@ export const getCachedValue = <Args extends any[], Result>(
     }
   }
 
-  if (record.error) {
+  if ("error" in record) {
     const errorToThrow = new Error();
     for (const errorProperty in record.error) {
       /* istanbul ignore else */
