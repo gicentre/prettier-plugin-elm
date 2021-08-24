@@ -3,18 +3,19 @@ import { resolve } from "path";
 import prettier from "prettier";
 import rimraf from "rimraf";
 import sleep from "sleep-promise";
+
 import * as util from "./util";
 
 const fixturesDir = resolve(__dirname, "../fixtures");
 const cacheDir = resolve(__dirname, "../cache");
 const cacheMax = 21; // number of blocks in multiple-blocks.md fixture
-const cacheGCInterval = 1000;
+const cacheGcInterval = 1000;
 
 test(`correctly deals with cache`, async () => {
   rimraf.sync(cacheDir);
   process.env.PRETTIER_PLUGIN_ELM_CACHE_DIR = cacheDir;
   process.env.PRETTIER_PLUGIN_ELM_CACHE_MAX = `${cacheMax}`;
-  process.env.PRETTIER_PLUGIN_ELM_CACHE_GC_INTERVAL = `${cacheGCInterval}`;
+  process.env.PRETTIER_PLUGIN_ELM_CACHE_GC_INTERVAL = `${cacheGcInterval}`;
 
   const spyForFormatTextWithElmFormat = jest.spyOn(
     util,
@@ -52,7 +53,7 @@ test(`correctly deals with cache`, async () => {
     numberOfFormatCallsInFirstRun,
   );
 
-  await sleep(cacheGCInterval * 2);
+  await sleep(cacheGcInterval * 2);
 
   // a call to formatTextWithElmFormat() that triggers garbage collection
   prettier.format("{- -}", {

@@ -2,8 +2,7 @@ import fs from "fs";
 import makeDir from "make-dir";
 import objectHash from "object-hash";
 import { resolve } from "path";
-import { serializeError } from "serialize-error";
-import { ErrorObject } from "serialize-error";
+import { ErrorObject, serializeError } from "serialize-error";
 import tempDir from "temp-dir";
 
 const cacheDir = process.env.PRETTIER_PLUGIN_ELM_CACHE_DIR
@@ -14,7 +13,7 @@ const cacheMax = process.env.PRETTIER_PLUGIN_ELM_CACHE_MAX
   ? parseInt(process.env.PRETTIER_PLUGIN_ELM_CACHE_MAX, 10)
   : 1000;
 
-const cacheGCInterval = process.env.PRETTIER_PLUGIN_ELM_CACHE_GC_INTERVAL
+const cacheGcInterval = process.env.PRETTIER_PLUGIN_ELM_CACHE_GC_INTERVAL
   ? parseInt(process.env.PRETTIER_PLUGIN_ELM_CACHE_GC_INTERVAL, 10)
   : 1000 * 60;
 
@@ -43,7 +42,7 @@ export const getCachedValue = <Args extends any[], Result>(
     // a failure to load from cache implies calling fn
     try {
       record = {
-        value: fn.apply(null, args),
+        value: fn(...args),
       };
     } catch (fnError) {
       const serializedError = serializeError(fnError);
@@ -75,7 +74,7 @@ export const getCachedValue = <Args extends any[], Result>(
     const errorToThrow = new Error();
     for (const errorProperty in record.error) {
       /* istanbul ignore else */
-      if (record.error.hasOwnProperty(errorProperty)) {
+      if (Object.prototype.hasOwnProperty.call(record.error, errorProperty)) {
         (errorToThrow as any)[errorProperty] = record.error.property;
       }
     }
@@ -90,11 +89,11 @@ interface RecordInfo {
   touchedAt: number;
 }
 
-function collectGarbageIfNeeded() {
-  const pathToGCTouchfile = resolve(cacheDir, `gc.touchfile`);
+const collectGarbageIfNeeded = () => {
+  const pathToGcTouchfile = resolve(cacheDir, `gc.touchfile`);
   try {
-    const lastGCTime = fs.statSync(pathToGCTouchfile).mtimeMs;
-    if (lastGCTime + cacheGCInterval > +new Date()) {
+    const lastGcTime = fs.statSync(pathToGcTouchfile).mtimeMs;
+    if (lastGcTime + cacheGcInterval > +new Date()) {
       // no need to collect garbage
       return;
     }
@@ -103,7 +102,7 @@ function collectGarbageIfNeeded() {
     // means that GC needs to be done for the first time
   }
 
-  fs.writeFileSync(pathToGCTouchfile, "");
+  fs.writeFileSync(pathToGcTouchfile, "");
   const recordInfos: RecordInfo[] = [];
   fs.readdirSync(cacheDir).map((recordFileName) => {
     if (!recordFileName.endsWith(".json")) {
@@ -138,4 +137,4 @@ function collectGarbageIfNeeded() {
     fs.unlink(recordInfo.path, noop);
     fs.unlink(`${recordInfo.path}.touchfile`, noop);
   });
-}
+};

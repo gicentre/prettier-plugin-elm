@@ -1,8 +1,9 @@
 import { Parser, ParserOptions } from "prettier";
+
 import { getCachedValue } from "./cache";
 import { formatTextWithElmFormat, getElmFormatVersion } from "./util";
 
-// tslint:disable-next-line:no-var-requires
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const pkg = require("../package.json");
 
 /*
@@ -67,7 +68,7 @@ export const parse = (
   // return an AST with a single node that contain all the formatted elm code;
   // no further splitting into smaller tokens is made
   return {
-    ast_type: "elm-format",
+    type: "elm-format",
     body: formattedText,
     end: text.length,
     source: text,

@@ -212,7 +212,7 @@ yarn fix:prettier
 ## Implementation details
 
 This plugin is written in TypeScript.
-The quality of the codebase is checked using Prettier, [Jest](https://jestjs.io/) and [TSLint](https://palantir.github.io/tslint/) via [Github Actions](https://github.com/gicentre/prettier-plugin-elm/actions).
+The quality of the codebase is checked using Prettier, [Jest](https://jestjs.io) and [ESLint](https://eslint.org) via [Github Actions](https://github.com/gicentre/prettier-plugin-elm/actions).
 Tests run on Linux, macOS and Windows.
 
 Unlike most other [Prettier plugins](https://prettier.io/docs/en/plugins.html#official-plugins), `prettier-plugin-elm` does not contain logic to parse code blocks into syntax trees to then stringify them.

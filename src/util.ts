@@ -13,6 +13,7 @@ export const getElmFormatVersion = () => {
     const helpMatch = help.match(/elm-format ([^\n]+)/);
     cachedElmFormatVersion = helpMatch ? helpMatch[1] : "unknown";
   }
+
   return cachedElmFormatVersion;
 };
 
