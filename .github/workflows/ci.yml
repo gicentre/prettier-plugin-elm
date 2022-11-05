@@ -98,11 +98,13 @@ jobs:
         run: yarn install --immutable
 
       - name: Run tests (Prettier v2)
+        if: ${{ success() || failure() }}
         run: yarn test
         env:
           TEST_COVERAGE: ${{ matrix.os == 'ubuntu-22.04' && matrix.node == 18 }}
 
       - name: Run tests (Prettier v3)
+        if: ${{ success() || failure() }}
         run: yarn test
         env:
           PRETTIER_V3: "true"

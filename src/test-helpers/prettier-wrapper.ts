@@ -1,7 +1,7 @@
 import type { Options } from "prettier";
 
 export const getPrettier = async (): Promise<typeof import("prettier")> => {
-  return await (process.env.PRETTIER_V3
+  return await (process.env.PRETTIER_V3 === "true"
     ? import("prettier-v3")
     : import("prettier"));
 };
