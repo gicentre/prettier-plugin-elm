@@ -72,18 +72,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-12, ubuntu-22.04, windows-2022]
-        node: [14, 16, 18, 19]
-        include:
-          - os: ubuntu-22.04
-            node: 18
-            extra: coverage
+        os: [macos-12, windows-2022, ubuntu-22.04]
+        node: [14, 16, 18]
         exclude:
           - os: ubuntu-22.04
             node: 18
-          - os: macos-12
-            node: 19
-          - os: windows-2022
+        include:
+          - os: ubuntu-22.04
+            node: 18
+            extra: TEST_COVERAGE
+          - os: ubuntu-22.04
             node: 19
 
     steps:
@@ -103,25 +101,25 @@ jobs:
         if: ${{ success() || failure() }}
         run: yarn test
         env:
-          TEST_COVERAGE: ${{ matrix.extra == 'coverage' }}
+          TEST_COVERAGE: ${{ matrix.extra == 'TEST_COVERAGE' }}
 
-      - name: "Prettier v2: Report code coverage to codecov.io"
+      - name: "Prettier v2: Report code TEST_COVERAGE to codecov.io"
         uses: codecov/codecov-action@v3
-        if: matrix.extra == 'coverage'
+        if: matrix.extra == 'TEST_COVERAGE'
         with:
-          files: coverage/lcov.info
+          files: TEST_COVERAGE/lcov.info
           label: prettier-v2
 
       - name: "Prettier v3: Run tests"
         if: ${{ success() || failure() }}
         run: yarn test
         env:
-          TEST_COVERAGE: ${{ matrix.extra == 'coverage' }}
+          TEST_COVERAGE: ${{ matrix.extra == 'TEST_COVERAGE' }}
           PRETTIER_V3: "true"
 
-      - name: "Prettier v3: Report code coverage to codecov.io"
+      - name: "Prettier v3: Report code TEST_COVERAGE to codecov.io"
         uses: codecov/codecov-action@v3
-        if: matrix.extra == 'coverage'
+        if: matrix.extra == 'TEST_COVERAGE'
         with:
-          files: coverage/lcov.info
+          files: TEST_COVERAGE/lcov.info
           label: prettier-v3
