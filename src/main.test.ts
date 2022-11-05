@@ -36,9 +36,17 @@ for (const sourceFileName of files) {
     const formattedFileExists = fs.existsSync(formattedFilePath);
 
     const sourceText = fs.readFileSync(sourceFilePath, "utf8");
-    const expectedFormattedText = formattedFileExists
+    let expectedFormattedText = formattedFileExists
       ? fs.readFileSync(formattedFilePath, "utf8")
       : sourceText;
+
+    // TODO: remove this when we drop Prettier 1
+    if (process.env.PRETTIER_VERSION === "1" && sourceFileName === "empty.md") {
+      expectedFormattedText = expectedFormattedText.replace(
+        "```elm\n\n```",
+        "```elm\n```",
+      );
+    }
 
     let actualResult;
     try {
