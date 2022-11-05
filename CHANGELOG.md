@@ -1,3 +1,18 @@
+## 0.9.0 (2022-11-05)
+
+- **[breaking change]** Set minimum Node version to 14 ([#33](https://github.com/gicentre/prettier-plugin-elm/issues/33))
+
+- Test plugin against Prettier v1, v2 and v3, use 3.0.0-alpha.4 internally ([#36](https://github.com/gicentre/prettier-plugin-elm/issues/36))
+
+- Add timeout when calling `elm-format` ([#39](https://github.com/gicentre/prettier-plugin-elm/pull/39))
+
+- Update dependencies and refactor codebase ([#31](https://github.com/gicentre/prettier-plugin-elm/pull/31),
+  [#32](https://github.com/gicentre/prettier-plugin-elm/pull/32),
+  [#34](https://github.com/gicentre/prettier-plugin-elm/pull/34),
+  [#35](https://github.com/gicentre/prettier-plugin-elm/pull/35),
+  [#37](https://github.com/gicentre/prettier-plugin-elm/pull/37) and
+  [#38](https://github.com/gicentre/prettier-plugin-elm/pull/38))
+
 ## 0.8.0 (2021-08-24)
 
 - Upgrade dependencies (includes `elm-format` `0.8.3` → `0.8.5`) ([#23](https://github.com/gicentre/prettier-plugin-elm/issues/23))

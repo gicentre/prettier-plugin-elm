@@ -1,6 +1,6 @@
 {
   "name": "prettier-plugin-elm",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Adds Elm language support to Prettier via elm-format",
   "keywords": [
     "elm",
