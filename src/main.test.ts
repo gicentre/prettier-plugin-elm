@@ -10,6 +10,7 @@ const files = fs.readdirSync(fixturesDir);
 
 beforeAll(() => {
   rimraf.sync(path.resolve(tempDir, "prettier-plugin-elm"));
+  jest.resetModules();
 });
 
 test(`uses correct Prettier core version`, async () => {
