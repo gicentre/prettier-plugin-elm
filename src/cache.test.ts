@@ -1,10 +1,10 @@
 import fs from "fs";
 import path from "path";
-import prettier from "prettier";
 import rimraf from "rimraf";
 import sleep from "sleep-promise";
 
-import * as util from "./util";
+import * as util from "./helpers";
+import { format } from "./test-helpers/prettier-wrapper";
 
 const fixturesDir = path.resolve(__dirname, "../fixtures");
 const cacheDir = path.resolve(__dirname, "../cache");
@@ -33,7 +33,7 @@ test(`correctly deals with cache`, async () => {
 
   // multiple-blocks.md, first run – no cache
   expect(
-    prettier.format(sourceText, {
+    await format(sourceText, {
       parser: "markdown",
       plugins: [path.resolve(__dirname, "..")],
     }),
@@ -44,7 +44,7 @@ test(`correctly deals with cache`, async () => {
 
   // multiple-blocks.md, second run – with cache
   expect(
-    prettier.format(sourceText, {
+    await format(sourceText, {
       parser: "markdown",
       plugins: [path.resolve(__dirname, "..")],
     }),
@@ -56,14 +56,14 @@ test(`correctly deals with cache`, async () => {
   await sleep(cacheGcInterval * 2);
 
   // a call to formatTextWithElmFormat() that triggers garbage collection
-  prettier.format("{- -}", {
+  await format("{- -}", {
     parser: "elm",
     plugins: [path.resolve(__dirname, "..")],
   });
 
   // multiple-blocks.md, third run – with cache except for one block that was previously garbage collected
   expect(
-    prettier.format(sourceText, {
+    await format(sourceText, {
       parser: "markdown",
       plugins: [path.resolve(__dirname, "..")],
     }),

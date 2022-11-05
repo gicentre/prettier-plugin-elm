@@ -29,7 +29,7 @@ jobs:
       - name: Run build
         run: yarn build
 
-  lint:
+  linting:
     name: Linting
     runs-on: ubuntu-latest
 
@@ -66,8 +66,8 @@ jobs:
         if: ${{ success() || failure() }}
         run: yarn lint:yarn-dedupe
 
-  unit-tests:
-    name: Unit tests
+  tests:
+    name: Tests
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -97,10 +97,15 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Run unit tests
+      - name: Run tests (Prettier v2)
         run: yarn test
         env:
           TEST_COVERAGE: ${{ matrix.os == 'ubuntu-22.04' && matrix.node == 18 }}
+
+      - name: Run tests (Prettier v3)
+        run: yarn test
+        env:
+          PRETTIER_V3: "true"
 
       - name: Report code coverage to codecov.io
         uses: codecov/codecov-action@v3

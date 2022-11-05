@@ -86,7 +86,10 @@ export const getCachedValue = <Args extends any[], Result>(
 
   // load value or error from cache
   try {
-    record = JSON.parse(fs.readFileSync(recordFilePath, "utf8"));
+    record = JSON.parse(fs.readFileSync(recordFilePath, "utf8")) as {
+      value: Result;
+      error?: undefined;
+    };
     recordIsFromCache = true;
   } catch {
     // a failure to load from cache implies calling fn
@@ -122,11 +125,11 @@ export const getCachedValue = <Args extends any[], Result>(
 
   if ("error" in record) {
     // eslint-disable-next-line unicorn/error-message
-    const errorToThrow = new Error();
+    const errorToThrow = new Error() as Error & Record<string, unknown>;
     for (const errorProperty in record.error) {
       /* istanbul ignore else */
       if (Object.prototype.hasOwnProperty.call(record.error, errorProperty)) {
-        (errorToThrow as any)[errorProperty] = record.error.property;
+        errorToThrow[errorProperty] = record.error.property;
       }
     }
     throw errorToThrow;

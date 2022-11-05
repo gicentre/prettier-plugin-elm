@@ -3,6 +3,7 @@
     "esModuleInterop": true,
     "inlineSourceMap": true,
     "lib": ["ES2019"],
+    "isolatedModules": true,
     "module": "commonjs",
     "checkJs": true,
     "outDir": "dist",

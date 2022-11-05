@@ -1,14 +1,22 @@
 import fs from "fs";
 import path from "path";
-import prettier from "prettier";
 import rimraf from "rimraf";
 import tempDir from "temp-dir";
+
+import { format, getPrettier } from "./test-helpers/prettier-wrapper";
 
 const fixturesDir = path.resolve(__dirname, "../fixtures");
 const files = fs.readdirSync(fixturesDir);
 
 beforeAll(() => {
   rimraf.sync(path.resolve(tempDir, "prettier-plugin-elm"));
+});
+
+test(`tested against expected Prettier version`, async () => {
+  const prettier = await getPrettier();
+  expect(prettier.version).toBe(
+    process.env.PRETTIER_V3 ? "3.0.0-alpha.4" : "2.7.1",
+  );
 });
 
 for (const sourceFileName of files) {
@@ -19,7 +27,7 @@ for (const sourceFileName of files) {
     continue;
   }
 
-  test(`formats fixture ${sourceFileName}`, () => {
+  test(`formats fixture ${sourceFileName}`, async () => {
     const formattedFileName = sourceFileName.replace(
       /(\.[a-z]+)$/,
       ".prettified$1",
@@ -35,7 +43,7 @@ for (const sourceFileName of files) {
 
     let actualResult;
     try {
-      actualResult = prettier.format(sourceText, {
+      actualResult = await format(sourceText, {
         filepath: sourceFilePath,
         plugins: [path.resolve(__dirname, "..")],
       });
