@@ -73,7 +73,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [macos-12, windows-2022, ubuntu-22.04]
-        node: [14, 16, 18, 19]
+        node: [14, 16, 18]
         exclude:
           - os: ubuntu-22.04
             node: 18
@@ -82,6 +82,7 @@ jobs:
             node: 18
             extra: coverage
           - os: ubuntu-22.04
+            node: 19
 
     steps:
       - name: Check out repository
@@ -96,13 +97,45 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Run unit tests
+      - name: "Prettier v1: Run tests"
+        if: ${{ success() || failure() }}
         run: yarn test
         env:
           COVERAGE: ${{ matrix.extra == 'coverage' }}
+          PRETTIER_MAJOR_VERSION: "1"
 
-      - name: Report code coverage to codecov.io
+      - name: "Prettier v1: Report coverage to codecov.io"
         uses: codecov/codecov-action@v3
         if: matrix.extra == 'coverage'
         with:
           files: coverage/lcov.info
+          label: prettier-v1
+
+      - name: "Prettier v2: Run tests"
+        if: ${{ success() || failure() }}
+        run: yarn test
+        env:
+          COVERAGE: ${{ matrix.extra == 'coverage' }}
+          PRETTIER_MAJOR_VERSION: "2"
+
+      - name: "Prettier v2: Report coverage to codecov.io"
+        uses: codecov/codecov-action@v3
+        if: matrix.extra == 'coverage'
+        with:
+          files: coverage/lcov.info
+          label: prettier-v2
+
+      - name: "Prettier v3: Run tests"
+        if: ${{ success() || failure() }}
+        ## Running both tests on Node 14 causes exit code 129/1 on Ubuntu/Windows
+        ## TODO: Remove after dropping Node 14 support
+        run: ${{ matrix.node == 14 && 'yarn test cache && yarn test main' || 'yarn test' }}
+        env:
+          COVERAGE: ${{ matrix.extra == 'coverage' }}
+
+      - name: "Prettier v3: Report coverage to codecov.io"
+        uses: codecov/codecov-action@v3
+        if: matrix.extra == 'coverage'
+        with:
+          files: coverage/lcov.info
+          label: prettier-v3

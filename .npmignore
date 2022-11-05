@@ -1,6 +1,7 @@
 *
 !dist/**
 dist/**/*.test.*
+dist/**/test-helpers/
 !package.json
 !README.md
 !LICENSE

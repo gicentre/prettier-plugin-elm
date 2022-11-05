@@ -29,7 +29,7 @@
     "lint:yarn-dedupe": "yarn dedupe --check",
     "prepare": "husky install",
     "prepublishOnly": "yarn lint && yarn test",
-    "test": "yarn clean && yarn build && jest"
+    "test": "yarn clean && yarn build && yarn node --no-warnings --experimental-vm-modules $(yarn bin jest)"
   },
   "lint-staged": {
     "**": [
@@ -50,7 +50,9 @@
     "@kachkaev/markdownlint-config": "^0.5.0",
     "@types/jest": "^29.2.2",
     "@types/object-hash": "^2.2.1",
-    "@types/prettier": "^2.7.1",
+    "@types/prettier": "2.7.1",
+    "@types/prettier-v1": "npm:@types/prettier@1.19.1",
+    "@types/prettier-v2": "npm:@types/prettier@2.7.1",
     "@types/rimraf": "^3.0.2",
     "eslint": "^8.26.0",
     "husky": "^8.0.1",
@@ -58,8 +60,10 @@
     "lint-staged": "^13.0.3",
     "markdownlint-cli": "^0.32.2",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.7.1",
+    "prettier": "3.0.0-alpha.4",
     "prettier-plugin-packagejson": "^2.3.0",
+    "prettier-v1": "npm:prettier@1.19.1",
+    "prettier-v2": "npm:prettier@2.7.1",
     "rimraf": "^3.0.2",
     "sleep-promise": "^9.1.0",
     "typescript": "^4.8.4"
