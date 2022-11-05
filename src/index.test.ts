@@ -11,12 +11,12 @@ beforeAll(() => {
   rimraf.sync(path.resolve(tempDir, "prettier-plugin-elm"));
 });
 
-files.forEach((sourceFileName) => {
+for (const sourceFileName of files) {
   if (
-    !sourceFileName.match(/\.(md|elm)$/) ||
-    sourceFileName.match(/\.prettified\./)
+    !/\.(md|elm)$/.test(sourceFileName) ||
+    /\.prettified\./.test(sourceFileName)
   ) {
-    return;
+    continue;
   }
 
   test(`formats fixture ${sourceFileName}`, () => {
@@ -39,10 +39,10 @@ files.forEach((sourceFileName) => {
         filepath: sourceFilePath,
         plugins: [path.resolve(__dirname, "..")],
       });
-    } catch (e) {
+    } catch {
       actualResult = sourceText;
     }
 
     expect(actualResult).toBe(expectedFormattedText);
   });
-});
+}

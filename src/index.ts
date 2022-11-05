@@ -31,6 +31,7 @@ export const parsers = {
 };
 
 export const printers = {
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   "elm-format": {
     print,
   },

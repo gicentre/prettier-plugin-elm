@@ -14,7 +14,7 @@ export const print = (path: AstPath) => {
         throw new Error(
           `Unknown Elm node: ${JSON.stringify(
             node,
-            null /* replacer */,
+            undefined /* replacer */,
             4 /* space */,
           )}`,
         );

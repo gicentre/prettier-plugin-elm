@@ -1,5 +1,3 @@
-"use strict";
-
 const testResultsAndCoverage = !!process.env.REPORT_TEST_RESULTS_AND_COVERAGE;
 
 module.exports = {
