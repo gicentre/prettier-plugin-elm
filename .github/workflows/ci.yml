@@ -112,10 +112,11 @@ jobs:
 
       - name: "Prettier v3: Run tests"
         if: ${{ success() || failure() }}
-        run: yarn test
+        run: |
+          yarn test cache
+          yarn test main
         env:
           COVERAGE: ${{ matrix.extra == 'coverage' }}
-          NODE_OPTIONS: "--max-old-space-size=8192"
           PRETTIER_V3: "true"
 
       - name: "Prettier v3: Report coverage to codecov.io"
