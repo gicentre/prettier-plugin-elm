@@ -126,16 +126,9 @@ jobs:
 
       - name: "Prettier v3: Run tests"
         if: ${{ success() || failure() }}
-        shell: bash
-        run: |
-          if [[ "${{ matrix.node }}" == "14" ]]; then
-            ## Running both tests at once causes exit code 129 on Ubuntu and exit code 1 on Windows
-            ## TODO: Remove after dropping support for Node 14 (mid 2023)
-            yarn test cache
-            yarn test main
-          else
-            yarn test
-          fi
+        ## Running both tests on Node 14 causes exit code 129/1 on Ubuntu/Windows
+        ## TODO: Remove after dropping Node 14 support
+        run: ${{ matrix.node == 14 && 'yarn test cache && yarn test main' || 'yarn test' }}
         env:
           COVERAGE: ${{ matrix.extra == 'coverage' }}
           PRETTIER_VERSION: "3"
