@@ -1,6 +1,9 @@
 /** @type{import("eslint").Linter.Config} */
 module.exports = {
-  extends: ["@kachkaev/eslint-config-base"],
+  extends: [
+    "@kachkaev/eslint-config-base",
+    "@kachkaev/eslint-config-base/extra-type-checking",
+  ],
   reportUnusedDisableDirectives: true,
   rules: {
     /* eslint-disable @typescript-eslint/naming-convention */
