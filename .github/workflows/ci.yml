@@ -126,6 +126,7 @@ jobs:
 
       - name: "Prettier v3: Run tests"
         if: ${{ success() || failure() }}
+        shell: bash
         run: |
           if [[ "${{ matrix.node }}" == "14" ]]; then
             ## Running both tests at once causes exit code 129 on Ubuntu and exit code 1 on Windows
