@@ -116,6 +116,7 @@ jobs:
         run: yarn test
         env:
           COVERAGE: ${{ matrix.extra == 'coverage' }}
+          PRETTIER_VERSION: "1"
 
       - name: "Prettier v2: Report coverage to codecov.io"
         uses: codecov/codecov-action@v3
@@ -131,7 +132,6 @@ jobs:
         run: ${{ matrix.node == 14 && 'yarn test cache && yarn test main' || 'yarn test' }}
         env:
           COVERAGE: ${{ matrix.extra == 'coverage' }}
-          PRETTIER_VERSION: "3"
 
       - name: "Prettier v3: Report coverage to codecov.io"
         uses: codecov/codecov-action@v3

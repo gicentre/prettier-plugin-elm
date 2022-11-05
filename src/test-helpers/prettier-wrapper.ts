@@ -1,13 +1,19 @@
 import type { Options } from "prettier";
 
 export const getPrettier = async () => {
-  const prettier = await (process.env.PRETTIER_VERSION === "3"
-    ? import("prettier-v3")
-    : process.env.PRETTIER_VERSION === "1"
-    ? import("prettier-v1")
-    : import("prettier"));
-
-  return prettier as typeof import("prettier");
+  switch (process.env.PRETTIER_VERSION) {
+    case "2": {
+      return await import("prettier-v2");
+    }
+    case "1": {
+      return (await import(
+        "prettier-v1"
+      )) as unknown as typeof import("prettier-v2"); // format() options slightly vary between Prettier 1 and 2
+    }
+    default: {
+      return await import("prettier");
+    }
+  }
 };
 
 export const format = async (
@@ -16,10 +22,10 @@ export const format = async (
 ): Promise<string> => {
   const prettier = await getPrettier();
 
-  if (process.env.PRETTIER_VERSION === "3") {
-    // eslint-disable-next-line @typescript-eslint/await-thenable -- v3 are copied from v2
-    return await prettier.format(source, options);
+  if (process.env.PRETTIER_VERSION) {
+    return prettier.format(source, options);
   }
 
-  return prettier.format(source, options);
+  // eslint-disable-next-line @typescript-eslint/await-thenable -- v3 are currently copied from v2
+  return await prettier.format(source, options);
 };

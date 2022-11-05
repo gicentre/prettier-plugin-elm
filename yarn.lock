@@ -1009,7 +1009,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prettier-v3@npm:@types/prettier@2.7.1, @types/prettier@npm:^2.1.5, @types/prettier@npm:^2.7.1":
+"@types/prettier-v2@npm:@types/prettier@2.7.1, @types/prettier@npm:2.7.1, @types/prettier@npm:^2.1.5":
   version: 2.7.1
   resolution: "@types/prettier@npm:2.7.1"
   checksum: 7edc43b829b0047573c1328259a1ccfee3e0127b031b8e5a4b7115e9f375abed195d1f42ee350590372041cc0f0d5b529e2dbac1198989a050f38e1ec5e19760
@@ -5001,9 +5001,9 @@ __metadata:
     "@kachkaev/markdownlint-config": "npm:^0.5.0"
     "@types/jest": "npm:^29.2.2"
     "@types/object-hash": "npm:^2.2.1"
-    "@types/prettier": "npm:^2.7.1"
+    "@types/prettier": "npm:2.7.1"
     "@types/prettier-v1": "npm:@types/prettier@1.19.1"
-    "@types/prettier-v3": "npm:@types/prettier@2.7.1"
+    "@types/prettier-v2": "npm:@types/prettier@2.7.1"
     "@types/rimraf": "npm:^3.0.2"
     elm-format: "npm:0.8.5"
     eslint: "npm:^8.26.0"
@@ -5015,10 +5015,10 @@ __metadata:
     markdownlint-cli: "npm:^0.32.2"
     npm-run-all: "npm:^4.1.5"
     object-hash: "npm:^3.0.0"
-    prettier: "npm:^2.7.1"
+    prettier: "npm:3.0.0-alpha.4"
     prettier-plugin-packagejson: "npm:^2.3.0"
     prettier-v1: "npm:prettier@1.19.1"
-    prettier-v3: "npm:prettier@3.0.0-alpha.4"
+    prettier-v2: "npm:prettier@2.7.1"
     rimraf: "npm:^3.0.2"
     serialize-error: "npm:^8.1.0"
     sleep-promise: "npm:^9.1.0"
@@ -5050,21 +5050,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-v3@npm:prettier@3.0.0-alpha.4":
-  version: 3.0.0-alpha.4
-  resolution: "prettier@npm:3.0.0-alpha.4"
-  bin:
-    prettier: bin/prettier.cjs
-  checksum: edaa36d339f93569d628e8b790a79a2eadb9458f52e77592f27641206509de21b61d0e54dab9499c0829271c68bb38ea327f5ec31ad5d03a2d8d1f6188801143
-  languageName: node
-  linkType: hard
-
-"prettier@npm:^2.7.1":
+"prettier-v2@npm:prettier@2.7.1":
   version: 2.7.1
   resolution: "prettier@npm:2.7.1"
   bin:
     prettier: bin-prettier.js
   checksum: d2cd7adc83b4f3eb86ab665fa76c58fb3c60c879b37e6d858f71a9d97d2091d4c8a7fe92ad6a1dfa211832025e3660635df9c5e27b3ef79c99d431923bdf933b
+  languageName: node
+  linkType: hard
+
+"prettier@npm:3.0.0-alpha.4":
+  version: 3.0.0-alpha.4
+  resolution: "prettier@npm:3.0.0-alpha.4"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: edaa36d339f93569d628e8b790a79a2eadb9458f52e77592f27641206509de21b61d0e54dab9499c0829271c68bb38ea327f5ec31ad5d03a2d8d1f6188801143
   languageName: node
   linkType: hard
 
