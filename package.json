@@ -12,7 +12,7 @@
   ],
   "repository": "https://github.com/gicentre/prettier-plugin-elm",
   "license": "BSD-3-Clause",
-  "main": "dist",
+  "main": "dist/main.js",
   "scripts": {
     "build": "tsc",
     "clean": "rimraf cache coverage dist",
