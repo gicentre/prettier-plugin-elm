@@ -11,6 +11,10 @@ const cacheDir = path.resolve(__dirname, "../cache");
 const cacheMax = 21; // number of blocks in multiple-blocks.md fixture
 const cacheGcInterval = 1000;
 
+beforeAll(() => {
+  jest.resetModules();
+});
+
 test(`correctly deals with cache`, async () => {
   rimraf.sync(cacheDir);
   process.env.PRETTIER_PLUGIN_ELM_CACHE_DIR = cacheDir;
