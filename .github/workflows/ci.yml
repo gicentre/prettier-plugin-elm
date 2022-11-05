@@ -97,6 +97,20 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
+      - name: "Prettier v1: Run tests"
+        if: ${{ success() || failure() }}
+        run: yarn test
+        env:
+          COVERAGE: ${{ matrix.extra == 'coverage' }}
+          PRETTIER_VERSION: "1"
+
+      - name: "Prettier v1: Report coverage to codecov.io"
+        uses: codecov/codecov-action@v3
+        if: matrix.extra == 'coverage'
+        with:
+          files: coverage/lcov.info
+          label: prettier-v1
+
       - name: "Prettier v2: Run tests"
         if: ${{ success() || failure() }}
         run: yarn test
@@ -113,11 +127,12 @@ jobs:
       - name: "Prettier v3: Run tests"
         if: ${{ success() || failure() }}
         run: |
+          ## Running both tests at once causes exit code 129/1 on Ubuntu/Windows Node 14
           yarn test cache
           yarn test main
         env:
           COVERAGE: ${{ matrix.extra == 'coverage' }}
-          PRETTIER_V3: "true"
+          PRETTIER_VERSION: "3"
 
       - name: "Prettier v3: Report coverage to codecov.io"
         uses: codecov/codecov-action@v3

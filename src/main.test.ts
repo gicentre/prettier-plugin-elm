@@ -15,9 +15,7 @@ beforeAll(() => {
 
 test(`uses correct Prettier core version`, async () => {
   const prettier = await getPrettier();
-  expect(prettier.version).toBe(
-    process.env.PRETTIER_V3 ? "3.0.0-alpha.4" : "2.7.1",
-  );
+  expect(prettier.version[0]).toEqual(process.env.PRETTIER_VERSION ?? "2");
 });
 
 for (const sourceFileName of files) {

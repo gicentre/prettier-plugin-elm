@@ -1002,6 +1002,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/prettier-v1@npm:@types/prettier@1.19.1":
+  version: 1.19.1
+  resolution: "@types/prettier@npm:1.19.1"
+  checksum: 91974085993992694e925101b7c58251401fd896f6c33a41a3d075e15c85329935324fd0ab08a79611f0697fbde963677c6b55e8bd1eb150f187b60c3db7ef4e
+  languageName: node
+  linkType: hard
+
 "@types/prettier-v3@npm:@types/prettier@2.7.1, @types/prettier@npm:^2.1.5, @types/prettier@npm:^2.7.1":
   version: 2.7.1
   resolution: "@types/prettier@npm:2.7.1"
@@ -4995,6 +5002,7 @@ __metadata:
     "@types/jest": "npm:^29.2.2"
     "@types/object-hash": "npm:^2.2.1"
     "@types/prettier": "npm:^2.7.1"
+    "@types/prettier-v1": "npm:@types/prettier@1.19.1"
     "@types/prettier-v3": "npm:@types/prettier@2.7.1"
     "@types/rimraf": "npm:^3.0.2"
     elm-format: "npm:0.8.5"
@@ -5009,6 +5017,7 @@ __metadata:
     object-hash: "npm:^3.0.0"
     prettier: "npm:^2.7.1"
     prettier-plugin-packagejson: "npm:^2.3.0"
+    prettier-v1: "npm:prettier@1.19.1"
     prettier-v3: "npm:prettier@3.0.0-alpha.4"
     rimraf: "npm:^3.0.2"
     serialize-error: "npm:^8.1.0"
@@ -5029,6 +5038,15 @@ __metadata:
     prettier:
       optional: true
   checksum: 4a0a6703c4a44aef1bbb2cefcb5bb91f15b3fbefd6849641cd50afe5cd70ef94229514724815f57918f277122840b915362e4cebee921c23783947baa4e2ffca
+  languageName: node
+  linkType: hard
+
+"prettier-v1@npm:prettier@1.19.1":
+  version: 1.19.1
+  resolution: "prettier@npm:1.19.1"
+  bin:
+    prettier: ./bin-prettier.js
+  checksum: e2f7271d6e3ea9bd5cd75d86574ae8f3a7bf97b0ce18b7439b5b792af2077dc80691bd45fc148e0c85198b0c7d1ec570f3598d046403a3d0341501c8ed999979
   languageName: node
   linkType: hard
 
