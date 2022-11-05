@@ -74,4 +74,4 @@ test(`correctly deals with cache`, async () => {
   ).toBeGreaterThanOrEqual(
     numberOfFormatCallsInFirstRun + 1 /* for "" */ + 1 /* for GC-d block */,
   );
-}, 10_000);
+}, 15_000);
