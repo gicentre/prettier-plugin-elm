@@ -80,7 +80,7 @@ jobs:
         include:
           - os: ubuntu-22.04
             node: 18
-            extra: TEST_COVERAGE
+            extra: coverage
           - os: ubuntu-22.04
             node: 19
 
@@ -101,25 +101,25 @@ jobs:
         if: ${{ success() || failure() }}
         run: yarn test
         env:
-          TEST_COVERAGE: ${{ matrix.extra == 'TEST_COVERAGE' }}
+          COVERAGE: ${{ matrix.extra == 'coverage' }}
 
-      - name: "Prettier v2: Report code TEST_COVERAGE to codecov.io"
+      - name: "Prettier v2: Report coverage to codecov.io"
         uses: codecov/codecov-action@v3
-        if: matrix.extra == 'TEST_COVERAGE'
+        if: matrix.extra == 'coverage'
         with:
-          files: TEST_COVERAGE/lcov.info
+          files: coverage/lcov.info
           label: prettier-v2
 
       - name: "Prettier v3: Run tests"
         if: ${{ success() || failure() }}
         run: yarn test
         env:
-          TEST_COVERAGE: ${{ matrix.extra == 'TEST_COVERAGE' }}
+          COVERAGE: ${{ matrix.extra == 'coverage' }}
           PRETTIER_V3: "true"
 
-      - name: "Prettier v3: Report code TEST_COVERAGE to codecov.io"
+      - name: "Prettier v3: Report coverage to codecov.io"
         uses: codecov/codecov-action@v3
-        if: matrix.extra == 'TEST_COVERAGE'
+        if: matrix.extra == 'coverage'
         with:
-          files: TEST_COVERAGE/lcov.info
+          files: coverage/lcov.info
           label: prettier-v3
