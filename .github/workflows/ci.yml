@@ -76,11 +76,7 @@ jobs:
         node: [14, 16, 18, 19]
         exclude:
           - os: macos-12
-            node: 14
-          - os: macos-12
             node: 19
-          - os: windows-2022
-            node: 14
           - os: windows-2022
             node: 19
 
