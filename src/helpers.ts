@@ -10,6 +10,7 @@ export const getElmFormatVersion = () => {
     const help = execa.sync("elm-format", ["--help"], {
       preferLocal: true,
       localDir: __dirname,
+      timeout: 5000,
     }).stdout;
     const helpMatch = help.match(/elm-format ([^\n]+)/);
     cachedElmFormatVersion = helpMatch ? helpMatch[1] : "unknown";
@@ -24,5 +25,6 @@ export const formatTextWithElmFormat = (text: string): string => {
     preferLocal: true,
     localDir: __dirname,
     stripFinalNewline: false,
+    timeout: 15_000,
   }).stdout;
 };
