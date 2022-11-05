@@ -1,16 +1,27 @@
-## extensions
-*.*
-LICENSE
+###########################
+## Specific to Markdownlint
+###########################
+
+## Ignore all files (but still allow sub-folder scanning)
+*
+!*/
+
+## Allow certain file types
 !*.md
 
-!/.github/
-/fixtures/
+#########################
+## Shared between linters
+#########################
 
-## same as in .gitignore
-node_modules
-*.log
+fixtures
+
+########################
+## Same as in .gitignore
+########################
+
 .DS_Store
+*.log
 cache
 coverage
 dist
-junit.xml
+node_modules

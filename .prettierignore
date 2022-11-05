@@ -1,20 +1,33 @@
-## extensions
-*.*
-LICENSE
+#######################
+## Specific to Prettier
+#######################
+
+## Ignore all files (but still allow sub-folder scanning)
+*
+!*/
+
+## Allow certain file types
+!*.cjs
 !*.js
 !*.json
 !*.md
+!*.mjs
 !*.ts
 !*.yml
 
-!/.github/
-/fixtures/
+#########################
+## Shared between linters
+#########################
 
-## same as in .gitignore
-node_modules
-*.log
+fixtures
+
+########################
+## Same as in .gitignore
+########################
+
 .DS_Store
+*.log
 cache
 coverage
 dist
-junit.xml
+node_modules
