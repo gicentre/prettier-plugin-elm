@@ -24,7 +24,7 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Run build
         run: yarn build
@@ -44,7 +44,7 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Lint with eslint
         run: yarn lint:eslint
@@ -58,8 +58,8 @@ jobs:
       - name: Lint with tsc
         run: yarn lint:tsc
 
-      - name: Lint with yarn-deduplicate
-        run: yarn lint:yarn-deduplicate
+      - name: Lint with yarn-dedupe
+        run: yarn lint:yarn-dedupe
 
   unit-tests:
     name: Unit tests
@@ -90,7 +90,7 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Run unit tests
         run: yarn test
