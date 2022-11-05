@@ -1,6 +1,8 @@
-import { AstPath } from "prettier";
+import type { AstPath, Doc } from "prettier";
 
-export const print = (path: AstPath) => {
+import type { ElmNode } from "./types";
+
+export const print = (path: AstPath<ElmNode>): Doc => {
   const node = path.getValue();
 
   switch (node.type) {

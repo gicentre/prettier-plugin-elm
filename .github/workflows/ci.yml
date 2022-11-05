@@ -29,7 +29,7 @@ jobs:
       - name: Run build
         run: yarn build
 
-  lint:
+  linting:
     name: Linting
     runs-on: ubuntu-latest
 
@@ -66,23 +66,22 @@ jobs:
         if: ${{ success() || failure() }}
         run: yarn lint:yarn-dedupe
 
-  unit-tests:
-    name: Unit tests
+  tests:
+    name: Tests
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-12, ubuntu-22.04, windows-2022]
+        os: [macos-12, windows-2022, ubuntu-22.04]
         node: [14, 16, 18, 19]
         exclude:
-          - os: macos-12
-            node: 14
-          - os: macos-12
-            node: 19
-          - os: windows-2022
-            node: 14
-          - os: windows-2022
-            node: 19
+          - os: ubuntu-22.04
+            node: 18
+        include:
+          - os: ubuntu-22.04
+            node: 18
+            extra: coverage
+          - os: ubuntu-22.04
 
     steps:
       - name: Check out repository
@@ -100,10 +99,10 @@ jobs:
       - name: Run unit tests
         run: yarn test
         env:
-          TEST_COVERAGE: ${{ matrix.os == 'ubuntu-22.04' && matrix.node == 18 }}
+          COVERAGE: ${{ matrix.extra == 'coverage' }}
 
       - name: Report code coverage to codecov.io
         uses: codecov/codecov-action@v3
-        if: matrix.os == 'ubuntu-22.04' && matrix.node == 18
+        if: matrix.extra == 'coverage'
         with:
           files: coverage/lcov.info
