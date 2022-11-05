@@ -9,7 +9,7 @@ export const print = (path: AstPath) => {
     }
 
     /* istanbul ignore next */
-    default:
+    default: {
       if (process.env.NODE_ENV === "test") {
         throw new Error(
           `Unknown Elm node: ${JSON.stringify(
@@ -23,5 +23,6 @@ export const print = (path: AstPath) => {
       console.error("Unknown Elm node:", node);
 
       return node.source;
+    }
   }
 };

@@ -4,9 +4,8 @@ module.exports = {
   reportUnusedDisableDirectives: true,
   rules: {
     /* eslint-disable @typescript-eslint/naming-convention */
-    "unicorn/prefer-json-parse-buffer": "off",
-    "unicorn/prefer-module": "off",
-    "unicorn/prefer-node-protocol": "off",
+    "unicorn/prefer-module": "off", // Can be enabled after switching to ESM or Node.js >=16
+    "unicorn/prefer-node-protocol": "off", // Can be enabled after switching to ESM or Node.js >=16
     /* eslint-enable @typescript-eslint/naming-convention */
   },
 };

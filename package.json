@@ -25,7 +25,7 @@
     "lint:markdownlint": "markdownlint .",
     "lint:prettier": "prettier --check .",
     "lint:tsc": "tsc --noEmit",
-    "lint:eslint": "eslint .",
+    "lint:eslint": "eslint --report-unused-disable-directives .",
     "lint:yarn-deduplicate": "yarn-deduplicate --fail --list --strategy=fewer",
     "prepare": "husky install",
     "prepublishOnly": "yarn lint && yarn test",
@@ -46,8 +46,8 @@
     "temp-dir": "^2.0.0"
   },
   "devDependencies": {
-    "@kachkaev/eslint-config-base": "^0.4.3",
-    "@kachkaev/markdownlint-config": "^0.3.0",
+    "@kachkaev/eslint-config-base": "^0.5.0",
+    "@kachkaev/markdownlint-config": "^0.5.0",
     "@types/jest": "^29.2.2",
     "@types/object-hash": "^2.2.1",
     "@types/prettier": "^2.7.1",
