@@ -12,7 +12,7 @@ beforeAll(() => {
   rimraf.sync(path.resolve(tempDir, "prettier-plugin-elm"));
 });
 
-test(`using correct Prettier version`, async () => {
+test(`uses correct Prettier core version`, async () => {
   const prettier = await getPrettier();
   expect(prettier.version).toBe(
     process.env.PRETTIER_V3 ? "3.0.0-alpha.4" : "2.7.1",
