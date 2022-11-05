@@ -97,10 +97,10 @@ jobs:
       - name: Run unit tests
         run: yarn test
         env:
-          REPORT_TEST_RESULTS_AND_COVERAGE: ${{ matrix.os == "ubuntu-22.04" && matrix.node == 18 }}
+          REPORT_TEST_RESULTS_AND_COVERAGE: ${{ matrix.os == 'ubuntu-22.04' && matrix.node == 18 }}
 
       - name: Report code coverage to codecov.io
         uses: codecov/codecov-action@v3
-        if: matrix.os == "ubuntu-22.04" && matrix.node == 18
+        if: matrix.os == 'ubuntu-22.04' && matrix.node == 18
         with:
           files: ./coverage/cobertura-coverage.xml
