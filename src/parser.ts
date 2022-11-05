@@ -37,11 +37,11 @@ export const parse = (
   parsersInPrettierV2OrOptionsInPrettierV3:
     | { [parserName: string]: Parser }
     | ParserOptions,
-  optionsInPrettierV2: ParserOptions | undefined,
+  optionsInPrettierV2AndV3: ParserOptions,
 ): ElmNode => {
-  const options =
-    optionsInPrettierV2 ??
-    (parsersInPrettierV2OrOptionsInPrettierV3 as ParserOptions);
+  // TODO: Pick between argument 2 and 3 when adding Prettier 4 support
+  // https://github.com/prettier/prettier/issues/10156#issuecomment-1207270177
+  const options = optionsInPrettierV2AndV3;
 
   // patch 1 step 1
   const textToSend = `${text}${dummyComment}`;
