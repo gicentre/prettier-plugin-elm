@@ -9,19 +9,31 @@
 ## Allow certain file types
 !*.md
 
-#########################
-## Shared between linters
-#########################
-
-fixtures
-
 ########################
 ## Same as in .gitignore
 ########################
 
+## Yarn
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+node_modules
+
+## Misc
 .DS_Store
 *.log
 cache
 coverage
 dist
-node_modules
+
+#########################
+## Shared between linters
+#########################
+
+.git
+.yarn
+fixtures
