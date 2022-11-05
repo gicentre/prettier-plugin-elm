@@ -47,18 +47,23 @@ jobs:
         run: yarn install --immutable
 
       - name: Lint with eslint
+        if: ${{ success() || failure() }}
         run: yarn lint:eslint
 
       - name: Lint with markdownlint
+        if: ${{ success() || failure() }}
         run: yarn lint:markdownlint
 
       - name: Lint with prettier
+        if: ${{ success() || failure() }}
         run: yarn lint:prettier
 
       - name: Lint with tsc
+        if: ${{ success() || failure() }}
         run: yarn lint:tsc
 
       - name: Lint with yarn-dedupe
+        if: ${{ success() || failure() }}
         run: yarn lint:yarn-dedupe
 
   unit-tests:
