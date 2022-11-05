@@ -3,7 +3,7 @@ import path from "path";
 import rimraf from "rimraf";
 import sleep from "sleep-promise";
 
-import * as util from "./helpers";
+import * as helpers from "./helpers";
 import { format } from "./test-helpers/prettier-wrapper";
 
 const fixturesDir = path.resolve(__dirname, "../fixtures");
@@ -18,7 +18,7 @@ test(`correctly deals with cache`, async () => {
   process.env.PRETTIER_PLUGIN_ELM_CACHE_GC_INTERVAL = `${cacheGcInterval}`;
 
   const spyForFormatTextWithElmFormat = jest.spyOn(
-    util,
+    helpers,
     "formatTextWithElmFormat",
   );
 

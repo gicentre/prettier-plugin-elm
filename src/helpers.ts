@@ -1,6 +1,7 @@
 import execa from "execa";
 
 let cachedElmFormatVersion: string;
+
 export const getElmFormatVersion = () => {
   if (!cachedElmFormatVersion) {
     // a cleaner way of getting elm-format version
