@@ -1,4 +1,4 @@
-name: Check codebase
+name: CI
 
 on:
   push:
@@ -12,14 +12,16 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+
     steps:
       - name: Check out repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: 14
+          cache: yarn
+          node-version: 18
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
@@ -30,14 +32,16 @@ jobs:
   lint:
     name: Linting
     runs-on: ubuntu-latest
+
     steps:
       - name: Check out repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: 14
+          cache: yarn
+          node-version: 18
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
@@ -61,25 +65,28 @@ jobs:
     name: Unit tests
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
-        node: [12, 14, 16]
-        include:
-          - os: ubuntu-latest
-            node: 14
-            coverage: 1
+        os: [macos-12, ubuntu-22.04, windows-2022]
+        node: [14, 16, 18, 19]
         exclude:
-          - os: macos-latest
-            node: 12
-          - os: windows-latest
-            node: 12
+          - os: macos-12
+            node: 14
+          - os: macos-12
+            node: 19
+          - os: windows-2022
+            node: 14
+          - os: windows-2022
+            node: 19
+
     steps:
       - name: Check out repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
+          cache: yarn
           node-version: ${{ matrix.node }}
 
       - name: Install dependencies
@@ -88,10 +95,10 @@ jobs:
       - name: Run unit tests
         run: yarn test
         env:
-          REPORT_TEST_RESULTS_AND_COVERAGE: ${{ matrix.coverage }}
+          REPORT_TEST_RESULTS_AND_COVERAGE: ${{ matrix.os == 'ubuntu-22.04' && matrix.node == 18 }}
 
       - name: Report code coverage to codecov.io
-        uses: codecov/codecov-action@v1
-        if: matrix.coverage == 1
+        uses: codecov/codecov-action@v3
+        if: matrix.os == 'ubuntu-22.04' && matrix.node == 18
         with:
-          file: ./coverage/cobertura-coverage.xml
+          files: ./coverage/cobertura-coverage.xml
