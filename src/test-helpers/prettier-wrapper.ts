@@ -1,10 +1,18 @@
 import type { Options } from "prettier";
 
-export const getPrettier = async (): Promise<typeof import("prettier")> => {
-  return process.env.PRETTIER_V3 === "true"
-    ? await import("prettier-v3")
-    : // eslint-disable-next-line @typescript-eslint/no-var-requires
-      (require("prettier") as typeof import("prettier"));
+type Prettier = typeof import("prettier");
+let cachedPrettier: Prettier | undefined;
+
+export const getPrettier = async (): Promise<Prettier> => {
+  if (cachedPrettier) {
+    return cachedPrettier;
+  }
+
+  cachedPrettier = await (process.env.PRETTIER_V3 === "true"
+    ? import("prettier-v3")
+    : import("prettier"));
+
+  return cachedPrettier;
 };
 
 export const format = async (
