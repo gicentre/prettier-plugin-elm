@@ -4,6 +4,7 @@
     "inlineSourceMap": true,
     "lib": ["ES2019"],
     "module": "commonjs",
+    "checkJs": true,
     "outDir": "dist",
     "rootDir": "src",
     "strict": true,
