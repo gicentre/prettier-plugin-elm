@@ -74,7 +74,13 @@ jobs:
       matrix:
         os: [macos-12, ubuntu-22.04, windows-2022]
         node: [14, 16, 18, 19]
+        include:
+          - os: ubuntu-22.04
+            node: 18
+            extra: coverage
         exclude:
+          - os: ubuntu-22.04
+            node: 18
           - os: macos-12
             node: 19
           - os: windows-2022
@@ -93,20 +99,29 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Run tests (Prettier v3)
+      - name: "Prettier v2: Run tests"
         if: ${{ success() || failure() }}
         run: yarn test
         env:
-          PRETTIER_V3: "true"
+          TEST_COVERAGE: ${{ extra == 'coverage' }}
 
-      - name: Run tests (Prettier v2)
-        if: ${{ success() || failure() }}
-        run: yarn test
-        env:
-          TEST_COVERAGE: ${{ matrix.os == 'ubuntu-22.04' && matrix.node == 18 }}
-
-      - name: Report code coverage to codecov.io
+      - name: "Prettier v2: Report code coverage to codecov.io"
         uses: codecov/codecov-action@v3
-        if: matrix.os == 'ubuntu-22.04' && matrix.node == 18
+        if: extra == 'coverage'
         with:
           files: coverage/lcov.info
+          label: prettier-v2
+
+      - name: "Prettier v3: Run tests"
+        if: ${{ success() || failure() }}
+        run: yarn test
+        env:
+          TEST_COVERAGE: ${{ extra == 'coverage' }}
+          PRETTIER_V3: "true"
+
+      - name: "Prettier v3: Report code coverage to codecov.io"
+        uses: codecov/codecov-action@v3
+        if: extra == 'coverage'
+        with:
+          files: coverage/lcov.info
+          label: prettier-v3
