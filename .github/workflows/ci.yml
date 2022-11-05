@@ -103,11 +103,11 @@ jobs:
         if: ${{ success() || failure() }}
         run: yarn test
         env:
-          TEST_COVERAGE: ${{ extra == 'coverage' }}
+          TEST_COVERAGE: ${{ matrix.extra == 'coverage' }}
 
       - name: "Prettier v2: Report code coverage to codecov.io"
         uses: codecov/codecov-action@v3
-        if: extra == 'coverage'
+        if: matrix.extra == 'coverage'
         with:
           files: coverage/lcov.info
           label: prettier-v2
@@ -116,12 +116,12 @@ jobs:
         if: ${{ success() || failure() }}
         run: yarn test
         env:
-          TEST_COVERAGE: ${{ extra == 'coverage' }}
+          TEST_COVERAGE: ${{ matrix.extra == 'coverage' }}
           PRETTIER_V3: "true"
 
       - name: "Prettier v3: Report code coverage to codecov.io"
         uses: codecov/codecov-action@v3
-        if: extra == 'coverage'
+        if: matrix.extra == 'coverage'
         with:
           files: coverage/lcov.info
           label: prettier-v3
