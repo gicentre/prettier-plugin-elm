@@ -41,7 +41,7 @@
     "elm-format": "0.8.5",
     "execa": "^5.1.1",
     "make-dir": "^3.1.0",
-    "object-hash": "^2.2.0",
+    "object-hash": "^3.0.0",
     "serialize-error": "^8.1.0",
     "temp-dir": "^2.0.0"
   },
@@ -67,6 +67,6 @@
     "yarn-deduplicate": "^6.0.0"
   },
   "engines": {
-    "node": ">=12.13.0"
+    "node": ">=14.16.0"
   }
 }
