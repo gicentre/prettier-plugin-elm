@@ -15,12 +15,13 @@
   <a href="https://www.npmjs.com/package/prettier-plugin-elm">
     <img alt="NPM package" src="https://img.shields.io/npm/v/prettier-plugin-elm.svg?style=flat-square"><!--
   --></a>
-  <a href="https://github.com/gicentre/prettier-plugin-elm/actions?query=workflow%3AChecks">
-    <img alt="GitHub Workflow Status (checks)" src="https://img.shields.io/github/workflow/status/gicentre/prettier-plugin-elm/Checks?label=checks&style=flat-square"><!--
+  <a href="https://github.com/gicentre/prettier-plugin-elm/actions/workflows/ci.yml">
+    <img alt="GitHub Workflow Status (CI)" src="https://img.shields.io/github/actions/workflow/status/gicentre/prettier-plugin-elm/ci.yml?label=CI&style=flat-square"><!--
   --></a>
   <a href="https://codecov.io/gh/gicentre/prettier-plugin-elm">
     <img alt="Codecov" src="https://img.shields.io/codecov/c/github/gicentre/prettier-plugin-elm?style=flat-square&token=38aa3a14f00b4d3cbb8e39a9d69e6c64"><!--
   --></a>
+  <br>
   <a href="https://www.npmjs.com/package/prettier-plugin-elm">
     <img alt="downloads" src="https://img.shields.io/npm/dt/prettier-plugin-elm.svg?style=flat-square"><!--
    --></a>
@@ -28,7 +29,7 @@
     <img alt="code style: Prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"><!--
   --></a>
   <a href="https://twitter.com/giCentre">
-    <img alt="giCentre on Twitter" src="https://img.shields.io/twitter/follow/giCentre.svg?label=follow+giCentre&style=flat-square"><!--
+    <img alt="giCentre on Twitter" src="https://img.shields.io/badge/follow-%40giCentre-1DA1F2?logo=twitter&style=flat-square"><!--
   --></a>
 </p>
 
