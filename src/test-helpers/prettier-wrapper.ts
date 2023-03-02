@@ -1,12 +1,12 @@
-import type * as prettier from "prettier";
+import type { Options } from "prettier";
 
 export const getPrettier = async () => {
   switch (process.env.PRETTIER_MAJOR_VERSION) {
     case "2": {
-      // there is a slight type mismatch in format Options between v2 and v3
-      return (await import(
-        "prettier-v2"
-      )) as unknown as typeof import("prettier");
+      return (
+        // there is a slight type mismatch in format Options between v2 and v3
+        (await import("prettier-v2")) as unknown as typeof import("prettier")
+      );
     }
     case "1": {
       return (
@@ -22,7 +22,7 @@ export const getPrettier = async () => {
 
 export const format = async (
   source: string,
-  options?: prettier.Options,
+  options?: Options,
 ): Promise<string> => {
   const prettier = await getPrettier();
 
