@@ -1,3 +1,9 @@
+## 0.10.0 (2023-03-02)
+
+- Update elm-format to 0.8.6 ([#43](https://github.com/gicentre/prettier-plugin-elm/issues/43))
+
+- Update devDependencies and Yarn ([#44](https://github.com/gicentre/prettier-plugin-elm/issues/44))
+
 ## 0.9.0 (2022-11-05)
 
 - **[breaking change]** Set minimum Node version to 14 ([#33](https://github.com/gicentre/prettier-plugin-elm/issues/33))
