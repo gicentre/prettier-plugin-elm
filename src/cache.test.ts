@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import rimraf from "rimraf";
+import { rimraf } from "rimraf";
 import sleep from "sleep-promise";
 
 import * as helpers from "./helpers";
@@ -12,7 +12,7 @@ const cacheMax = 21; // number of blocks in multiple-blocks.md fixture
 const cacheGcInterval = 1000;
 
 test(`correctly deals with cache`, async () => {
-  rimraf.sync(cacheDir);
+  await rimraf(cacheDir);
   process.env.PRETTIER_PLUGIN_ELM_CACHE_DIR = cacheDir;
   process.env.PRETTIER_PLUGIN_ELM_CACHE_MAX = `${cacheMax}`;
   process.env.PRETTIER_PLUGIN_ELM_CACHE_GC_INTERVAL = `${cacheGcInterval}`;

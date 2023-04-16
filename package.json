@@ -52,7 +52,6 @@
     "@types/object-hash": "^3.0.2",
     "@types/prettier-v1": "npm:@types/prettier@1.19.1",
     "@types/prettier-v2": "npm:@types/prettier@2.7.2",
-    "@types/rimraf": "3.0.2",
     "eslint": "8.38.0",
     "husky": "8.0.3",
     "jest": "29.5.0",
