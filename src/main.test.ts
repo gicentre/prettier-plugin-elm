@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import rimraf from "rimraf";
+import { rimraf } from "rimraf";
 import tempDir from "temp-dir";
 
 import { format, getPrettier } from "./test-helpers/prettier-wrapper";
@@ -8,8 +8,8 @@ import { format, getPrettier } from "./test-helpers/prettier-wrapper";
 const fixturesDir = path.resolve(__dirname, "../fixtures");
 const files = fs.readdirSync(fixturesDir);
 
-beforeAll(() => {
-  rimraf.sync(path.resolve(tempDir, "prettier-plugin-elm"));
+beforeAll(async () => {
+  await rimraf(path.resolve(tempDir, "prettier-plugin-elm"));
   jest.resetModules();
 });
 
