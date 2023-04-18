@@ -15,37 +15,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@avh4/elm-format-darwin-arm64@npm:0.8.6-2":
-  version: 0.8.6-2
-  resolution: "@avh4/elm-format-darwin-arm64@npm:0.8.6-2"
+"@avh4/elm-format-darwin-arm64@npm:0.8.7-2":
+  version: 0.8.7-2
+  resolution: "@avh4/elm-format-darwin-arm64@npm:0.8.7-2"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@avh4/elm-format-darwin-x64@npm:0.8.6-2":
-  version: 0.8.6-2
-  resolution: "@avh4/elm-format-darwin-x64@npm:0.8.6-2"
+"@avh4/elm-format-darwin-x64@npm:0.8.7-2":
+  version: 0.8.7-2
+  resolution: "@avh4/elm-format-darwin-x64@npm:0.8.7-2"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@avh4/elm-format-linux-arm64@npm:0.8.6-2":
-  version: 0.8.6-2
-  resolution: "@avh4/elm-format-linux-arm64@npm:0.8.6-2"
+"@avh4/elm-format-linux-arm64@npm:0.8.7-2":
+  version: 0.8.7-2
+  resolution: "@avh4/elm-format-linux-arm64@npm:0.8.7-2"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"@avh4/elm-format-linux-x64@npm:0.8.6-2":
-  version: 0.8.6-2
-  resolution: "@avh4/elm-format-linux-x64@npm:0.8.6-2"
+"@avh4/elm-format-linux-x64@npm:0.8.7-2":
+  version: 0.8.7-2
+  resolution: "@avh4/elm-format-linux-x64@npm:0.8.7-2"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"@avh4/elm-format-win32-x64@npm:0.8.6-2":
-  version: 0.8.6-2
-  resolution: "@avh4/elm-format-win32-x64@npm:0.8.6-2"
+"@avh4/elm-format-win32-x64@npm:0.8.7-2":
+  version: 0.8.7-2
+  resolution: "@avh4/elm-format-win32-x64@npm:0.8.7-2"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -2057,15 +2057,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"elm-format@npm:0.8.6":
-  version: 0.8.6
-  resolution: "elm-format@npm:0.8.6"
+"elm-format@npm:0.8.7":
+  version: 0.8.7
+  resolution: "elm-format@npm:0.8.7"
   dependencies:
-    "@avh4/elm-format-darwin-arm64": "npm:0.8.6-2"
-    "@avh4/elm-format-darwin-x64": "npm:0.8.6-2"
-    "@avh4/elm-format-linux-arm64": "npm:0.8.6-2"
-    "@avh4/elm-format-linux-x64": "npm:0.8.6-2"
-    "@avh4/elm-format-win32-x64": "npm:0.8.6-2"
+    "@avh4/elm-format-darwin-arm64": "npm:0.8.7-2"
+    "@avh4/elm-format-darwin-x64": "npm:0.8.7-2"
+    "@avh4/elm-format-linux-arm64": "npm:0.8.7-2"
+    "@avh4/elm-format-linux-x64": "npm:0.8.7-2"
+    "@avh4/elm-format-win32-x64": "npm:0.8.7-2"
   dependenciesMeta:
     "@avh4/elm-format-darwin-arm64":
       optional: true
@@ -2079,7 +2079,7 @@ __metadata:
       optional: true
   bin:
     elm-format: bin/elm-format
-  checksum: 760d92ae6ed02b9606c2a0d41aa1cf59dbaac9c8da3cf6be3326b33c29e74a22b052f7113ffcf8a34b6b782cb34d17edb9686464d894b0e48384eefd10010e3e
+  checksum: a02790dc5dbcc4b757d917ab05a8959a4ab2c71949a6434b971ffbc53dd6d3a468c6f906311d70702da77489a90979f9c47595efb3cac4668a079aadcd73da06
   languageName: node
   linkType: hard
 
@@ -5009,7 +5009,7 @@ __metadata:
     "@types/object-hash": "npm:^3.0.2"
     "@types/prettier-v1": "npm:@types/prettier@1.19.1"
     "@types/prettier-v2": "npm:@types/prettier@2.7.2"
-    elm-format: "npm:0.8.6"
+    elm-format: "npm:0.8.7"
     eslint: "npm:8.38.0"
     execa: "npm:^5.1.1"
     husky: "npm:8.0.3"
