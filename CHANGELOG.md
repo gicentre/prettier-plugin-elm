@@ -1,3 +1,9 @@
+## 0.11.0 (2023-04-18)
+
+- Update elm-format to 0.8.7 ([#47](https://github.com/gicentre/prettier-plugin-elm/pull/47))
+
+- Update and pin `devDependencies` ([#46](https://github.com/gicentre/prettier-plugin-elm/pull/46))
+
 ## 0.10.0 (2023-03-02)
 
 - Update elm-format to 0.8.6 ([#43](https://github.com/gicentre/prettier-plugin-elm/issues/43))
