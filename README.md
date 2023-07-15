@@ -105,10 +105,12 @@ You might need to restart the terminal or the whole machine to see the new versi
 The easiest way to get started with Prettier and its Elm plugin is to globally install two NPM packages:
 
 ```sh
-npm install --global prettier prettier-plugin-elm
+npm install --global prettier@2 prettier-plugin-elm
 ```
 
 Global install is preferred in simple scenarios, especially when you are working alone on small projects.
+
+_Prettier v3 does has [dropped support for automatic plugin search](https://github.com/prettier/prettier/pull/14759) so we need to install `prettier@2` globally. If you want to use Prettier v3, you need to install it locally and [mention](https://prettier.io/docs/en/plugins.html) `prettier-plugin-elm` in the config file._
 
 ### Local install
 
@@ -155,6 +157,23 @@ This avoids frequent unwanted changes in source files, which can be caused by fo
     ## if you use yarn instead of npm
     yarn install
     ```
+
+1.  Mention the plugin in the config file:
+
+    1.  Create a file named `.prettierrc.json` in the root of your project.
+        If you already have this file, open it instead. Note that it can be called differently because Prettier supports [several config file names](https://prettier.io/docs/en/configuration.html).
+
+    1.  Add the following content to the file:
+
+        ```json
+        {
+          "plugins": ["prettier-plugin-elm"]
+        }
+        ```
+
+        This tells Prettier to use the Elm plugin when formatting files.
+
+    1.  Save the file.
 
 Note that you need to repeat the local install steps for every project.
 
