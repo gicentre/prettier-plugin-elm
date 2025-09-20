@@ -1,6 +1,11 @@
 {
   "extends": ["@tsconfig/recommended", "@tsconfig/strictest"],
   "compilerOptions": {
+    // Options handled by ESLint
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+
+    // Used to compile the code
     "outDir": "dist",
     "rootDir": "src"
   },
