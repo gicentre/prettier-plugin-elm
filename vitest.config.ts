@@ -4,9 +4,11 @@ export default defineConfig({
   test: {
     coverage: {
       provider: "v8",
-      include: ["src/**/*.ts"],
-      exclude: ["src/**/*.test.ts"],
+      include: ["dist/**/*.js"],
+      exclude: ["dist/**/*.test.mjs"],
       enabled: process.env["COVERAGE"] === "true",
     },
+    include: ["dist/**/*.test.mjs"],
+    exclude: ["**/node_modules/**"],
   },
 });

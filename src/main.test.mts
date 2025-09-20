@@ -4,7 +4,7 @@ import path from "path";
 import { rimraf } from "rimraf";
 import tempDir from "temp-dir";
 
-import { format, getPrettier } from "./test-helpers/prettier-wrapper";
+import { format, getPrettier } from "./test-helpers/prettier-wrapper.mjs";
 
 const fixturesDir = path.resolve(__dirname, "../fixtures");
 const files = fs.readdirSync(fixturesDir);

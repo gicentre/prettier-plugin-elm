@@ -14,7 +14,7 @@
   "license": "BSD-3-Clause",
   "main": "dist/main.js",
   "scripts": {
-    "build": "tsc --noCheck",
+    "build": "tsc --project tsconfig.build.json",
     "clean": "rimraf cache coverage dist",
     "fix": "npm-run-all2 --continue-on-error \"fix:*\"",
     "fix:eslint": "eslint --fix .",

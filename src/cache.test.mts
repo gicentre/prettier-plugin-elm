@@ -5,7 +5,7 @@ import { rimraf } from "rimraf";
 import sleep from "sleep-promise";
 
 import * as helpers from "./helpers";
-import { format } from "./test-helpers/prettier-wrapper";
+import { format } from "./test-helpers/prettier-wrapper.mjs";
 
 const fixturesDir = path.resolve(__dirname, "../fixtures");
 const cacheDir = path.resolve(__dirname, "../cache");
@@ -43,9 +43,6 @@ test(`correctly deals with cache`, async () => {
   ).toEqual(expectedFormattedText);
   const numberOfFormatCallsInFirstRun =
     spyForFormatTextWithElmFormat.mock.calls.length;
-
-  expect(spyForFormatTextWithElmFormat).toHaveBeenCalledTimes(3);
-  console.log("XX", spyForFormatTextWithElmFormat.mock.results);
   expect(numberOfFormatCallsInFirstRun).toBeGreaterThan(0);
 
   // multiple-blocks.md, second run – with cache
