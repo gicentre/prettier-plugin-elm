@@ -1,3 +1,15 @@
+## 0.12.0 (2025-09-21)
+
+- **[breaking change]** Set minimum Node version to 18.20.6 ([#64](https://github.com/gicentre/prettier-plugin-elm/pull/64))
+
+- Update elm-format to 0.8.8 ([#63](https://github.com/gicentre/prettier-plugin-elm/pull/63))
+
+- Update production dependencies and devDependencies ([#64](https://github.com/gicentre/prettier-plugin-elm/pull/64), [#60](https://github.com/gicentre/prettier-plugin-elm/pull/60))
+
+- [internal] Switch from yarn to pnpm ([#59](https://github.com/gicentre/prettier-plugin-elm/pull/59))
+
+- [internal] Switch from jest to vitest ([#60](https://github.com/gicentre/prettier-plugin-elm/pull/60))
+
 ## 0.11.0 (2023-04-18)
 
 - Update elm-format to 0.8.7 ([#47](https://github.com/gicentre/prettier-plugin-elm/pull/47))
