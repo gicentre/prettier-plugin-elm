@@ -1,4 +1,5 @@
 nodeLinker: isolated
 
 onlyBuiltDependencies:
-  - elm-format
+  - elm-format ## downloads binary
+  - unrs-resolver ## part of jest

@@ -1,8 +1,8 @@
+import { expect, jest, test } from "@jest/globals";
 import fs from "fs";
 import path from "path";
 import { rimraf } from "rimraf";
 import sleep from "sleep-promise";
-import { expect, test, jest } from "@jest/globals";
 
 import * as helpers from "./helpers";
 import { format } from "./test-helpers/prettier-wrapper";
