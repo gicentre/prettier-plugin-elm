@@ -127,34 +127,52 @@ This avoids frequent unwanted changes in source files, which can be caused by fo
 1.  If there is no `package.json` file in your project directory, initialize it:
 
     ```sh
+    ## if you use npm
     npm init --yes
     ```
 
     ```sh
-    ## if you use yarn instead of npm
+    ## if you use pnpm
+    pnpm init --yes
+    ```
+
+    ```sh
+    ## if you use yarn
     yarn init --yes
     ```
 
 1.  Run the install command:
 
     ```sh
+    ## if you use npm
     npm install --only=dev prettier prettier-plugin-elm
     ```
 
     ```sh
-    ## if you use yarn instead of npm
+    ## if you use pnpm
+    pnpm add --dev prettier prettier-plugin-elm
+    ```
+
+    ```sh
+    ## if you use yarn
     yarn add --dev prettier prettier-plugin-elm
     ```
 
-    Versions of Prettier and its Elm plugin will be written to `package.json` and `package-lock.json` / `yarn.lock`.
+    Versions of Prettier and its Elm plugin will be written to `package.json` and `package-lock.json` / `pnpm-lock.yaml` / `yarn.lock`.
     If you share these files with the rest of your source code, others will be able to get the exact same versions of the tools by running:
 
     ```sh
+    ## if you use npm
     npm install
     ```
 
     ```sh
-    ## if you use yarn instead of npm
+    ## if you use pnpm
+    pnpm install
+    ```
+
+    ```sh
+    ## if you use yarn
     yarn install
     ```
 
@@ -212,16 +230,25 @@ For inspiration, see the `scripts` section in this project’s [`package.json`](
 You will also need to create a file named `.prettierignore`, similar to the [one in this project](https://github.com/gicentre/prettier-plugin-elm/blob/main/.prettierignore).
 
 ```sh
-## Lint (i.e. check) if all source files are formatted
+## if you use npm
+## - Lint (i.e. check) if all source files are formatted
 npm run lint:prettier
 
-## Fix formatting in all files
+## - Fix formatting in all files
 npm run fix:prettier
 ```
 
 ```sh
-## if you use yarn instead of npm
+## if you use pnpm
+## - Lint (i.e. check) if all source files are formatted
+pnpm run lint:prettier
 
+## - Fix formatting in all files
+pnpm run fix:prettier
+```
+
+```sh
+## if you use yarn
 ## Lint (i.e. check) if all source files are formatted
 yarn lint:prettier
 
@@ -249,11 +276,12 @@ If you’re interested in contributing to the development of Prettier Elm plugin
 To run the development version of `prettier-plugin-elm`:
 
 - Clone this repository
-- Run `yarn install`
-- Run `yarn lint` to make sure that the codebase passes linting
-- Run `yarn test` to make sure that TypeScript successfully compiles into JavaScript and and all unit tests pass
+- Ensure [pnpm is installed on your machine](https://pnpm.io/installation) (any version above v10.0 will work)
+- Run `pnpm install`
+- Run `pnpm lint` to make sure that the codebase passes linting
+- Run `pnpm test` to make sure that TypeScript successfully compiles into JavaScript and and all unit tests pass
 - To test the plugin manually, create a file named `prettier-test.elm` (or `.md`).
-  Then run `yarn prettier --plugin=. prettier-test.elm` (or `.md`) and check the output.
+  Then run `pnpm prettier --plugin=. prettier-test.elm` (or `.md`) and check the output.
 
 ## Credits
 
