@@ -21,7 +21,7 @@ export const print = (path: AstPath<ElmNode>): Doc => {
           )}`,
         );
       }
-      // eslint-disable-next-line no-console
+      // eslint-disable-next-line no-console -- TODO: Consider refactoring if error logging is an issue
       console.error("Unknown Elm node:", node);
 
       return node.source;

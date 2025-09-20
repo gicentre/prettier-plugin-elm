@@ -125,7 +125,7 @@ export const getCachedValue = <Args extends any[], Result>(
   }
 
   if ("error" in record) {
-    // eslint-disable-next-line unicorn/error-message
+    // eslint-disable-next-line unicorn/error-message -- TODO: add description
     const errorToThrow = new Error() as Error & Record<string, unknown>;
     for (const errorProperty in record.error) {
       /* istanbul ignore else */
