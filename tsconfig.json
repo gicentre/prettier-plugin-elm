@@ -1,16 +1,14 @@
 {
+  "extends": ["@tsconfig/recommended", "@tsconfig/strictest"],
   "compilerOptions": {
-    "esModuleInterop": true,
-    "inlineSourceMap": true,
-    "lib": ["ES2019"],
-    "isolatedModules": true,
-    "module": "commonjs",
-    "checkJs": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "outDir": "dist",
-    "rootDir": "src",
-    "strict": true,
-    "target": "ES2019"
+    "noEmit": true,
+
+    // Options handled by ESLint
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+
+    // https://github.com/microsoft/TypeScript/issues/26238
+    "noErrorTruncation": true
   },
-  "include": ["src/**/*"]
+  "exclude": ["dist"]
 }

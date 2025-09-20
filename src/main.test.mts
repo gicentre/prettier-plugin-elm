@@ -1,16 +1,17 @@
+import { beforeAll, expect, test, vi } from "vitest";
 import fs from "fs";
 import path from "path";
 import { rimraf } from "rimraf";
 import tempDir from "temp-dir";
 
-import { format, getPrettier } from "./test-helpers/prettier-wrapper";
+import { format, getPrettier } from "./test-helpers/prettier-wrapper.mjs";
 
 const fixturesDir = path.resolve(__dirname, "../fixtures");
 const files = fs.readdirSync(fixturesDir);
 
 beforeAll(async () => {
   await rimraf(path.resolve(tempDir, "prettier-plugin-elm"));
-  jest.resetModules();
+  vi.resetModules();
 });
 
 test(`uses correct Prettier core version`, async () => {
@@ -57,9 +58,10 @@ for (const sourceFileName of files) {
     try {
       actualResult = await format(sourceText, {
         filepath: sourceFilePath,
-        plugins: [path.resolve(__dirname, "..")],
+        plugins: [require.resolve(path.resolve(__dirname, ".."))],
       });
-    } catch {
+    } catch (error) {
+      console.log("err", error);
       actualResult = sourceText;
     }
 

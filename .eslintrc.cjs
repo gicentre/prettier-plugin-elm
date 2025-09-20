@@ -4,9 +4,19 @@ module.exports = {
     "@kachkaev/eslint-config-base",
     "@kachkaev/eslint-config-base/extra-type-checking",
   ],
+
   reportUnusedDisableDirectives: true,
+
   rules: {
     "unicorn/prefer-module": "off", // Can be enabled after switching to ESM
     "unicorn/prefer-node-protocol": "off", // Can be enabled after switching to ESM or dropping Node.js 14
+  },
+
+  settings: {
+    "import/resolver": {
+      node: {
+        extensions: [".js", ".jsx", ".ts", ".tsx", ".d.ts"],
+      },
+    },
   },
 };

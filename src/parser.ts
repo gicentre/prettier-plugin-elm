@@ -4,7 +4,7 @@ import { getCachedValue } from "./cache";
 import { formatTextWithElmFormat, getElmFormatVersion } from "./helpers";
 import type { ElmNode } from "./types";
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+// eslint-disable-next-line @typescript-eslint/no-var-requires -- TODO: Refactor after switching to ESM
 const pkg = require("../package.json") as { version: string };
 
 /*

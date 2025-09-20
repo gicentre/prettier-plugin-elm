@@ -177,7 +177,6 @@ This avoids frequent unwanted changes in source files, which can be caused by fo
     ```
 
 1.  Mention the plugin in the config file:
-
     1.  Create a file named `.prettierrc.json` in the root of your project.
         If you already have this file, open it instead. Note that it can be called differently because Prettier supports [several config file names](https://prettier.io/docs/en/configuration.html).
 

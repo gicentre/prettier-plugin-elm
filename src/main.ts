@@ -34,7 +34,7 @@ export const parsers: Record<string, Parser<ElmNode>> = {
 };
 
 export const printers: Record<string, Printer<ElmNode>> = {
-  // eslint-disable-next-line @typescript-eslint/naming-convention
+  // eslint-disable-next-line @typescript-eslint/naming-convention -- needs to match `astFormat`
   "elm-format": {
     print,
   },
