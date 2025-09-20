@@ -112,7 +112,6 @@ jobs:
         uses: codecov/codecov-action@v5
         if: matrix.extra == 'coverage'
         with:
-          files: coverage/lcov.info
           name: prettier-v1
 
       - name: "Prettier v2: Run tests"
@@ -126,7 +125,6 @@ jobs:
         uses: codecov/codecov-action@v3
         if: matrix.extra == 'coverage'
         with:
-          files: coverage/lcov.info
           name: prettier-v2
 
       - name: "Prettier v3: Run tests"
@@ -139,5 +137,4 @@ jobs:
         uses: codecov/codecov-action@v5
         if: matrix.extra == 'coverage'
         with:
-          files: coverage/lcov.info
           name: prettier-v3
