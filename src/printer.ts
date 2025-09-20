@@ -12,7 +12,7 @@ export const print = (path: AstPath<ElmNode>): Doc => {
 
     /* istanbul ignore next */
     default: {
-      if (process.env.NODE_ENV === "test") {
+      if (process.env["NODE_ENV"] === "test") {
         throw new Error(
           `Unknown Elm node: ${JSON.stringify(
             node,
