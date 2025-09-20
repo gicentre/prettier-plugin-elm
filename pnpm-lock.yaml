@@ -8,15 +8,12 @@ importers:
 
   .:
     dependencies:
-      cross-spawn:
-        specifier: 7.0.6
-        version: 7.0.6
       elm-format:
         specifier: 0.8.8
         version: 0.8.8
-      npm-run-path:
-        specifier: 4.0.1
-        version: 4.0.1
+      execa:
+        specifier: ^5.1.1
+        version: 5.1.1
       object-hash:
         specifier: ^3.0.0
         version: 3.0.0
@@ -39,9 +36,6 @@ importers:
       '@tsconfig/strictest':
         specifier: 2.0.5
         version: 2.0.5
-      '@types/cross-spawn':
-        specifier: 6.0.6
-        version: 6.0.6
       '@types/node':
         specifier: 24.5.2
         version: 24.5.2
@@ -795,9 +789,6 @@ packages:
 
   '@types/chai@5.2.2':
     resolution: {integrity: sha512-8kB30R7Hwqf40JPiKhVzodJs2Qc1ZJ5zuT3uzw5Hq/dhNCl3G3l83jfpdI1e20BP348+fV7VIL/+FxaXkqBmWg==}
-
-  '@types/cross-spawn@6.0.6':
-    resolution: {integrity: sha512-fXRhhUkG4H3TQk5dBhQ7m/JDdSNHKwR2BBia62lhwEIq9xGiQKLxd6LymNhn47SjXhsUEPmxi+PKw2OkW4LLjA==}
 
   '@types/debug@4.1.12':
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
@@ -4120,10 +4111,6 @@ snapshots:
     dependencies:
       '@types/deep-eql': 4.0.2
 
-  '@types/cross-spawn@6.0.6':
-    dependencies:
-      '@types/node': 24.5.2
-
   '@types/debug@4.1.12':
     dependencies:
       '@types/ms': 2.1.0
@@ -5135,7 +5122,6 @@ snapshots:
       onetime: 5.1.2
       signal-exit: 3.0.7
       strip-final-newline: 2.0.0
-    optional: true
 
   exit-x@0.2.2:
     optional: true
@@ -5261,8 +5247,7 @@ snapshots:
       dunder-proto: 1.0.1
       es-object-atoms: 1.1.1
 
-  get-stream@6.0.1:
-    optional: true
+  get-stream@6.0.1: {}
 
   get-symbol-description@1.1.0:
     dependencies:
@@ -5358,8 +5343,7 @@ snapshots:
 
   html-escaper@2.0.2: {}
 
-  human-signals@2.1.0:
-    optional: true
+  human-signals@2.1.0: {}
 
   husky@9.1.7: {}
 
@@ -5508,8 +5492,7 @@ snapshots:
     dependencies:
       call-bound: 1.0.4
 
-  is-stream@2.0.1:
-    optional: true
+  is-stream@2.0.1: {}
 
   is-string@1.1.1:
     dependencies:
@@ -6102,8 +6085,7 @@ snapshots:
 
   memorystream@0.3.1: {}
 
-  merge-stream@2.0.0:
-    optional: true
+  merge-stream@2.0.0: {}
 
   merge2@1.4.1: {}
 
@@ -6284,8 +6266,7 @@ snapshots:
       braces: 3.0.3
       picomatch: 2.3.1
 
-  mimic-fn@2.1.0:
-    optional: true
+  mimic-fn@2.1.0: {}
 
   mimic-function@5.0.1: {}
 
@@ -6395,7 +6376,6 @@ snapshots:
   onetime@5.1.2:
     dependencies:
       mimic-fn: 2.1.0
-    optional: true
 
   onetime@7.0.0:
     dependencies:
@@ -6754,8 +6734,7 @@ snapshots:
 
   siginfo@2.0.0: {}
 
-  signal-exit@3.0.7:
-    optional: true
+  signal-exit@3.0.7: {}
 
   signal-exit@4.1.0: {}
 
@@ -6891,8 +6870,7 @@ snapshots:
   strip-bom@4.0.0:
     optional: true
 
-  strip-final-newline@2.0.0:
-    optional: true
+  strip-final-newline@2.0.0: {}
 
   strip-indent@3.0.0:
     dependencies:
