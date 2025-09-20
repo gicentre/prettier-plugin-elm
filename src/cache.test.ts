@@ -36,7 +36,9 @@ test(`correctly deals with cache`, async () => {
   expect(
     await format(sourceText, {
       parser: "markdown",
-      plugins: [path.resolve(__dirname, "..")],
+      plugins: [
+        require.resolve(require.resolve(path.resolve(__dirname, ".."))),
+      ],
     }),
   ).toEqual(expectedFormattedText);
   const numberOfFormatCallsInFirstRun =
@@ -47,7 +49,7 @@ test(`correctly deals with cache`, async () => {
   expect(
     await format(sourceText, {
       parser: "markdown",
-      plugins: [path.resolve(__dirname, "..")],
+      plugins: [require.resolve(path.resolve(__dirname, ".."))],
     }),
   ).toEqual(expectedFormattedText);
   expect(spyForFormatTextWithElmFormat.mock.calls.length).toBe(
@@ -59,14 +61,14 @@ test(`correctly deals with cache`, async () => {
   // a call to formatTextWithElmFormat() that triggers garbage collection
   await format("{- -}", {
     parser: "elm",
-    plugins: [path.resolve(__dirname, "..")],
+    plugins: [require.resolve(path.resolve(__dirname, ".."))],
   });
 
   // multiple-blocks.md, third run – with cache except for one block that was previously garbage collected
   expect(
     await format(sourceText, {
       parser: "markdown",
-      plugins: [path.resolve(__dirname, "..")],
+      plugins: [require.resolve(path.resolve(__dirname, ".."))],
     }),
   ).toEqual(expectedFormattedText);
 

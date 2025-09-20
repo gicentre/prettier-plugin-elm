@@ -58,7 +58,7 @@ for (const sourceFileName of files) {
     try {
       actualResult = await format(sourceText, {
         filepath: sourceFilePath,
-        plugins: [path.resolve(__dirname, "..")],
+        plugins: [require.resolve(path.resolve(__dirname, ".."))],
       });
     } catch (error) {
       console.log("err", error);

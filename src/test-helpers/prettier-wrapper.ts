@@ -26,8 +26,6 @@ export const format = async (
 ): Promise<string> => {
   const prettier = await getPrettier();
 
-  console.log("prettier.version", prettier.version);
-
   if (prettier.version < "3.0.0") {
     return prettier.format(source, options);
   }
