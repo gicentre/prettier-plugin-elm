@@ -1,7 +1,7 @@
 import type { Options } from "prettier";
 
 export const getPrettier = async () => {
-  switch (process.env.PRETTIER_MAJOR_VERSION) {
+  switch (process.env["PRETTIER_MAJOR_VERSION"]) {
     case "2": {
       return (
         // there is a slight type mismatch in format Options between v2 and v3

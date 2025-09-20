@@ -6,6 +6,7 @@
     "isolatedModules": true,
     "module": "commonjs",
     "checkJs": true,
+    "noPropertyAccessFromIndexSignature": true,
     "outDir": "dist",
     "rootDir": "src",
     "strict": true,
