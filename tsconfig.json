@@ -6,11 +6,11 @@
     "isolatedModules": true,
     "module": "commonjs",
     "checkJs": true,
+    "noPropertyAccessFromIndexSignature": true,
     "outDir": "dist",
     "rootDir": "src",
     "strict": true,
-    "target": "ES2019",
-    "noPropertyAccessFromIndexSignature": true
+    "target": "ES2019"
   },
   "include": ["src/**/*"]
 }
