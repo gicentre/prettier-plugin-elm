@@ -1,7 +1,7 @@
-import fs from "fs";
-import makeDir from "make-dir";
+import fs from "node:fs";
+import path from "node:path";
+
 import objectHash from "object-hash";
-import path from "path";
 import type { ErrorObject } from "serialize-error";
 import { serializeError } from "serialize-error";
 import tempDir from "temp-dir";
@@ -99,7 +99,7 @@ export const getCachedValue = <Args extends any[], Result>(
         value: fn(...args),
       };
     } catch (fnError) {
-      const serializedError = serializeError(fnError);
+      const serializedError = serializeError(fnError) as ErrorObject;
       delete serializedError.stack;
       record = {
         error: serializedError,
@@ -108,7 +108,7 @@ export const getCachedValue = <Args extends any[], Result>(
   }
 
   try {
-    makeDir.sync(cacheDir);
+    fs.mkdirSync(cacheDir, { recursive: true });
     fs.writeFileSync(`${recordFilePath}.touchfile`, "");
     if (!recordIsFromCache) {
       fs.writeFileSync(recordFilePath, JSON.stringify(record), "utf8");
