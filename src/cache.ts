@@ -128,7 +128,6 @@ export const getCachedValue = <Args extends any[], Result>(
     // eslint-disable-next-line unicorn/error-message -- populating message in a for loop below
     const errorToThrow = new Error() as Error & Record<string, unknown>;
     for (const errorProperty in record.error) {
-      /* istanbul ignore else */
       if (Object.prototype.hasOwnProperty.call(record.error, errorProperty)) {
         errorToThrow[errorProperty] = record.error["property"];
       }

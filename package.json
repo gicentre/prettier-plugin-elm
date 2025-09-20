@@ -29,7 +29,7 @@
     "lint:tsc": "tsc --noEmit",
     "prepare": "husky install",
     "prepublishOnly": "pnpm lint && pnpm test",
-    "test": "pnpm clean && pnpm build && pnpm vitest"
+    "test": "pnpm clean && pnpm build && pnpm vitest --run"
   },
   "lint-staged": {
     "**": [
