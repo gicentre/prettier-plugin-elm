@@ -1,5 +1,6 @@
 import { defineConfig } from "vitest/config";
 
+// eslint-disable-next-line import/no-default-export -- TODO: revisit after updating ESLint rules
 export default defineConfig({
   test: {
     coverage: {
