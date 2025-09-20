@@ -11,9 +11,6 @@ importers:
       elm-format:
         specifier: 0.8.8
         version: 0.8.8
-      execa:
-        specifier: ^5.1.1
-        version: 5.1.1
       object-hash:
         specifier: ^3.0.0
         version: 3.0.0
@@ -5122,6 +5119,7 @@ snapshots:
       onetime: 5.1.2
       signal-exit: 3.0.7
       strip-final-newline: 2.0.0
+    optional: true
 
   exit-x@0.2.2:
     optional: true
@@ -5247,7 +5245,8 @@ snapshots:
       dunder-proto: 1.0.1
       es-object-atoms: 1.1.1
 
-  get-stream@6.0.1: {}
+  get-stream@6.0.1:
+    optional: true
 
   get-symbol-description@1.1.0:
     dependencies:
@@ -5343,7 +5342,8 @@ snapshots:
 
   html-escaper@2.0.2: {}
 
-  human-signals@2.1.0: {}
+  human-signals@2.1.0:
+    optional: true
 
   husky@9.1.7: {}
 
@@ -5492,7 +5492,8 @@ snapshots:
     dependencies:
       call-bound: 1.0.4
 
-  is-stream@2.0.1: {}
+  is-stream@2.0.1:
+    optional: true
 
   is-string@1.1.1:
     dependencies:
@@ -6085,7 +6086,8 @@ snapshots:
 
   memorystream@0.3.1: {}
 
-  merge-stream@2.0.0: {}
+  merge-stream@2.0.0:
+    optional: true
 
   merge2@1.4.1: {}
 
@@ -6266,7 +6268,8 @@ snapshots:
       braces: 3.0.3
       picomatch: 2.3.1
 
-  mimic-fn@2.1.0: {}
+  mimic-fn@2.1.0:
+    optional: true
 
   mimic-function@5.0.1: {}
 
@@ -6333,6 +6336,7 @@ snapshots:
   npm-run-path@4.0.1:
     dependencies:
       path-key: 3.1.1
+    optional: true
 
   object-hash@3.0.0: {}
 
@@ -6376,6 +6380,7 @@ snapshots:
   onetime@5.1.2:
     dependencies:
       mimic-fn: 2.1.0
+    optional: true
 
   onetime@7.0.0:
     dependencies:
@@ -6734,7 +6739,8 @@ snapshots:
 
   siginfo@2.0.0: {}
 
-  signal-exit@3.0.7: {}
+  signal-exit@3.0.7:
+    optional: true
 
   signal-exit@4.1.0: {}
 
@@ -6870,7 +6876,8 @@ snapshots:
   strip-bom@4.0.0:
     optional: true
 
-  strip-final-newline@2.0.0: {}
+  strip-final-newline@2.0.0:
+    optional: true
 
   strip-indent@3.0.0:
     dependencies:

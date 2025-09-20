@@ -1,6 +1,7 @@
-import fs from "fs";
+import fs from "node:fs";
+import path from "node:path";
+
 import objectHash from "object-hash";
-import path from "path";
 import type { ErrorObject } from "serialize-error";
 import { serializeError } from "serialize-error";
 import tempDir from "temp-dir";
