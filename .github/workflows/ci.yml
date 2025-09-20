@@ -15,19 +15,21 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
 
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v5
         with:
-          cache: yarn
-          node-version: 18
+          node-version-file: .tool-versions
 
       - name: Install dependencies
-        run: yarn install --immutable
+        run: pnpm install --frozen-lockfile
 
       - name: Run build
-        run: yarn build
+        run: pnpm build
 
   linting:
     name: Linting
@@ -35,36 +37,38 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
 
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v5
         with:
-          cache: yarn
-          node-version: 18
+          node-version-file: .tool-versions
 
       - name: Install dependencies
-        run: yarn install --immutable
+        run: pnpm install --frozen-lockfile
 
-      - name: Lint with eslint
+      - name: Run pnpm lint:eslint
         if: ${{ success() || failure() }}
-        run: yarn lint:eslint
+        run: pnpm lint:eslint
 
-      - name: Lint with markdownlint
+      - name: Run pnpm lint:markdownlint
         if: ${{ success() || failure() }}
-        run: yarn lint:markdownlint
+        run: pnpm lint:markdownlint
 
-      - name: Lint with prettier
+      - name: Run pnpm lint:pnpm-dedupe
         if: ${{ success() || failure() }}
-        run: yarn lint:prettier
+        run: pnpm lint:pnpm-dedupe
 
-      - name: Lint with tsc
+      - name: Run pnpm lint:prettier
         if: ${{ success() || failure() }}
-        run: yarn lint:tsc
+        run: pnpm lint:prettier
 
-      - name: Lint with yarn-dedupe
+      - name: Run pnpm lint:tsc
         if: ${{ success() || failure() }}
-        run: yarn lint:yarn-dedupe
+        run: pnpm lint:tsc
 
   tests:
     name: Tests
@@ -72,40 +76,40 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-12, windows-2022, ubuntu-22.04]
-        node: [14, 16, 18]
+        os: [macos-15, windows-2022, ubuntu-22.04]
+        node: [18, 22, 24]
         exclude:
           - os: ubuntu-22.04
-            node: 18
+            node: 24
         include:
           - os: ubuntu-22.04
-            node: 18
+            node: 24
             extra: coverage
-          - os: ubuntu-22.04
-            node: 19
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
 
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v5
         with:
-          cache: yarn
-          node-version: ${{ matrix.node }}
+          node-version-file: .tool-versions
 
       - name: Install dependencies
-        run: yarn install --immutable
+        run: pnpm install --frozen-lockfile
 
       - name: "Prettier v1: Run tests"
         if: ${{ success() || failure() }}
-        run: yarn test
+        run: pnpm test
         env:
           COVERAGE: ${{ matrix.extra == 'coverage' }}
           PRETTIER_MAJOR_VERSION: "1"
 
       - name: "Prettier v1: Report coverage to codecov.io"
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v5
         if: matrix.extra == 'coverage'
         with:
           files: coverage/lcov.info
@@ -113,7 +117,7 @@ jobs:
 
       - name: "Prettier v2: Run tests"
         if: ${{ success() || failure() }}
-        run: yarn test
+        run: pnpm test
         env:
           COVERAGE: ${{ matrix.extra == 'coverage' }}
           PRETTIER_MAJOR_VERSION: "2"
@@ -127,14 +131,12 @@ jobs:
 
       - name: "Prettier v3: Run tests"
         if: ${{ success() || failure() }}
-        ## Running both tests on Node 14 causes exit code 129/1 on Ubuntu/Windows
-        ## TODO: Remove after dropping Node 14 support
-        run: ${{ matrix.node == 14 && 'yarn test cache && yarn test main' || 'yarn test' }}
+        run: pnpm test
         env:
           COVERAGE: ${{ matrix.extra == 'coverage' }}
 
       - name: "Prettier v3: Report coverage to codecov.io"
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v5
         if: matrix.extra == 'coverage'
         with:
           files: coverage/lcov.info

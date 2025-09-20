@@ -19,17 +19,17 @@
     "fix": "npm-run-all2 --continue-on-error \"fix:*\"",
     "fix:eslint": "eslint --fix .",
     "fix:markdownlint": "markdownlint --fix .",
+    "fix:pnpm-dedupe": "pnpm dedupe",
     "fix:prettier": "prettier --write .",
-    "fix:yarn-dedupe": "yarn dedupe",
     "lint": "npm-run-all2 --continue-on-error \"lint:*\"",
+    "lint:eslint": "eslint --report-unused-disable-directives .",
     "lint:markdownlint": "markdownlint .",
+    "lint:pnpm-dedupe": "pnpm dedupe --check",
     "lint:prettier": "prettier --check .",
     "lint:tsc": "tsc --noEmit",
-    "lint:eslint": "eslint --report-unused-disable-directives .",
-    "lint:yarn-dedupe": "yarn dedupe --check",
     "prepare": "husky install",
-    "prepublishOnly": "yarn lint && yarn test",
-    "test": "yarn clean && yarn build && yarn node --no-warnings --experimental-vm-modules $(yarn bin jest)"
+    "prepublishOnly": "pnpm lint && pnpm test",
+    "test": "pnpm clean && pnpm build && pnpm node --no-warnings --experimental-vm-modules $(pnpm bin jest)"
   },
   "lint-staged": {
     "**": [
@@ -66,8 +66,8 @@
     "sleep-promise": "9.1.0",
     "typescript": "5.0.4"
   },
-  "packageManager": "yarn@4.10.2",
+  "packageManager": "pnpm@10.17.0",
   "engines": {
-    "node": ">=14.16.0"
+    "node": ">=18.0.0"
   }
 }
