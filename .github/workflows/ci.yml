@@ -113,6 +113,7 @@ jobs:
         if: matrix.extra == 'coverage'
         with:
           name: prettier-v1
+          token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: "Prettier v2: Run tests"
         if: ${{ success() || failure() }}
@@ -126,6 +127,7 @@ jobs:
         if: matrix.extra == 'coverage'
         with:
           name: prettier-v2
+          token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: "Prettier v3: Run tests"
         if: ${{ success() || failure() }}
@@ -138,3 +140,4 @@ jobs:
         if: matrix.extra == 'coverage'
         with:
           name: prettier-v3
+          token: ${{ secrets.CODECOV_TOKEN }}
