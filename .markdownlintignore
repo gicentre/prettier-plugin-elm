@@ -27,5 +27,5 @@ dist
 #########################
 
 .git
-.yarn
 fixtures
+pnpm-lock.yaml
