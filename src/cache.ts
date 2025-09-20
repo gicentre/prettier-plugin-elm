@@ -1,5 +1,4 @@
 import fs from "fs";
-import makeDir from "make-dir";
 import objectHash from "object-hash";
 import path from "path";
 import type { ErrorObject } from "serialize-error";
@@ -108,7 +107,7 @@ export const getCachedValue = <Args extends any[], Result>(
   }
 
   try {
-    makeDir.sync(cacheDir);
+    fs.mkdirSync(cacheDir, { recursive: true });
     fs.writeFileSync(`${recordFilePath}.touchfile`, "");
     if (!recordIsFromCache) {
       fs.writeFileSync(recordFilePath, JSON.stringify(record), "utf8");
