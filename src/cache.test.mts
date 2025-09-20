@@ -4,7 +4,6 @@ import path from "path";
 import { rimraf } from "rimraf";
 import sleep from "sleep-promise";
 
-import * as helpers from "./helpers";
 import { format } from "./test-helpers/prettier-wrapper.mjs";
 
 const fixturesDir = path.resolve(__dirname, "../fixtures");
@@ -12,16 +11,18 @@ const cacheDir = path.resolve(__dirname, "../cache");
 const cacheMax = 21; // number of blocks in multiple-blocks.md fixture
 const cacheGcInterval = 1000;
 
+const helpers = require("./helpers");
+const spyForFormatTextWithElmFormat = vi.spyOn(
+  helpers,
+  "formatTextWithElmFormat",
+);
+
+
 test(`correctly deals with cache`, async () => {
   await rimraf(cacheDir);
   process.env["PRETTIER_PLUGIN_ELM_CACHE_DIR"] = cacheDir;
   process.env["PRETTIER_PLUGIN_ELM_CACHE_MAX"] = `${cacheMax}`;
   process.env["PRETTIER_PLUGIN_ELM_CACHE_GC_INTERVAL"] = `${cacheGcInterval}`;
-
-  const spyForFormatTextWithElmFormat = vi.spyOn(
-    helpers,
-    "formatTextWithElmFormat",
-  );
 
   const sourceText = fs.readFileSync(
     path.resolve(fixturesDir, "multiple-blocks.md"),
@@ -43,6 +44,7 @@ test(`correctly deals with cache`, async () => {
   ).toEqual(expectedFormattedText);
   const numberOfFormatCallsInFirstRun =
     spyForFormatTextWithElmFormat.mock.calls.length;
+  
   expect(numberOfFormatCallsInFirstRun).toBeGreaterThan(0);
 
   // multiple-blocks.md, second run – with cache
