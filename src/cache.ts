@@ -6,16 +6,16 @@ import type { ErrorObject } from "serialize-error";
 import { serializeError } from "serialize-error";
 import tempDir from "temp-dir";
 
-const cacheDir = process.env.PRETTIER_PLUGIN_ELM_CACHE_DIR
-  ? path.resolve(process.env.PRETTIER_PLUGIN_ELM_CACHE_DIR)
+const cacheDir = process.env["PRETTIER_PLUGIN_ELM_CACHE_DIR"]
+  ? path.resolve(process.env["PRETTIER_PLUGIN_ELM_CACHE_DIR"])
   : path.resolve(tempDir, "prettier-plugin-elm");
 
-const cacheMax = process.env.PRETTIER_PLUGIN_ELM_CACHE_MAX
-  ? Number.parseInt(process.env.PRETTIER_PLUGIN_ELM_CACHE_MAX, 10)
+const cacheMax = process.env["PRETTIER_PLUGIN_ELM_CACHE_MAX"]
+  ? Number.parseInt(process.env["PRETTIER_PLUGIN_ELM_CACHE_MAX"], 10)
   : 1000;
 
-const cacheGcInterval = process.env.PRETTIER_PLUGIN_ELM_CACHE_GC_INTERVAL
-  ? Number.parseInt(process.env.PRETTIER_PLUGIN_ELM_CACHE_GC_INTERVAL, 10)
+const cacheGcInterval = process.env["PRETTIER_PLUGIN_ELM_CACHE_GC_INTERVAL"]
+  ? Number.parseInt(process.env["PRETTIER_PLUGIN_ELM_CACHE_GC_INTERVAL"], 10)
   : 1000 * 60;
 
 /* istanbul ignore next */
@@ -54,7 +54,7 @@ const collectGarbageIfNeeded = () => {
       // this is not critical
 
       /* istanbul ignore next */
-      if (process.env.NODE_ENV === "test") {
+      if (process.env["NODE_ENV"] === "test") {
         throw error;
       }
     }
@@ -119,7 +119,7 @@ export const getCachedValue = <Args extends any[], Result>(
     // should not affect the result of the function
 
     /* istanbul ignore next */
-    if (process.env.NODE_ENV === "test") {
+    if (process.env["NODE_ENV"] === "test") {
       throw error;
     }
   }
@@ -130,7 +130,7 @@ export const getCachedValue = <Args extends any[], Result>(
     for (const errorProperty in record.error) {
       /* istanbul ignore else */
       if (Object.prototype.hasOwnProperty.call(record.error, errorProperty)) {
-        errorToThrow[errorProperty] = record.error.property;
+        errorToThrow[errorProperty] = record.error["property"];
       }
     }
     throw errorToThrow;

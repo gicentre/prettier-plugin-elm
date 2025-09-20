@@ -17,7 +17,7 @@ beforeAll(async () => {
 test(`uses correct Prettier core version`, async () => {
   const prettier = await getPrettier();
   expect(prettier.version[0]).toEqual(
-    process.env.PRETTIER_MAJOR_VERSION ?? "3",
+    process.env["PRETTIER_MAJOR_VERSION"] ?? "3",
   );
 });
 
@@ -45,7 +45,7 @@ for (const sourceFileName of files) {
 
     // TODO: remove this when we drop Prettier 1
     if (
-      process.env.PRETTIER_MAJOR_VERSION === "1" &&
+      process.env["PRETTIER_MAJOR_VERSION"] === "1" &&
       sourceFileName === "empty.md"
     ) {
       expectedFormattedText = expectedFormattedText.replace(

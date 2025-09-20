@@ -1,7 +1,7 @@
 import type { Options } from "prettier";
 
 export const getPrettier = async () => {
-  switch (process.env.PRETTIER_MAJOR_VERSION) {
+  switch (process.env["PRETTIER_MAJOR_VERSION"]) {
     case "2": {
       return (
         // eslint-disable-next-line @typescript-eslint/consistent-type-imports -- there is a slight type mismatch in format Options between v2 and v3
