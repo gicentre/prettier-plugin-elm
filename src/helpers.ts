@@ -1,6 +1,7 @@
-import { spawnSync } from "node:child_process";
-import { resolve } from "node:path";
 import fs from "node:fs";
+import { resolve } from "node:path";
+
+import { sync as spawnSync } from "cross-spawn";
 
 const findElmFormat = (): string => {
   const localElmFormat = resolve(
@@ -64,7 +65,7 @@ export const formatTextWithElmFormat = (text: string): string => {
   if (result.status !== 0) {
     const errorOutput = result.stderr || "";
     throw new Error(
-      `elm-format failed with exit code ${result.status}: ${errorOutput}`,
+      `elm-format failed with exit code ${result.status ?? "null"}: ${errorOutput}`,
     );
   }
 

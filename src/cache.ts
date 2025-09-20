@@ -99,7 +99,7 @@ export const getCachedValue = <Args extends any[], Result>(
         value: fn(...args),
       };
     } catch (fnError) {
-      const serializedError = serializeError(fnError);
+      const serializedError = serializeError(fnError) as ErrorObject;
       delete serializedError.stack;
       record = {
         error: serializedError,

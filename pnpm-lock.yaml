@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      cross-spawn:
+        specifier: 7.0.6
+        version: 7.0.6
       elm-format:
         specifier: 0.8.8
         version: 0.8.8
@@ -33,6 +36,9 @@ importers:
       '@tsconfig/strictest':
         specifier: 2.0.5
         version: 2.0.5
+      '@types/cross-spawn':
+        specifier: 6.0.6
+        version: 6.0.6
       '@types/node':
         specifier: 24.5.2
         version: 24.5.2
@@ -786,6 +792,9 @@ packages:
 
   '@types/chai@5.2.2':
     resolution: {integrity: sha512-8kB30R7Hwqf40JPiKhVzodJs2Qc1ZJ5zuT3uzw5Hq/dhNCl3G3l83jfpdI1e20BP348+fV7VIL/+FxaXkqBmWg==}
+
+  '@types/cross-spawn@6.0.6':
+    resolution: {integrity: sha512-fXRhhUkG4H3TQk5dBhQ7m/JDdSNHKwR2BBia62lhwEIq9xGiQKLxd6LymNhn47SjXhsUEPmxi+PKw2OkW4LLjA==}
 
   '@types/debug@4.1.12':
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
@@ -4107,6 +4116,10 @@ snapshots:
   '@types/chai@5.2.2':
     dependencies:
       '@types/deep-eql': 4.0.2
+
+  '@types/cross-spawn@6.0.6':
+    dependencies:
+      '@types/node': 24.5.2
 
   '@types/debug@4.1.12':
     dependencies:
