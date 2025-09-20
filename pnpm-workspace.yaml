@@ -1,4 +1,4 @@
-nodeLinker: hoisted ## TODO: Switch to isolated after migrating to ESLint Flat Config
+nodeLinker: isolated
 
 onlyBuiltDependencies:
   - elm-format ## downloads binary
