@@ -1,1 +1,4 @@
 nodeLinker: isolated
+
+onlyBuiltDependencies:
+  - elm-format

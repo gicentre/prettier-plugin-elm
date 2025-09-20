@@ -13,19 +13,17 @@
 ## Same as in .gitignore
 ########################
 
-node_modules
-
-## Misc
 .DS_Store
 *.log
-cache
-coverage
-dist
+cache/
+coverage/
+dist/
+node_modules/
 
 #########################
 ## Shared between linters
 #########################
 
-.git
-fixtures
+.git/
+fixtures/
 pnpm-lock.yaml

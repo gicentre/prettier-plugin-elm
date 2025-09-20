@@ -1,4 +1,5 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+if hash mise 2> /dev/null; then
+  mise install
+fi
 
 pnpm install

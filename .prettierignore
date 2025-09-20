@@ -15,10 +15,13 @@
 !*.ts
 !*.yml
 
+## Allow certain files without extensions
+!.husky/*
+
 #########################
 ## Shared between linters
 #########################
 
-.git
-fixtures
+.git/
+fixtures/
 pnpm-lock.yaml
