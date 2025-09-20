@@ -27,7 +27,7 @@
     "lint:pnpm-dedupe": "pnpm dedupe --check",
     "lint:prettier": "prettier --check .",
     "lint:tsc": "tsc --noEmit",
-    "prepare": "husky install",
+    "prepare": "husky",
     "prepublishOnly": "pnpm lint && pnpm test",
     "test": "pnpm clean && pnpm build && pnpm vitest --run"
   },
