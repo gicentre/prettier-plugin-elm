@@ -1,4 +1,4 @@
-import { expect, jest, test } from "@jest/globals";
+import { expect, test, vi } from "vitest";
 import fs from "fs";
 import path from "path";
 import { rimraf } from "rimraf";
@@ -18,7 +18,7 @@ test(`correctly deals with cache`, async () => {
   process.env.PRETTIER_PLUGIN_ELM_CACHE_MAX = `${cacheMax}`;
   process.env.PRETTIER_PLUGIN_ELM_CACHE_GC_INTERVAL = `${cacheGcInterval}`;
 
-  const spyForFormatTextWithElmFormat = jest.spyOn(
+  const spyForFormatTextWithElmFormat = vi.spyOn(
     helpers,
     "formatTextWithElmFormat",
   );

@@ -1,4 +1,4 @@
-import { beforeAll, expect, jest, test } from "@jest/globals";
+import { beforeAll, expect, test, vi } from "vitest";
 import fs from "fs";
 import path from "path";
 import { rimraf } from "rimraf";
@@ -11,7 +11,7 @@ const files = fs.readdirSync(fixturesDir);
 
 beforeAll(async () => {
   await rimraf(path.resolve(tempDir, "prettier-plugin-elm"));
-  jest.resetModules();
+  vi.resetModules();
 });
 
 test(`uses correct Prettier core version`, async () => {
@@ -60,7 +60,8 @@ for (const sourceFileName of files) {
         filepath: sourceFilePath,
         plugins: [path.resolve(__dirname, "..")],
       });
-    } catch {
+    } catch (error) {
+      console.log("err", error);
       actualResult = sourceText;
     }
 

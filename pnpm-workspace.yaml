@@ -2,4 +2,4 @@ nodeLinker: isolated
 
 onlyBuiltDependencies:
   - elm-format ## downloads binary
-  - unrs-resolver ## part of jest
+  - esbuild ## Optimizes binaries to improve performance - https://github.com/evanw/esbuild/issues/4085#issuecomment-2696009329
