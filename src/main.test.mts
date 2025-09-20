@@ -61,7 +61,6 @@ for (const sourceFileName of files) {
         plugins: [require.resolve(path.resolve(__dirname, ".."))],
       });
     } catch (error) {
-      console.log("err", error);
       actualResult = sourceText;
     }
 
