@@ -90,10 +90,10 @@ To check its presence, open the terminal and type these two commands:
 
 ```sh
 node --version
-## ≥ 12.15
+## ≥ 18.20
 
 npm --version
-## ≥ 6.14
+## ≥ 9
 ```
 
 If you see errors or if the displayed versions are too old, follow the instructions on [nodejs.org](https://nodejs.org) to download this software.
@@ -280,7 +280,7 @@ To run the development version of `prettier-plugin-elm`:
 - Run `pnpm lint` to make sure that the codebase passes linting
 - Run `pnpm test` to make sure that TypeScript successfully compiles into JavaScript and and all unit tests pass
 - To test the plugin manually, create a file named `prettier-test.elm` (or `.md`).
-  Then run `pnpm prettier --plugin=. prettier-test.elm` (or `.md`) and check the output.
+  Then run `pnpm prettier --ignore-path= --plugin=./dist/main.js prettier-test.elm` (or `.md`) and check the output.
 
 ## Credits
 
