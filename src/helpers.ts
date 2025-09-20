@@ -1,27 +1,6 @@
 import fs from "node:fs";
-import { resolve } from "node:path";
-
+import npmRunPath from "npm-run-path";
 import { sync as spawnSync } from "cross-spawn";
-
-const findElmFormat = (): string => {
-  const localElmFormat = resolve(
-    __dirname,
-    "..",
-    "node_modules",
-    ".bin",
-    "elm-format",
-  );
-
-  try {
-    if (fs.existsSync(localElmFormat)) {
-      return localElmFormat;
-    }
-  } catch {
-    // Ignore errors and fall back to global
-  }
-
-  return "elm-format";
-};
 
 let cachedElmFormatVersion: string;
 
@@ -30,11 +9,11 @@ export const getElmFormatVersion = () => {
     // a cleaner way of getting elm-format version
     // will be possible when this issue is closed:
     // https://github.com/avh4/elm-format/issues/425
-    const elmFormatPath = findElmFormat();
-    const result = spawnSync(elmFormatPath, ["--help"], {
+    const result = spawnSync("elm-format", ["--help"], {
       cwd: __dirname,
-      timeout: 5000,
       encoding: "utf8",
+      env: npmRunPath.env({ cwd: __dirname }),
+      timeout: 5000,
     });
 
     if (result.error) {
@@ -50,12 +29,12 @@ export const getElmFormatVersion = () => {
 };
 
 export const formatTextWithElmFormat = (text: string): string => {
-  const elmFormatPath = findElmFormat();
-  const result = spawnSync(elmFormatPath, ["--stdin", "--elm-version=0.19"], {
-    input: text,
+  const result = spawnSync("elm-format", ["--stdin", "--elm-version=0.19"], {
     cwd: __dirname,
-    timeout: 15_000,
     encoding: "utf8",
+    env: npmRunPath.env({ cwd: __dirname }),
+    input: text,
+    timeout: 15_000,
   });
 
   if (result.error) {
