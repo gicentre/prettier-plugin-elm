@@ -10,7 +10,7 @@ export const print = (path: AstPath<ElmNode>): Doc => {
       return node.body;
     }
 
-    /* istanbul ignore next */
+    /* v8 ignore next 15 */
     default: {
       if (process.env["NODE_ENV"] === "test") {
         throw new Error(

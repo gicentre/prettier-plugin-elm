@@ -18,7 +18,7 @@ const cacheGcInterval = process.env["PRETTIER_PLUGIN_ELM_CACHE_GC_INTERVAL"]
   ? Number.parseInt(process.env["PRETTIER_PLUGIN_ELM_CACHE_GC_INTERVAL"], 10)
   : 1000 * 60;
 
-/* istanbul ignore next */
+/* v8 ignore next 3 */
 const noop = () => {
   //
 };
@@ -53,7 +53,7 @@ const collectGarbageIfNeeded = () => {
       // fs.statSync may fail if another GC process has just deleted it;
       // this is not critical
 
-      /* istanbul ignore next */
+      /* v8 ignore next 3 */
       if (process.env["NODE_ENV"] === "test") {
         throw error;
       }
@@ -118,7 +118,7 @@ export const getCachedValue = <Args extends any[], Result>(
     // a failure to save record into cache or clean garbage
     // should not affect the result of the function
 
-    /* istanbul ignore next */
+    /* v8 ignore next 3 */
     if (process.env["NODE_ENV"] === "test") {
       throw error;
     }
