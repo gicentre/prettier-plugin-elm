@@ -96,7 +96,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v5
         with:
-          node-version-file: .tool-versions
+          node-version: ${{ matrix.node }}
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
