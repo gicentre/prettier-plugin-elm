@@ -71,7 +71,7 @@
     "rimraf": "6.0.1",
     "sleep-promise": "9.1.0",
     "typescript": "5.9.2",
-    "vitest": "4.0.8"
+    "vitest": "4.1.0"
   },
   "packageManager": "pnpm@10.17.0",
   "engines": {
