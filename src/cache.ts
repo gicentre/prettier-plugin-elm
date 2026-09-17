@@ -129,7 +129,7 @@ export const getCachedValue = <Args extends any[], Result>(
     const errorToThrow = new Error() as Error & Record<string, unknown>;
     for (const errorProperty in record.error) {
       if (Object.prototype.hasOwnProperty.call(record.error, errorProperty)) {
-        errorToThrow[errorProperty] = record.error["property"];
+        errorToThrow[errorProperty] = record.error[errorProperty];
       }
     }
     throw errorToThrow;
