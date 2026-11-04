@@ -1,13 +1,13 @@
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 
 import objectHash from "object-hash";
 import { type ErrorObject, serializeError } from "serialize-error";
-import tempDir from "temp-dir";
 
 const cacheDir = process.env["PRETTIER_PLUGIN_ELM_CACHE_DIR"]
   ? path.resolve(process.env["PRETTIER_PLUGIN_ELM_CACHE_DIR"])
-  : path.resolve(tempDir, "prettier-plugin-elm");
+  : path.resolve(fs.realpathSync(os.tmpdir()), "prettier-plugin-elm");
 
 const cacheMax = process.env["PRETTIER_PLUGIN_ELM_CACHE_MAX"]
   ? Number.parseInt(process.env["PRETTIER_PLUGIN_ELM_CACHE_MAX"], 10)
@@ -98,7 +98,7 @@ export const getCachedValue = <Args extends unknown[], Result>(
         value: fn(...args),
       };
     } catch (fnError) {
-      const serializedError = serializeError(fnError) as ErrorObject;
+      const serializedError = serializeError(fnError);
       delete serializedError.stack;
       record = {
         error: serializedError,

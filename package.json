@@ -42,10 +42,9 @@
   },
   "dependencies": {
     "elm-format": "0.8.8",
-    "execa": "^5.1.1",
+    "execa": "^10.2.1",
     "object-hash": "^3.0.0",
-    "serialize-error": "^12.0.0",
-    "temp-dir": "^2.0.0"
+    "serialize-error": "^13.1.0"
   },
   "devDependencies": {
     "@kachkaev/eslint-config-base": "1.2.0",
