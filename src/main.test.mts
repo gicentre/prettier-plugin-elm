@@ -24,6 +24,17 @@ test("uses correct Prettier core version", async () => {
   );
 });
 
+const formatBrokenCode = () =>
+  format("import  Html exposg", {
+    parser: "elm",
+    plugins: [require.resolve(path.resolve(__dirname, ".."))],
+  });
+
+test("preserves elm-format error details, also when reading them from cache", async () => {
+  await expect(formatBrokenCode()).rejects.toThrow(/elm-format/);
+  await expect(formatBrokenCode()).rejects.toThrow(/elm-format/);
+});
+
 for (const sourceFileName of files) {
   if (
     !/\.(?:md|elm)$/.test(sourceFileName) ||
