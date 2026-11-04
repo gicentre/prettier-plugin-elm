@@ -1,8 +1,8 @@
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 
 import { rimraf } from "rimraf";
-import tempDir from "temp-dir";
 import { beforeAll, expect, test, vi } from "vitest";
 
 import { format, getPrettier } from "./test-helpers/prettier-wrapper.mjs";
@@ -11,7 +11,9 @@ const fixturesDir = path.resolve(__dirname, "../fixtures");
 const files = fs.readdirSync(fixturesDir);
 
 beforeAll(async () => {
-  await rimraf(path.resolve(tempDir, "prettier-plugin-elm"));
+  await rimraf(
+    path.resolve(fs.realpathSync(os.tmpdir()), "prettier-plugin-elm"),
+  );
   vi.resetModules();
 });
 
