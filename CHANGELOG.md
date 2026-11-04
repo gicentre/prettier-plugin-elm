@@ -1,3 +1,5 @@
+# prettier-plugin-elm
+
 ## 0.12.0 (2025-09-21)
 
 - **[breaking change]** Set minimum Node version to 18.20.6 ([#64](https://github.com/gicentre/prettier-plugin-elm/pull/64))

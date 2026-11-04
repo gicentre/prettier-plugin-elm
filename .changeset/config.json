@@ -1,0 +1,8 @@
+{
+  "$schema": "../node_modules/@changesets/config/schema.json",
+  "access": "public",
+  "changelog": [
+    "@changesets/changelog-github",
+    { "repo": "gicentre/prettier-plugin-elm" }
+  ]
+}
