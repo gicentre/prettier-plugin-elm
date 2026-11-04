@@ -1,9 +1,7 @@
 <p align="center">
-  &nbsp;&nbsp;<img alt="Prettier"
-  src="https://cdn.rawgit.com/prettier/prettier-logo/master/images/prettier-icon-light.svg">&nbsp;&nbsp;
-  &nbsp;&nbsp;<img alt="Elm"
-  height="210"
-  src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Elm_logo.svg/1024px-Elm_logo.svg.png">&nbsp;&nbsp;
+  <img alt="Prettier and Elm logos"
+  width="441"
+  src="https://raw.githubusercontent.com/gicentre/prettier-plugin-elm/main/docs/logos.png">
 </p>
 
 <h2 align="center">Prettier Elm plugin</h2>
