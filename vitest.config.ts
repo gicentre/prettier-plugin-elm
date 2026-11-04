@@ -11,5 +11,8 @@ export default defineConfig({
     },
     include: ["dist/**/*.test.mjs"],
     exclude: ["**/node_modules/**"],
+    // Fixtures spawn elm-format once per code block, which can outlast
+    // Vitest's 5s default on slower runners (notably Windows, with a cold cache).
+    testTimeout: 30_000,
   },
 });
