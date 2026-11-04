@@ -12,6 +12,7 @@
 !*.json
 !*.md
 !*.mjs
+!*.mts
 !*.ts
 !*.yml
 

@@ -1,8 +1,9 @@
-import { beforeAll, expect, test, vi } from "vitest";
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
+
 import { rimraf } from "rimraf";
 import tempDir from "temp-dir";
+import { beforeAll, expect, test, vi } from "vitest";
 
 import { format, getPrettier } from "./test-helpers/prettier-wrapper.mjs";
 
@@ -14,7 +15,7 @@ beforeAll(async () => {
   vi.resetModules();
 });
 
-test(`uses correct Prettier core version`, async () => {
+test("uses correct Prettier core version", async () => {
   const prettier = await getPrettier();
   expect(prettier.version[0]).toEqual(
     process.env["PRETTIER_MAJOR_VERSION"] ?? "3",
@@ -23,8 +24,8 @@ test(`uses correct Prettier core version`, async () => {
 
 for (const sourceFileName of files) {
   if (
-    !/\.(md|elm)$/.test(sourceFileName) ||
-    /\.prettified\./.test(sourceFileName)
+    !/\.(?:md|elm)$/.test(sourceFileName) ||
+    sourceFileName.includes(".prettified.")
   ) {
     continue;
   }
@@ -60,7 +61,7 @@ for (const sourceFileName of files) {
         filepath: sourceFilePath,
         plugins: [require.resolve(path.resolve(__dirname, ".."))],
       });
-    } catch (error) {
+    } catch {
       actualResult = sourceText;
     }
 

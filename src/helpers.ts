@@ -12,7 +12,7 @@ export const getElmFormatVersion = () => {
       localDir: __dirname,
       timeout: 5000,
     }).stdout;
-    const helpMatch = help.match(/elm-format ([^\n]+)/);
+    const helpMatch = /elm-format ([^\n]+)/.exec(help);
     cachedElmFormatVersion = helpMatch?.[1] ?? "unknown";
   }
 

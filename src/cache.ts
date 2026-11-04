@@ -2,8 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 import objectHash from "object-hash";
-import type { ErrorObject } from "serialize-error";
-import { serializeError } from "serialize-error";
+import { type ErrorObject, serializeError } from "serialize-error";
 import tempDir from "temp-dir";
 
 const cacheDir = process.env["PRETTIER_PLUGIN_ELM_CACHE_DIR"]
@@ -24,7 +23,7 @@ const noop = () => {
 };
 
 const collectGarbageIfNeeded = () => {
-  const pathToGcTouchfile = path.resolve(cacheDir, `gc.touchfile`);
+  const pathToGcTouchfile = path.resolve(cacheDir, "gc.touchfile");
   try {
     const lastGcTime = fs.statSync(pathToGcTouchfile).mtimeMs;
     if (lastGcTime + cacheGcInterval > Date.now()) {
@@ -73,10 +72,10 @@ const collectGarbageIfNeeded = () => {
   }
 };
 
-export const getCachedValue = <Args extends any[], Result>(
+export const getCachedValue = <Args extends unknown[], Result>(
   fn: (...args: Args) => Result,
   args: Args,
-  extraCacheKeyFactors?: any[],
+  extraCacheKeyFactors?: unknown[],
 ): Result => {
   const cacheKey = objectHash({ args, extraCacheKeyFactors });
   const recordFilePath = path.resolve(cacheDir, `${cacheKey}.json`);
@@ -138,7 +137,7 @@ export const getCachedValue = <Args extends any[], Result>(
   }
 };
 
-interface RecordInfo {
+type RecordInfo = {
   path: string;
   touchedAt: number;
-}
+};

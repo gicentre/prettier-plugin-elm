@@ -6,6 +6,7 @@ export const print = (path: AstPath<ElmNode>): Doc => {
   const node = path.getValue();
 
   switch (node.type) {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- the default branch guards against unknown nodes at runtime
     case "elm-format": {
       return node.body;
     }
