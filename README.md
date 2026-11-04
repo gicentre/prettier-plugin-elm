@@ -17,7 +17,7 @@
     <img alt="GitHub Workflow Status (CI)" src="https://img.shields.io/github/actions/workflow/status/gicentre/prettier-plugin-elm/ci.yml?label=CI&style=flat-square"><!--
   --></a>
   <a href="https://codecov.io/gh/gicentre/prettier-plugin-elm">
-    <img alt="Codecov" src="https://img.shields.io/codecov/c/github/gicentre/prettier-plugin-elm?style=flat-square&token=38aa3a14f00b4d3cbb8e39a9d69e6c64"><!--
+    <img alt="Codecov" src="https://img.shields.io/codecov/c/github/gicentre/prettier-plugin-elm?style=flat-square"><!--
   --></a>
   <br>
   <a href="https://www.npmjs.com/package/prettier-plugin-elm">
