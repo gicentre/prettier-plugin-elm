@@ -272,6 +272,9 @@ See [`src/parser.ts`](https://github.com/gicentre/prettier-plugin-elm/blob/main/
 
 If you’re interested in contributing to the development of Prettier Elm plugin, please follow the [CONTRIBUTING guide from Prettier](https://github.com/prettier/prettier/blob/main/CONTRIBUTING.md) as it all applies to this repository too.
 
+If your change is visible to users, please add a changeset by running `pnpm changeset`.
+See [docs/releasing.md](docs/releasing.md) for how releases work.
+
 To run the development version of `prettier-plugin-elm`:
 
 - Clone this repository

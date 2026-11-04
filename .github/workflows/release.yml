@@ -1,0 +1,62 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  release:
+    environment: release
+    if: github.repository == 'gicentre/prettier-plugin-elm'
+    name: Release
+    permissions:
+      contents: write
+      id-token: write
+      pull-requests: write
+    runs-on: ubuntu-26.04
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Set up pnpm and Node.js, install dependencies
+        uses: pnpm/setup@fa36a5ef7dcdefc3a7cb25655c122e00cf6e636e # v3.1.2
+        with:
+          cache: true
+
+      - name: Verify lint
+        run: pnpm lint
+
+      - name: Verify tests
+        run: pnpm test
+
+      # npm scans a new version for malware for a few minutes before listing
+      # it, so a run right after the one that published sees the version as
+      # unpublished and fails with 409 Conflict on publishing it again. The
+      # version's tag, which changesets pushes after publishing, does not lag.
+      # Drop this check once changesets handles the scan window:
+      # https://github.com/changesets/changesets/issues/2195
+      - name: Check if the current version is already tagged
+        id: version-tag
+        run: |
+          version=$(node --print "require('./package.json').version")
+          if git rev-parse --quiet --verify "refs/tags/v$version" > /dev/null; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create release pull request or publish to npm
+        uses: changesets/action@ae32849d5ba541f9ae29e40e22a623bc13562f51 # v2.1.2
+        with:
+          pr-title: Version packages
+          version-script: pnpm changesets:version
+          # An empty script makes the action skip publishing
+          publish-script: ${{ steps.version-tag.outputs.exists != 'true' && 'pnpm changesets:publish' || '' }}

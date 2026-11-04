@@ -10,11 +10,16 @@
     "prettier-plugin",
     "typescript"
   ],
-  "repository": "https://github.com/gicentre/prettier-plugin-elm",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gicentre/prettier-plugin-elm.git"
+  },
   "license": "BSD-3-Clause",
   "main": "dist/main.js",
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
+    "changesets:publish": "changeset publish",
+    "changesets:version": "changeset version && pnpm install --lockfile-only --no-frozen-lockfile",
     "clean": "rimraf cache coverage dist",
     "fix": "npm-run-all2 --continue-on-error \"fix:*\"",
     "fix:eslint": "eslint --max-warnings=0 --fix",
@@ -25,8 +30,8 @@
     "lint:markdownlint": "markdownlint .",
     "lint:prettier": "prettier --check .",
     "lint:tsc": "tsc --noEmit",
-    "prepare": "husky",
-    "prepublishOnly": "pnpm lint && pnpm test",
+    "prepack": "pnpm clean && pnpm build",
+    "prepare": "node .husky/install.mjs",
     "test": "pnpm clean && pnpm build && pnpm vitest --run"
   },
   "lint-staged": {
@@ -48,6 +53,9 @@
     "temp-dir": "^2.0.0"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "1.0.1",
+    "@changesets/cli": "3.0.3",
+    "@changesets/config": "4.0.1",
     "@kachkaev/eslint-config-base": "1.2.0",
     "@kachkaev/markdownlint-config": "1.0.1",
     "@tsconfig/recommended": "1.0.13",
@@ -82,5 +90,9 @@
       "version": "24.22.2",
       "onFail": "download"
     }
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   }
 }
