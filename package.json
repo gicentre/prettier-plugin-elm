@@ -69,7 +69,7 @@
     "prettier-v2": "npm:prettier@2.8.8",
     "rimraf": "6.1.4",
     "sleep-promise": "9.1.0",
-    "typescript": "5.9.2",
+    "typescript": "6.0.3",
     "vitest": "5.1.0"
   },
   "packageManager": "pnpm@12.16.1",
