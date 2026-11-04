@@ -19,12 +19,10 @@
     "fix": "npm-run-all2 --continue-on-error \"fix:*\"",
     "fix:eslint": "eslint --fix .",
     "fix:markdownlint": "markdownlint --fix .",
-    "fix:pnpm-dedupe": "pnpm dedupe",
     "fix:prettier": "prettier --write .",
     "lint": "npm-run-all2 --continue-on-error \"lint:*\"",
     "lint:eslint": "eslint .",
     "lint:markdownlint": "markdownlint .",
-    "lint:pnpm-dedupe": "pnpm dedupe --check",
     "lint:prettier": "prettier --check .",
     "lint:tsc": "tsc --noEmit",
     "prepare": "husky",
@@ -73,8 +71,15 @@
     "typescript": "5.9.2",
     "vitest": "4.0.8"
   },
-  "packageManager": "pnpm@10.17.0",
+  "packageManager": "pnpm@12.16.1",
   "engines": {
-    "node": ">=18.20.6"
+    "node": ">=22.12.0"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "24.22.2",
+      "onFail": "download"
+    }
   }
 }
