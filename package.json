@@ -56,7 +56,7 @@
     "@types/object-hash": "3.0.6",
     "@types/prettier-v1": "npm:@types/prettier@1.19.1",
     "@types/prettier-v2": "npm:@types/prettier@2.7.3",
-    "@vitest/coverage-v8": "4.0.8",
+    "@vitest/coverage-v8": "5.1.0",
     "eslint": "8.57.1",
     "husky": "9.1.7",
     "lint-staged": "17.6.0",
@@ -69,7 +69,7 @@
     "rimraf": "6.1.4",
     "sleep-promise": "9.1.0",
     "typescript": "5.9.2",
-    "vitest": "4.0.8"
+    "vitest": "5.1.0"
   },
   "packageManager": "pnpm@12.16.1",
   "engines": {
