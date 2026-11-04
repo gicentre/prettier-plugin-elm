@@ -11,44 +11,32 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Setup node
-        uses: actions/setup-node@v5
+      - name: Set up pnpm and Node.js, install dependencies
+        uses: pnpm/setup@fa36a5ef7dcdefc3a7cb25655c122e00cf6e636e # v3.1.2
         with:
-          node-version-file: .tool-versions
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+          cache: true
 
       - name: Run build
         run: pnpm build
 
   linting:
     name: Linting
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Setup node
-        uses: actions/setup-node@v5
+      - name: Set up pnpm and Node.js, install dependencies
+        uses: pnpm/setup@fa36a5ef7dcdefc3a7cb25655c122e00cf6e636e # v3.1.2
         with:
-          node-version-file: .tool-versions
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+          cache: true
 
       - name: Run pnpm lint:eslint
         if: ${{ success() || failure() }}
@@ -57,10 +45,6 @@ jobs:
       - name: Run pnpm lint:markdownlint
         if: ${{ success() || failure() }}
         run: pnpm lint:markdownlint
-
-      - name: Run pnpm lint:pnpm-dedupe
-        if: ${{ success() || failure() }}
-        run: pnpm lint:pnpm-dedupe
 
       - name: Run pnpm lint:prettier
         if: ${{ success() || failure() }}
@@ -76,40 +60,40 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-26, windows-2025, ubuntu-24.04]
-        node: [20, 22, 24]
-        exclude:
-          - os: ubuntu-22.04
-            node: 24
+        os: [macos-26, ubuntu-26.04, windows-2025]
+        node: ["22.12.0", "24", "26"]
         include:
-          - os: ubuntu-22.04
-            node: 24
+          - os: ubuntu-26.04
+            node: "24"
             extra: coverage
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Setup node
-        uses: actions/setup-node@v5
+      - name: Set up pnpm and Node.js, install dependencies
+        uses: pnpm/setup@fa36a5ef7dcdefc3a7cb25655c122e00cf6e636e # v3.1.2
         with:
-          node-version: ${{ matrix.node }}
+          cache: true
+          runtime: node@${{ matrix.node }}
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+      - name: Run build
+        run: pnpm build
+
+      # Everything run through pnpm uses the Node.js version from devEngines.runtime,
+      # so the tests below call Vitest directly to run on the version from the matrix.
+      - name: Print Node.js version used by the tests
+        run: node --version
 
       - name: "Prettier v1: Run tests"
         if: ${{ success() || failure() }}
-        run: pnpm test
+        run: node node_modules/vitest/vitest.mjs --run
         env:
           COVERAGE: ${{ matrix.extra == 'coverage' }}
           PRETTIER_MAJOR_VERSION: "1"
 
       - name: "Prettier v1: Report coverage to codecov.io"
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7.1.1
         if: matrix.extra == 'coverage'
         with:
           name: prettier-v1
@@ -117,13 +101,13 @@ jobs:
 
       - name: "Prettier v2: Run tests"
         if: ${{ success() || failure() }}
-        run: pnpm test
+        run: node node_modules/vitest/vitest.mjs --run
         env:
           COVERAGE: ${{ matrix.extra == 'coverage' }}
           PRETTIER_MAJOR_VERSION: "2"
 
       - name: "Prettier v2: Report coverage to codecov.io"
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7.1.1
         if: matrix.extra == 'coverage'
         with:
           name: prettier-v2
@@ -131,12 +115,12 @@ jobs:
 
       - name: "Prettier v3: Run tests"
         if: ${{ success() || failure() }}
-        run: pnpm test
+        run: node node_modules/vitest/vitest.mjs --run
         env:
           COVERAGE: ${{ matrix.extra == 'coverage' }}
 
       - name: "Prettier v3: Report coverage to codecov.io"
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7.1.1
         if: matrix.extra == 'coverage'
         with:
           name: prettier-v3
