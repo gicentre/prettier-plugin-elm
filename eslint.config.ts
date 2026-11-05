@@ -42,20 +42,6 @@ export default defineConfig([
   },
 
   {
-    // Rules added by @kachkaev/eslint-config-base v2 that this codebase does not follow yet.
-    rules: {
-      "unicorn/consistent-boolean-name": "off",
-      "unicorn/max-nested-calls": "off",
-      "unicorn/no-top-level-assignment-in-function": "off",
-      "unicorn/no-unused-array-method-return": "off",
-      "unicorn/no-useless-else": "off",
-      "unicorn/no-useless-template-literals": "off",
-      "unicorn/prefer-number-coercion": "off",
-      "unicorn/prefer-simple-condition-first": "off",
-    },
-  },
-
-  {
     files: ["**/*.test.mts", "src/test-helpers/**"],
     rules: {
       "import/no-extraneous-dependencies": "off", // Tests are not published, so their packages live in devDependencies.
