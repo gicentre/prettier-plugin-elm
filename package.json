@@ -74,7 +74,6 @@
     "@vitest/coverage-v8": "5.1.0",
     "eslint": "10.14.0",
     "husky": "9.1.7",
-    "jiti": "2.7.0",
     "lint-staged": "17.6.0",
     "markdownlint-cli": "0.50.0",
     "npm-run-all2": "9.0.4",
