@@ -10,7 +10,7 @@
     {
       "description": "`prettier-v1` and `prettier-v2` are aliases that keep older Prettier majors installed, so that tests can cover every supported version. A major update would turn them into another copy of the current Prettier.",
       "enabled": false,
-      "matchDepNames": ["/^(@types/)?prettier-v[12]$/"],
+      "matchDepNames": ["/^prettier-v[12]$/"],
       "matchUpdateTypes": ["major"]
     }
   ]
