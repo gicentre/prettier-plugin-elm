@@ -132,9 +132,9 @@ export const getCachedValue = <Args extends unknown[], Result>(
       }
     }
     throw errorToThrow;
-  } else {
-    return record.value;
   }
+
+  return record.value;
 };
 
 type RecordInfo = {
