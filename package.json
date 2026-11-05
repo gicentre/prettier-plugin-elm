@@ -10,11 +10,20 @@
     "prettier-plugin",
     "typescript"
   ],
+  "homepage": "https://github.com/gicentre/prettier-plugin-elm#readme",
+  "bugs": {
+    "url": "https://github.com/gicentre/prettier-plugin-elm/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/gicentre/prettier-plugin-elm.git"
   },
   "license": "BSD-3-Clause",
+  "author": {
+    "name": "Alexander Kachkaev",
+    "email": "alexander@kachkaev.ru",
+    "url": "https://en.kachkaev.ru"
+  },
   "main": "dist/main.js",
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
