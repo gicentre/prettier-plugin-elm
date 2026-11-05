@@ -9,7 +9,4 @@ autoDedupe: true
 # (github>kachkaev/reusable-stuff:renovate-preset), so Renovate never proposes a version pnpm would
 # then refuse to lock.
 minimumReleaseAge: 480
-# Packages published from kachkaev/reusable-stuff are not worth waiting for.
-minimumReleaseAgeExclude:
-  - "@kachkaev/*"
 nodeLinker: isolated
