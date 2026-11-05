@@ -64,7 +64,7 @@
     "@changesets/changelog-github": "1.0.1",
     "@changesets/cli": "3.0.3",
     "@changesets/config": "4.0.1",
-    "@kachkaev/eslint-config-base": "1.2.0",
+    "@kachkaev/eslint-config-base": "2.0.0",
     "@kachkaev/markdownlint-config": "1.0.1",
     "@tsconfig/recommended": "1.0.13",
     "@tsconfig/strictest": "2.0.8",
