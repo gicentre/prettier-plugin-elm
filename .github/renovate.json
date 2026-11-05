@@ -3,6 +3,11 @@
   "extends": ["github>kachkaev/reusable-stuff:renovate-preset"],
   "packageRules": [
     {
+      "description": "This repo is a published package, so `dependencies` end up in consumers’ dependency trees and should stay as ranges. The shared preset pins everything, which suits apps but would stop consumers from deduplicating these packages and receiving fixes. Other dependency types stay pinned.",
+      "matchDepTypes": ["dependencies"],
+      "rangeStrategy": "auto"
+    },
+    {
       "description": "`prettier-v1` and `prettier-v2` are aliases that keep older Prettier majors installed, so that tests can cover every supported version. A major update would turn them into another copy of the current Prettier.",
       "enabled": false,
       "matchDepNames": ["/^(@types/)?prettier-v[12]$/"],
