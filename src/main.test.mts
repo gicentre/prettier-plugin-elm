@@ -59,8 +59,8 @@ for (const sourceFileName of files) {
 
     // TODO: remove this when we drop Prettier 1
     if (
-      process.env["PRETTIER_MAJOR_VERSION"] === "1" &&
-      sourceFileName === "empty.md"
+      sourceFileName === "empty.md" &&
+      process.env["PRETTIER_MAJOR_VERSION"] === "1"
     ) {
       expectedFormattedText = expectedFormattedText.replace(
         "```elm\n\n```",

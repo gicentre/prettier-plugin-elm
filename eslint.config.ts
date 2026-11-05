@@ -45,7 +45,6 @@ export default defineConfig([
       "unicorn/max-nested-calls": "off",
       "unicorn/no-top-level-assignment-in-function": "off",
       "unicorn/prefer-number-coercion": "off",
-      "unicorn/prefer-simple-condition-first": "off",
     },
   },
 
