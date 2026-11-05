@@ -8,6 +8,7 @@ No npm token is involved: the workflow authenticates via [trusted publishing](ht
 ## Day-to-day
 
 Every user-visible change lands with a changeset (`pnpm changeset`).
+Unlike in other Markdown files in this repository, keep each paragraph of a changeset on one line, because GitHub renders line breaks literally in pull request descriptions and release notes.
 A breaking change, such as dropping support for a Node.js or Prettier version, is a `major` bump.
 An `elm-format` update is a `minor` bump, even though it may change how code is formatted.
 
