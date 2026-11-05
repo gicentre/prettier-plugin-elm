@@ -23,7 +23,7 @@
   <a href="https://www.npmjs.com/package/prettier-plugin-elm">
     <img alt="downloads" src="https://img.shields.io/npm/dt/prettier-plugin-elm.svg?style=flat-square"><!--
    --></a>
-  <a href="#badge">
+  <a href="https://prettier.io">
     <img alt="code style: Prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"><!--
   --></a>
   <a href="https://twitter.com/giCentre">
@@ -88,10 +88,10 @@ To check its presence, open the terminal and type these two commands:
 
 ```sh
 node --version
-## ≥ 18.20
+## ≥ 22.12
 
 npm --version
-## ≥ 9
+## ≥ 10
 ```
 
 If you see errors or if the displayed versions are too old, follow the instructions on [nodejs.org](https://nodejs.org) to download this software.
@@ -108,7 +108,7 @@ npm install --global prettier@2 prettier-plugin-elm
 
 Global install is preferred in simple scenarios, especially when you are working alone on small projects.
 
-_Prettier v3 does has [dropped support for automatic plugin search](https://github.com/prettier/prettier/pull/14759) so we need to install `prettier@2` globally. If you want to use Prettier v3, you need to install it locally and [mention](https://prettier.io/docs/en/plugins.html) `prettier-plugin-elm` in the config file._
+_Prettier v3 has [dropped support for automatic plugin search](https://github.com/prettier/prettier/pull/14759) so we need to install `prettier@2` globally. If you want to use Prettier v3, you need to install it locally and [mention](https://prettier.io/docs/en/plugins.html) `prettier-plugin-elm` in the config file._
 
 ### Local install
 
@@ -143,12 +143,12 @@ This avoids frequent unwanted changes in source files, which can be caused by fo
 
     ```sh
     ## if you use npm
-    npm install --only=dev prettier prettier-plugin-elm
+    npm install --save-dev prettier prettier-plugin-elm
     ```
 
     ```sh
     ## if you use pnpm
-    pnpm add --dev prettier prettier-plugin-elm
+    pnpm add --save-dev prettier prettier-plugin-elm
     ```
 
     ```sh
@@ -205,13 +205,23 @@ If two copies of Prettier are available for a given folder, a local one is used.
 
 ℹ️ Installing `prettier-plugin-elm` also downloads a compatible version of `elm-format`, so you do not need to manually obtain it yourself.
 
+---
+
+ℹ️ With pnpm v12, adding `prettier-plugin-elm` reports `ERR_PNPM_IGNORED_BUILDS` unless `elm-format` is allowed to run its install script.
+To allow it, add the following to `pnpm-workspace.yaml` in your project:
+
+```yaml
+allowBuilds:
+  elm-format: true
+```
+
 ## Usage
 
-Please complete the the _Getting started_ section first.
+Please complete the _Getting started_ section first.
 
 ### Via editor
 
-Follow the [instructions on prettier.io](https://prettier.io/docs/en/editors.html) to download Prettier extension for your editor.
+Follow the [instructions on prettier.io](https://prettier.io/docs/en/editors.html) to download the Prettier extension for your editor.
 As the second step, you might need to open editor preferences and select Prettier as your preferred file formatter.
 Most editors can format files on save and you are encouraged to enable this option.
 
@@ -223,7 +233,7 @@ Most editors can format files on save and you are encouraged to enable this opti
 
 If you have a locally installed copy of Prettier, you can configure a script to [lint](https://en.wikipedia.org/wiki/Linting) (i.e. check) all your project files and even automatically fix their formatting.
 
-For inspiration, see the `scripts` section in this project’s [`package.json`](https://github.com/gicentre/prettier-plugin-elm/blob/main/tsconfig.json).
+For inspiration, see the `scripts` section in this project’s [`package.json`](https://github.com/gicentre/prettier-plugin-elm/blob/main/package.json).
 You will also need to create a file named `.prettierignore`, similar to the [one in this project](https://github.com/gicentre/prettier-plugin-elm/blob/main/.prettierignore).
 
 ```sh
@@ -256,12 +266,12 @@ yarn fix:prettier
 ## Implementation details
 
 This plugin is written in TypeScript.
-The quality of the codebase is checked using Prettier, [Jest](https://jestjs.io) and [ESLint](https://eslint.org) via [Github Actions](https://github.com/gicentre/prettier-plugin-elm/actions).
+The quality of the codebase is checked using Prettier, [Vitest](https://vitest.dev) and [ESLint](https://eslint.org) via [GitHub Actions](https://github.com/gicentre/prettier-plugin-elm/actions).
 Tests run on Linux, macOS and Windows.
 
 Unlike most other [Prettier plugins](https://prettier.io/docs/en/plugins.html#official-plugins), `prettier-plugin-elm` does not contain logic to parse code blocks into syntax trees to then stringify them.
 Both of these tasks are delegated to [`elm-format`](https://github.com/avh4/elm-format) by making a call to a sub-process.
-Thus, the result of formatting is compatible with what Elm community is used to see.
+Thus, the result of formatting is compatible with what the Elm community is used to seeing.
 
 The only difference to `elm-format` introduced by `prettier-plugin-elm` is related to handling fragments of Elm modules, which is [not supported](https://github.com/avh4/elm-format/issues/65) upstream yet.
 See [`src/parser.ts`](https://github.com/gicentre/prettier-plugin-elm/blob/main/src/parser.ts) for details on the workaround.
@@ -276,10 +286,10 @@ See [docs/releasing.md](docs/releasing.md) for how releases work.
 To run the development version of `prettier-plugin-elm`:
 
 - Clone this repository
-- Ensure [pnpm is installed on your machine](https://pnpm.io/installation) (any version above v10.0 will work)
+- Ensure [pnpm is installed on your machine](https://pnpm.io/installation) (v12 or later)
 - Run `pnpm install`
 - Run `pnpm lint` to make sure that the codebase passes linting
-- Run `pnpm test` to make sure that TypeScript successfully compiles into JavaScript and and all unit tests pass
+- Run `pnpm test` to make sure that TypeScript successfully compiles into JavaScript and all unit tests pass
 - To test the plugin manually, create a file named `prettier-test.elm` (or `.md`).
   Then run `pnpm prettier --ignore-path= --plugin=./dist/main.js prettier-test.elm` (or `.md`) and check the output.
 
