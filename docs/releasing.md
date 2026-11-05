@@ -8,7 +8,8 @@ No npm token is involved: the workflow authenticates via [trusted publishing](ht
 ## Day-to-day
 
 Every user-visible change lands with a changeset (`pnpm changeset`).
-While this package is below v1, a breaking change is a `minor` bump, and its description starts with `**[breaking change]**`.
+A breaking change, such as dropping support for a Node.js or Prettier version, is a `major` bump.
+An `elm-format` update is a `minor` bump, even though it may change how code is formatted.
 
 Changelog entries link the pull request that carried the change and thank its author, except for the authors listed under `authorsWithoutThanks` in `.changeset/config.json`.
 Looking those links up needs the GitHub API, so `changeset version` requires `GITHUB_TOKEN`.
