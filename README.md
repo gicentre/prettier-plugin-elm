@@ -16,18 +16,18 @@
   <a href="https://github.com/gicentre/prettier-plugin-elm/actions/workflows/ci.yml">
     <img alt="GitHub Workflow Status (CI)" src="https://img.shields.io/github/actions/workflow/status/gicentre/prettier-plugin-elm/ci.yml?label=CI&style=flat-square"><!--
   --></a>
-  <a href="https://codecov.io/gh/gicentre/prettier-plugin-elm">
+  <a href="https://app.codecov.io/gh/gicentre/prettier-plugin-elm">
     <img alt="Codecov" src="https://img.shields.io/codecov/c/github/gicentre/prettier-plugin-elm?style=flat-square"><!--
   --></a>
   <br>
   <a href="https://www.npmjs.com/package/prettier-plugin-elm">
-    <img alt="downloads" src="https://img.shields.io/npm/dt/prettier-plugin-elm.svg?style=flat-square"><!--
+    <img alt="downloads" src="https://img.shields.io/npm/d18m/prettier-plugin-elm.svg?style=flat-square"><!--
    --></a>
   <a href="https://prettier.io">
     <img alt="code style: Prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"><!--
   --></a>
-  <a href="https://twitter.com/giCentre">
-    <img alt="giCentre on Twitter" src="https://img.shields.io/badge/follow-%40giCentre-1DA1F2?logo=twitter&style=flat-square"><!--
+  <a href="https://x.com/giCentre">
+    <img alt="giCentre on X" src="https://img.shields.io/badge/follow-%40giCentre-000000?logo=x&style=flat-square"><!--
   --></a>
 </p>
 
@@ -108,7 +108,7 @@ npm install --global prettier@2 prettier-plugin-elm
 
 Global install is preferred in simple scenarios, especially when you are working alone on small projects.
 
-_Prettier v3 has [dropped support for automatic plugin search](https://github.com/prettier/prettier/pull/14759) so we need to install `prettier@2` globally. If you want to use Prettier v3, you need to install it locally and [mention](https://prettier.io/docs/en/plugins.html) `prettier-plugin-elm` in the config file._
+_Prettier v3 has [dropped support for automatic plugin search](https://github.com/prettier/prettier/pull/14759) so we need to install `prettier@2` globally. If you want to use Prettier v3, you need to install it locally and [mention](https://prettier.io/docs/plugins.html) `prettier-plugin-elm` in the config file._
 
 ### Local install
 
@@ -176,7 +176,7 @@ This avoids frequent unwanted changes in source files, which can be caused by fo
 
 1.  Mention the plugin in the config file:
     1.  Create a file named `.prettierrc.json` in the root of your project.
-        If you already have this file, open it instead. Note that it can be called differently because Prettier supports [several config file names](https://prettier.io/docs/en/configuration.html).
+        If you already have this file, open it instead. Note that it can be called differently because Prettier supports [several config file names](https://prettier.io/docs/configuration.html).
 
     1.  Add the following content to the file:
 
@@ -221,7 +221,7 @@ Please complete the _Getting started_ section first.
 
 ### Via editor
 
-Follow the [instructions on prettier.io](https://prettier.io/docs/en/editors.html) to download the Prettier extension for your editor.
+Follow the [instructions on prettier.io](https://prettier.io/docs/editors.html) to download the Prettier extension for your editor.
 As the second step, you might need to open editor preferences and select Prettier as your preferred file formatter.
 Most editors can format files on save and you are encouraged to enable this option.
 
@@ -269,7 +269,7 @@ This plugin is written in TypeScript.
 The quality of the codebase is checked using Prettier, [Vitest](https://vitest.dev) and [ESLint](https://eslint.org) via [GitHub Actions](https://github.com/gicentre/prettier-plugin-elm/actions).
 Tests run on Linux, macOS and Windows.
 
-Unlike most other [Prettier plugins](https://prettier.io/docs/en/plugins.html#official-plugins), `prettier-plugin-elm` does not contain logic to parse code blocks into syntax trees to then stringify them.
+Unlike most other [Prettier plugins](https://prettier.io/docs/plugins.html#official-plugins), `prettier-plugin-elm` does not contain logic to parse code blocks into syntax trees to then stringify them.
 Both of these tasks are delegated to [`elm-format`](https://github.com/avh4/elm-format) by making a call to a sub-process.
 Thus, the result of formatting is compatible with what the Elm community is used to seeing.
 
