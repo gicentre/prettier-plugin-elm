@@ -33,6 +33,7 @@
 
 This plugin integrates [`elm-format`](https://github.com/avh4/elm-format) into [Prettier](https://github.com/prettier/prettier).
 In addition to dealing with `.elm` files via Prettier API, this plugin lets you format Elm code blocks inside markdown documents.
+It works with Prettier v1, v2 and v3.
 
 For example,
 
