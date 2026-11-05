@@ -54,9 +54,22 @@ jobs:
           fi
 
       - name: Create release pull request or publish to npm
+        id: changesets
         uses: changesets/action@ae32849d5ba541f9ae29e40e22a623bc13562f51 # v2.1.2
         with:
           pr-title: Version packages
           version-script: pnpm changesets:version
           # An empty script makes the action skip publishing
           publish-script: ${{ steps.version-tag.outputs.exists != 'true' && 'pnpm changesets:publish' || '' }}
+
+      # The release date is useful in CHANGELOG.md, but GitHub already shows it
+      # for each release and changesets/action copies the entry as it is.
+      - name: Remove release date from GitHub release notes
+        if: steps.changesets.outputs.published == 'true'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          tag="v$(node --print "require('./package.json').version")"
+          notes=$(gh release view "$tag" --json body --jq .body | sed -e '1{/^_Released on /d;}' | sed '/./,$!d')
+          gh release edit "$tag" --notes "$notes"
