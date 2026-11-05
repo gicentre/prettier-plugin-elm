@@ -2,7 +2,7 @@
 
 ## 0.12.0
 
-_Released on 2025-09-21._
+_Released on 2025-09-21_
 
 - **[breaking change]** Set minimum Node version to 18.20.6 ([#64](https://github.com/gicentre/prettier-plugin-elm/pull/64))
 
@@ -16,7 +16,7 @@ _Released on 2025-09-21._
 
 ## 0.11.0
 
-_Released on 2023-04-18._
+_Released on 2023-04-18_
 
 - Update elm-format to 0.8.7 ([#47](https://github.com/gicentre/prettier-plugin-elm/pull/47))
 
@@ -24,7 +24,7 @@ _Released on 2023-04-18._
 
 ## 0.10.0
 
-_Released on 2023-03-02._
+_Released on 2023-03-02_
 
 - Update elm-format to 0.8.6 ([#43](https://github.com/gicentre/prettier-plugin-elm/pull/43))
 
@@ -32,7 +32,7 @@ _Released on 2023-03-02._
 
 ## 0.9.0
 
-_Released on 2022-11-05._
+_Released on 2022-11-05_
 
 - **[breaking change]** Set minimum Node version to 14 ([#33](https://github.com/gicentre/prettier-plugin-elm/pull/33))
 
@@ -49,7 +49,7 @@ _Released on 2022-11-05._
 
 ## 0.8.0
 
-_Released on 2021-08-24._
+_Released on 2021-08-24_
 
 - Upgrade dependencies (includes `elm-format` `0.8.3` → `0.8.5`) ([#23](https://github.com/gicentre/prettier-plugin-elm/pull/23))
 
@@ -59,7 +59,7 @@ _Released on 2021-08-24._
 
 ## 0.7.0
 
-_Released on 2020-03-28._
+_Released on 2020-03-28_
 
 - Pin `elm-format` to `0.8.3`
 
@@ -71,7 +71,7 @@ _Released on 2020-03-28._
 
 ## 0.6.0
 
-_Released on 2020-01-13._
+_Released on 2020-01-13_
 
 - **[breaking change]** Drop Node 8 support due to its end of life on 2019-12-31
 
@@ -81,7 +81,7 @@ _Released on 2020-01-13._
 
 ## 0.5.0
 
-_Released on 2019-07-21._
+_Released on 2019-07-21_
 
 - **[breaking change]** Drop Node 6 support due to its end of life on 2019-04-30
 
@@ -89,7 +89,7 @@ _Released on 2019-07-21._
 
 ## 0.4.2
 
-_Released on 2018-12-22._
+_Released on 2018-12-22_
 
 - Refactor the plugin using TypeScript and thus possibly improve stability in a couple of rare edge cases ([#8](https://github.com/gicentre/prettier-plugin-elm/pull/8))
 
@@ -103,13 +103,13 @@ _Released on 2018-12-22._
 
 ## 0.4.1
 
-_Released on 2018-10-14._
+_Released on 2018-10-14_
 
 - Fix exception in `getElmFormatVersion()` when no global `elm-format` is installed ([#6](https://github.com/gicentre/prettier-plugin-elm/pull/6))
 
 ## 0.4.0
 
-_Released on 2018-10-13._
+_Released on 2018-10-13_
 
 - Upgrade `elm-format` to `0.8.1` to support Elm `0.19` ([#4](https://github.com/gicentre/prettier-plugin-elm/pull/4))
 
@@ -126,7 +126,7 @@ _Released on 2018-10-13._
 
 ## 0.3.0
 
-_Released on 2018-05-23._
+_Released on 2018-05-23_
 
 - Implement caching mechanism to speed-up formatting of Elm blocks in markdown files ([#3](https://github.com/gicentre/prettier-plugin-elm/pull/3))
 
@@ -136,7 +136,7 @@ _Released on 2018-05-23._
 
 ## 0.2.2 & 0.2.1 & 0.2.0
 
-_Released on 2018-04-12._
+_Released on 2018-04-12_
 
 - Switch to `elm-format@0.7.0-exp`
 - Use correct instance of `elm-format` when globally installed with npm ([#1](https://github.com/gicentre/prettier-plugin-elm/issues/1))
@@ -144,6 +144,6 @@ _Released on 2018-04-12._
 
 ## 0.1.0
 
-_Released on 2018-03-16._
+_Released on 2018-03-16_
 
 Minimal working solution that uses `elm-format@0.6.1-alpha`.

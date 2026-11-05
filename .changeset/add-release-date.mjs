@@ -10,6 +10,6 @@ const heading = `## ${version}\n`;
 if (!changelog.includes(`${heading}\n_Released on `)) {
   fs.writeFileSync(
     "CHANGELOG.md",
-    changelog.replace(heading, `${heading}\n_Released on ${date}._\n`),
+    changelog.replace(heading, `${heading}\n_Released on ${date}_\n`),
   );
 }
