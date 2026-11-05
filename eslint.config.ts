@@ -42,7 +42,6 @@ export default defineConfig([
   {
     // Rules added by @kachkaev/eslint-config-base v2 that this codebase does not follow yet.
     rules: {
-      "unicorn/consistent-boolean-name": "off",
       "unicorn/max-nested-calls": "off",
       "unicorn/no-top-level-assignment-in-function": "off",
       "unicorn/no-unused-array-method-return": "off",

@@ -50,10 +50,10 @@ for (const sourceFileName of files) {
     );
     const sourceFilePath = path.resolve(fixturesDir, sourceFileName);
     const formattedFilePath = path.resolve(fixturesDir, formattedFileName);
-    const formattedFileExists = fs.existsSync(formattedFilePath);
+    const hasFormattedFile = fs.existsSync(formattedFilePath);
 
     const sourceText = fs.readFileSync(sourceFilePath, "utf8");
-    let expectedFormattedText = formattedFileExists
+    let expectedFormattedText = hasFormattedFile
       ? fs.readFileSync(formattedFilePath, "utf8")
       : sourceText;
 
