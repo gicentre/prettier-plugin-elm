@@ -15,6 +15,10 @@ Looking those links up needs the GitHub API, so `changeset version` requires `GI
 The release workflow takes care of that.
 To preview the result locally, run `GITHUB_TOKEN=$(gh auth token) pnpm changesets:version`.
 
+Each changelog entry says when it was released, thanks to `.changeset/add-release-date.mjs`.
+The date goes below the heading because `changesets/action` looks up entries by their exact heading text.
+It is set whenever the "Version packages" pull request is regenerated, so if that pull request has been open for a while, run the release workflow manually (`gh workflow run release.yml`) to refresh the date before merging.
+
 Pull requests created by the workflow do not trigger CI on their own.
 This is fine for a "Version packages" pull request because it only changes the version and the changelog, and the release workflow runs lint and tests again before publishing.
 

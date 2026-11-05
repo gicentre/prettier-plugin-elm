@@ -19,7 +19,7 @@
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
     "changesets:publish": "changeset publish",
-    "changesets:version": "changeset version && pnpm install --lockfile-only --no-frozen-lockfile",
+    "changesets:version": "changeset version && node .changeset/add-release-date.mjs && pnpm install --lockfile-only --no-frozen-lockfile",
     "clean": "rimraf cache coverage dist",
     "fix": "npm-run-all2 --continue-on-error \"fix:*\"",
     "fix:eslint": "eslint --max-warnings=0 --fix",
