@@ -24,8 +24,9 @@ const spyForFormatTextWithElmFormat = vi.spyOn(
 test("correctly deals with cache", async () => {
   await rimraf(cacheDir);
   process.env["PRETTIER_PLUGIN_ELM_CACHE_DIR"] = cacheDir;
-  process.env["PRETTIER_PLUGIN_ELM_CACHE_MAX"] = `${cacheMax}`;
-  process.env["PRETTIER_PLUGIN_ELM_CACHE_GC_INTERVAL"] = `${cacheGcInterval}`;
+  process.env["PRETTIER_PLUGIN_ELM_CACHE_MAX"] = String(cacheMax);
+  process.env["PRETTIER_PLUGIN_ELM_CACHE_GC_INTERVAL"] =
+    String(cacheGcInterval);
 
   const sourceText = fs.readFileSync(
     path.resolve(fixturesDir, "multiple-blocks.md"),
