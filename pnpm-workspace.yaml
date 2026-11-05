@@ -4,4 +4,9 @@ allowBuilds:
 # as lean as `pnpm dedupe` would. This replaces the `pnpm dedupe --check` CI step: the two algorithms
 # can break ties differently, so the check could fail a lockfile a plain `pnpm install` just wrote.
 autoDedupe: true
+# Wait 8 hours after a version is published before installing it, so a compromised release has time to
+# be spotted and unpublished. Keep in sync with the `minimumReleaseAge` floor in the shared Renovate preset
+# (github>kachkaev/reusable-stuff:renovate-preset), so Renovate never proposes a version pnpm would
+# then refuse to lock.
+minimumReleaseAge: 480
 nodeLinker: isolated
