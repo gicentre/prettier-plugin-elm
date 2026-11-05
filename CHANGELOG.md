@@ -1,5 +1,23 @@
 # prettier-plugin-elm
 
+## 1.0.0
+
+_Released on 2026-11-05_
+
+### Major Changes
+
+- [#82](https://github.com/gicentre/prettier-plugin-elm/pull/82) [`82d5f36`](https://github.com/gicentre/prettier-plugin-elm/commit/82d5f3656ff1e62a6d59be1c2a3c68f18feace0b) - Set minimum Node version to 22.12.0. Version 0.12.0 declared support for Node 18.20.6 but could not be loaded below Node 20.19 because of an ESM-only dependency.
+
+  This is also the first stable release. The plugin has been stable for years, so staying on `0.x` no longer gave us any benefit. Apart from this and the changes below, it works the same as `0.12.0`. From now on, breaking changes such as dropping a Node.js or Prettier version are major releases, and `elm-format` updates, which may change how code is formatted, are minor releases.
+
+### Patch Changes
+
+- [#81](https://github.com/gicentre/prettier-plugin-elm/pull/81) [`aecfa10`](https://github.com/gicentre/prettier-plugin-elm/commit/aecfa104c074a5bbdb098a062323c87319f6a717) Thanks [@ChristopherPtak](https://github.com/ChristopherPtak)! - Fix missing properties in errors retrieved from the cache, so that `elm-format` failures are no longer reported as an empty `Error`
+
+- [#84](https://github.com/gicentre/prettier-plugin-elm/pull/84) [`a20a2a0`](https://github.com/gicentre/prettier-plugin-elm/commit/a20a2a06b5aa20b64260b0ad4ef68701e4d6659b) - [internal] Switch to changesets and publish with npm provenance
+
+- [#83](https://github.com/gicentre/prettier-plugin-elm/pull/83) [`34b3d9f`](https://github.com/gicentre/prettier-plugin-elm/commit/34b3d9fed9aca6fa558a642c4b78347c22647d9e) - Update production dependencies and remove `temp-dir`. The cache location stays the same.
+
 ## 0.12.0
 
 _Released on 2025-09-21_
