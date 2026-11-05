@@ -5,7 +5,14 @@ export default defineConfig([
   generateBaseConfigs(),
 
   {
-    ignores: [".husky/**", "cache/**", "coverage/**", "dist/**", "fixtures/**"],
+    ignores: [
+      ".changeset/**",
+      ".husky/**",
+      "cache/**",
+      "coverage/**",
+      "dist/**",
+      "fixtures/**",
+    ],
   },
 
   {
