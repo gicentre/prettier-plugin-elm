@@ -37,9 +37,9 @@ const collectGarbageIfNeeded = () => {
 
   fs.writeFileSync(pathToGcTouchfile, "");
   const recordInfos: RecordInfo[] = [];
-  fs.readdirSync(cacheDir).map((recordFileName) => {
+  for (const recordFileName of fs.readdirSync(cacheDir)) {
     if (!recordFileName.endsWith(".json")) {
-      return;
+      continue;
     }
     const recordFilePath = path.resolve(cacheDir, recordFileName);
     const recordInfo = {
@@ -58,7 +58,7 @@ const collectGarbageIfNeeded = () => {
       }
     }
     recordInfos.push(recordInfo);
-  });
+  }
 
   recordInfos.sort((a, b) => {
     return b.touchedAt - a.touchedAt;
@@ -82,7 +82,7 @@ export const getCachedValue = <Args extends unknown[], Result>(
   let record:
     | { value: Result; error?: undefined }
     | { error: ErrorObject; value?: undefined };
-  let recordIsFromCache = false;
+  let isRecordFromCache = false;
 
   // load value or error from cache
   try {
@@ -90,7 +90,7 @@ export const getCachedValue = <Args extends unknown[], Result>(
       value: Result;
       error?: undefined;
     };
-    recordIsFromCache = true;
+    isRecordFromCache = true;
   } catch {
     // a failure to load from cache implies calling fn
     try {
@@ -109,7 +109,7 @@ export const getCachedValue = <Args extends unknown[], Result>(
   try {
     fs.mkdirSync(cacheDir, { recursive: true });
     fs.writeFileSync(`${recordFilePath}.touchfile`, "");
-    if (!recordIsFromCache) {
+    if (!isRecordFromCache) {
       fs.writeFileSync(recordFilePath, JSON.stringify(record), "utf8");
     }
     collectGarbageIfNeeded();
@@ -132,9 +132,9 @@ export const getCachedValue = <Args extends unknown[], Result>(
       }
     }
     throw errorToThrow;
-  } else {
-    return record.value;
   }
+
+  return record.value;
 };
 
 type RecordInfo = {
