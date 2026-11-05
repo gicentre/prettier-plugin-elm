@@ -70,8 +70,6 @@
     "@tsconfig/strictest": "2.0.8",
     "@types/node": "22.20.5",
     "@types/object-hash": "3.0.6",
-    "@types/prettier-v1": "npm:@types/prettier@1.19.1",
-    "@types/prettier-v2": "npm:@types/prettier@2.7.3",
     "@vitest/coverage-v8": "5.1.0",
     "eslint": "9.39.5",
     "husky": "9.1.7",

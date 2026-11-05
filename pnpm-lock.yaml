@@ -206,12 +206,6 @@ importers:
       '@types/object-hash':
         specifier: 3.0.6
         version: 3.0.6
-      '@types/prettier-v1':
-        specifier: npm:@types/prettier@1.19.1
-        version: '@types/prettier@1.19.1'
-      '@types/prettier-v2':
-        specifier: npm:@types/prettier@2.7.3
-        version: '@types/prettier@2.7.3'
       '@vitest/coverage-v8':
         specifier: 5.1.0
         version: 5.1.0(vitest@5.1.0)
@@ -642,12 +636,6 @@ packages:
 
   '@types/object-hash@3.0.6':
     resolution: {integrity: sha512-fOBV8C1FIu2ELinoILQ+ApxcUKz4ngq+IWUYrxSGjXzzjUALijilampwkMgEtJ+h2njAW3pi853QpzNVCHB73w==}
-
-  '@types/prettier@1.19.1':
-    resolution: {integrity: sha512-5qOlnZscTn4xxM5MeGXAMOsIOIKIbh9e85zJWfBRVPlRMEVawzoPhINYbRGkBZCI8LxvBe7tJCdWiarA99OZfQ==}
-
-  '@types/prettier@2.7.3':
-    resolution: {integrity: sha512-+68kP9yzs4LMp7VNh8gdzMSPZFL44MLGqiHWvttYJe+6qnuVr4Ek9wSBQoveqY/r+LwjCcU29kNVkidwim+kYA==}
 
   '@types/unist@2.0.11':
     resolution: {integrity: sha512-CmBKiL6NNo/OqgmMn95Fk9Whlp2mtvIv+KNpQKN2F4SjvrEesubTRWGYSg+BnWZOnlCaSTU1sMpsBOzgbYhnsA==}
@@ -2929,10 +2917,6 @@ snapshots:
       undici-types: 6.21.0
 
   '@types/object-hash@3.0.6': {}
-
-  '@types/prettier@1.19.1': {}
-
-  '@types/prettier@2.7.3': {}
 
   '@types/unist@2.0.11': {}
 
