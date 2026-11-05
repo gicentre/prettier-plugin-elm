@@ -37,9 +37,9 @@ const collectGarbageIfNeeded = () => {
 
   fs.writeFileSync(pathToGcTouchfile, "");
   const recordInfos: RecordInfo[] = [];
-  fs.readdirSync(cacheDir).map((recordFileName) => {
+  for (const recordFileName of fs.readdirSync(cacheDir)) {
     if (!recordFileName.endsWith(".json")) {
-      return;
+      continue;
     }
     const recordFilePath = path.resolve(cacheDir, recordFileName);
     const recordInfo = {
@@ -58,7 +58,7 @@ const collectGarbageIfNeeded = () => {
       }
     }
     recordInfos.push(recordInfo);
-  });
+  }
 
   recordInfos.sort((a, b) => {
     return b.touchedAt - a.touchedAt;
