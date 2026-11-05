@@ -70,6 +70,7 @@
     "@tsconfig/strictest": "2.0.8",
     "@types/node": "22.20.5",
     "@types/object-hash": "3.0.6",
+    "@typescript/native": "npm:typescript@7.0.2",
     "@vitest/coverage-v8": "5.1.0",
     "eslint": "10.14.0",
     "husky": "9.1.7",
@@ -83,7 +84,7 @@
     "prettier-v2": "npm:prettier@2.8.8",
     "rimraf": "6.1.4",
     "sleep-promise": "9.1.0",
-    "typescript": "6.0.3",
+    "typescript": "npm:@typescript/typescript6@6.0.2",
     "vitest": "5.1.0"
   },
   "packageManager": "pnpm@12.16.1",
