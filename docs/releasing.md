@@ -19,6 +19,7 @@ To preview the result locally, run `GITHUB_TOKEN=$(gh auth token) pnpm changeset
 
 Each changelog entry says when it was released, thanks to `.changeset/add-release-date.mjs`.
 The date goes below the heading because `changesets/action` looks up entries by their exact heading text.
+The release workflow removes this line from GitHub release notes because GitHub already shows the date there.
 It is set whenever the "Version packages" pull request is regenerated, so if that pull request has been open for a while, run the release workflow manually (`gh workflow run release.yml`) to refresh the date before merging.
 
 Pull requests created by the workflow do not trigger CI on their own.
