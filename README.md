@@ -27,7 +27,7 @@
     <img alt="code style: Prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"><!--
   --></a>
   <a href="https://x.com/giCentre">
-    <img alt="giCentre on X" src="https://img.shields.io/badge/follow-%40giCentre-000000?logo=x&style=flat-square"><!--
+    <img alt="giCentre on X" src="https://img.shields.io/badge/follow-%40giCentre-1DA1F2?style=flat-square"><!--
   --></a>
 </p>
 
