@@ -67,7 +67,7 @@ jobs:
         node: ["22.12.0", "24", "26"]
         include:
           - os: ubuntu-26.04
-            node: "24"
+            node: "26"
             extra: coverage
 
     steps:
