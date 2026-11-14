@@ -67,7 +67,7 @@
     "@kachkaev/eslint-config-base": "2.0.0",
     "@kachkaev/markdownlint-config": "1.0.1",
     "@tsconfig/recommended": "1.0.14",
-    "@tsconfig/strictest": "2.0.8",
+    "@tsconfig/strictest": "2.0.9",
     "@types/node": "26.6.6",
     "@types/object-hash": "3.0.6",
     "@typescript/native": "npm:typescript@7.0.2",
