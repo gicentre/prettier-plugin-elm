@@ -231,11 +231,11 @@ importers:
         specifier: 9.0.4
         version: 9.0.4
       prettier:
-        specifier: 3.9.10
-        version: 3.9.10
+        specifier: 3.10.1
+        version: 3.10.1
       prettier-plugin-packagejson:
         specifier: 3.1.0
-        version: 3.1.0(prettier@3.9.10)
+        version: 3.1.0(prettier@3.10.1)
       prettier-v1:
         specifier: npm:prettier@1.19.1
         version: prettier@1.19.1
@@ -2236,8 +2236,8 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
 
-  prettier@3.9.10:
-    resolution: {integrity: sha512-skGHTH1Yb9QvaTC4hWnRTzEYtCpApF0UMBPz+t/0ZPzP8ihefo/btKd+QA7pUE0fEwA1SbS/NmhyEcstdXOIdA==}
+  prettier@3.10.1:
+    resolution: {integrity: sha512-70vp3ZUYoPlFbF9uiTdXHUUCGEIp7d4+6p+8DYbkm2jP7x/3i/paXVF6dopSI3zd/CEitrZN1rc4i85xWmmXlg==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -4698,17 +4698,17 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-packagejson@3.1.0(prettier@3.9.10):
+  prettier-plugin-packagejson@3.1.0(prettier@3.10.1):
     dependencies:
       sort-package-json: 4.1.0
     optionalDependencies:
-      prettier: 3.9.10
+      prettier: 3.10.1
 
   prettier@1.19.1: {}
 
   prettier@2.8.8: {}
 
-  prettier@3.9.10: {}
+  prettier@3.10.1: {}
 
   pretty-ms@9.3.1:
     dependencies:
