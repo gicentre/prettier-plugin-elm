@@ -75,7 +75,7 @@
     "eslint": "10.15.0",
     "husky": "9.1.7",
     "lint-staged": "17.6.1",
-    "markdownlint-cli": "0.50.0",
+    "markdownlint-cli": "0.50.1",
     "npm-run-all2": "9.1.0",
     "prettier": "3.10.1",
     "prettier-plugin-packagejson": "3.1.0",
