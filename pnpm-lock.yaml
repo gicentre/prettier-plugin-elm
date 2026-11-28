@@ -195,8 +195,8 @@ importers:
         specifier: 3.1.0
         version: 3.1.0
       '@changesets/config':
-        specifier: 4.0.1
-        version: 4.0.1
+        specifier: 4.1.0
+        version: 4.1.0
       '@kachkaev/eslint-config-base':
         specifier: 2.0.0
         version: 2.0.0(@typescript-eslint/parser@8.72.1(@typescript/typescript6@6.0.2)(eslint@10.15.0(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0))(@typescript/typescript6@6.0.2)(eslint@10.15.0(jiti@2.7.0)(supports-color@7.2.0))(supports-color@7.2.0)
@@ -338,10 +338,6 @@ packages:
     resolution: {integrity: sha512-5kiOk7//PkF2M0kdSR/cAlGVSCRH7BGTLjoR3KL/AVUw5/mnT0xFsCh1atajczKbup8tKDnG4UIW2ZpFHn62fw==}
     engines: {node: ^22.11 || ^24 || >=26, npm: '>=10.9.0', pnpm: '>=10.0.0', yarn: '>=4.5.2'}
     hasBin: true
-
-  '@changesets/config@4.0.1':
-    resolution: {integrity: sha512-PxpxSQLQSLDjceAgRq+4FWlU+HflDIw03mmPVipxoQx9xrXFUjmqTy3SE+n/2t+DqPdpPiLWVr5NRiLZvjyLwg==}
-    engines: {node: ^22.11 || ^24 || >=26}
 
   '@changesets/config@4.1.0':
     resolution: {integrity: sha512-uS45o0lR2ZcfTIIzFkYJbcYnftXgBuGMcqAf7oQhw+6MUvKh2BkP/Ohqjm01ewmxuCPAtaPjO1w8blyGqVPeEw==}
@@ -2815,14 +2811,6 @@ snapshots:
       package-manager-detector: 1.9.0
       semver: 7.8.6
       tinyexec: 1.3.1
-
-  '@changesets/config@4.0.1':
-    dependencies:
-      '@changesets/get-dependents-graph': 3.0.1
-      '@changesets/should-skip-package': 1.0.1
-      '@changesets/types': 7.1.0
-      '@manypkg/get-packages': 3.1.0
-      picomatch: 4.0.7
 
   '@changesets/config@4.1.0':
     dependencies:
